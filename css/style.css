@@ -1,0 +1,496 @@
+.ui-page-login,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+body.login {
+	background: url(../images/loginbg_01.webp) no-repeat center top;
+	background-size: 100% auto;
+}
+
+.mui-content {
+	/*height: 100%;*/
+	
+}
+.mui-bar-nav~.mui-content {
+	padding-top: 60px
+}
+
+.mui-bar {
+	background: transparent;
+	height: 60px;
+}
+
+.mui-bar-nav {
+	box-shadow: none;
+}
+
+.mui-title {
+	color: #fff;
+	font-size: 17px;
+	line-height: 80px;
+}
+
+.area {
+	margin: 20px auto 0px auto;
+}
+
+.mui-input-group {
+	margin-top: 10px;
+	background-color: transparent !important;
+}
+
+.mui-input-group:first-child {
+	margin-top: 80%;
+	background-color: transparent !important;
+}
+
+.mui-input-group label {
+	width: 15%;
+}
+
+.mui-input-group label.iconuser {
+	background: url(../images/login_icon_03.png) no-repeat 15px center;
+	background-size: auto 60%;
+}
+
+.mui-input-group label.iconpassword {
+	background: url(../images/login_icon_07.png) no-repeat 17px center;
+	background-size: auto 65%;
+}
+
+.mui-input-group .mui-input-row {
+	width: 85%;
+	margin: 0 auto;
+	background: url(../images/baitou_03.png);
+	border-radius: 35px;
+	-moz-border-radius: 35px;
+	-webkit-border-radius: 35px;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.text_show {
+	height: 40px;
+	line-height: 40px;
+	outline: 0;
+	-webkit-appearance: none;
+	font-family: 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 14px;
+	float: right;
+	width: 85%;
+	color: #a5a9a9;
+	background: url(../images/arrow_04.png) 95% center no-repeat;
+	background-size: auto 40%;
+}
+
+.mui-input-group .mui-input-row.text_area {
+	height: auto;
+	min-height: 40px;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+}
+
+.mui-input-group:before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 0px;
+	content: '';
+	-webkit-transform: scaleY(.5);
+	transform: scaleY(.5);
+	background-color: #c8c7cc;
+}
+
+.mui-input-group:after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 0px;
+	content: '';
+	-webkit-transform: scaleY(.5);
+	transform: scaleY(.5);
+	background-color: #c8c7cc;
+}
+
+.mui-input-group .mui-input-row:after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 15px;
+	height: 0px;
+	content: '';
+	-webkit-transform: scaleY(.5);
+	transform: scaleY(.5);
+	background-color: #c8c7cc;
+}
+
+.mui-input-group .mui-input-row textarea {
+	color: #ffffff;
+}
+
+.mui-input-row label~input,
+.mui-input-row label~select,
+.mui-input-row label~textarea {
+	width: 85%;
+	color: #ffffff;
+}
+
+.mui-checkbox input[type=checkbox],
+.mui-radio input[type=radio] {
+	top: 6px;
+}
+
+.mui-btn-cheng {
+	width: 85%;
+	margin: 0 auto;
+	border-radius: 35px;
+	-moz-border-radius: 35px;
+	-webkit-border-radius: 35px;
+}
+
+
+/*.mui-content-padded {
+	margin-top: 25px;
+}*/
+
+.mui-btn {
+	padding: 10px;
+}
+
+.link-area {
+	display: block;
+	/*margin-top: 25px;*/
+	padding: 5px 0;
+	font-size: 14px;
+	text-align: center;
+}
+
+.link-area a {
+	color: #a5b3c7;
+}
+
+.spliter {
+	color: #bbb;
+	padding: 0px 8px;
+}
+
+.bottom_area {
+	width: 100%;
+	padding: 0 8%;
+	overflow: hidden;
+}
+
+.mui-btn-zc {
+	width: 30%;
+	border: none;
+	border-radius: 35px;
+	-moz-border-radius: 35px;
+	-webkit-border-radius: 35px;
+	background: url(../images/baitou_03.png);
+	font-size: 14px;
+	color: #ffffff;
+	padding: 10px;
+	float: left;
+}
+
+.oauth-area {
+	display: block;
+	width: 40%;
+	float: right;
+	text-align: right;
+	padding: 0px;
+	margin: 0px;
+}
+
+.oauth-area .oauth-btn {
+	display: block;
+	float: right;
+	width: 40px;
+	height: 40px;
+	background-size: 30px 30px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	/*margin: 0px 20px;*/
+	/*border: solid 1px #ddd;*/
+	border-radius: 25px;
+	background-color: #68a5e1;
+	margin-left: 8px;
+}
+
+.oauth-area .oauth-btn:active {
+	border: solid 1px #aaa;
+}
+
+.oauth-area .oauth-btn.disabled {
+	background-color: #68a5e1;
+}
+
+
+/*注册页面*/
+
+.mui-icon-left-nav {
+	margin-top: 16px;
+}
+
+.mui-bar a {
+	color: #ffffff;
+}
+
+.yz {
+	width: 100%;
+}
+
+.yz label {
+	width: 15%;
+	float: left;
+}
+
+.yz .mui-input {
+	width: 47%;
+	float: left;
+}
+
+.yz span.dang {
+	display: block;
+	width: 10px;
+	margin-top: 7px;
+	float: left;
+	height: 70%;
+	border-left: 1px solid #afc4d7;
+	padding: 0;
+}
+
+.yz .mui-btn {
+	width: 30%;
+	float: left;
+	font-size: 12px;
+	padding: 10px 10px;
+	margin-top: 2px;
+}
+
+.mui-spinner {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	-webkit-transform-origin: 50%;
+	transform-origin: 50%;
+	-webkit-animation: spinner-spin 1s step-end infinite;
+	animation: spinner-spin 1s step-end infinite;
+}
+
+.mui-spinner:after {
+	display: block;
+	content: "";
+	width: 100%;
+	height: 100%;
+	background-position: 50%;
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+
+/*.mui-spinner-custom:after {
+	background-image: url("data:image/svg+xml;charset=utf-8,<svg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><defs><line id='l' x1='60' x2='60' y1='7' y2='27' stroke='red' stroke-width='11' stroke-linecap='round'/></defs><g><use xlink:href='%23l' opacity='.27'/><use xlink:href='%23l' opacity='.27' transform='rotate(30 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(60 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(90 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(120 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(150 60,60)'/><use xlink:href='%23l' opacity='.37' transform='rotate(180 60,60)'/><use xlink:href='%23l' opacity='.46' transform='rotate(210 60,60)'/><use xlink:href='%23l' opacity='.56' transform='rotate(240 60,60)'/><use xlink:href='%23l' opacity='.66' transform='rotate(270 60,60)'/><use xlink:href='%23l' opacity='.75' transform='rotate(300 60,60)'/><use xlink:href='%23l' opacity='.85' transform='rotate(330 60,60)'/></g></svg>");
+}*/
+
+.mui-checkbox {
+	color: #fff;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.mui-checkbox a {
+	color: #f96332;
+	text-decoration: underline;
+	display: inline-block;
+	float: none;
+}
+
+.mui-checkbox.mui-left label,
+.mui-radio.mui-left label {
+	padding-right: 0px;
+	padding-left: 45px;
+	width: 116px;
+}
+
+body.reg {
+	background: url(../images/regbg_01.webp) center top no-repeat;
+	background-size: 100% auto;
+}
+
+
+/*游戏选择页面*/
+
+body.selectgame {
+	background: url(../images/selectgamebg_02.webp) center top no-repeat;
+	background-size: 100% auto;
+}
+
+body.selectgame .mui-input-group:first-child {
+	margin-top: 50%;
+	
+}
+
+body.selectgame .mui-bar.mui-bar-footer {
+	height: 50px !important;
+	background-color: #fc3e3e;
+}
+
+body.selectgame .mui-btn.mui-btn-red {
+	background-color: #fc3e3e;
+	border: none;
+}
+
+.game_box {
+	width: 300px;
+	background-image: url(../images/selectgamexian_02.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: 80% auto;
+	margin: 0 auto;
+	padding: 0;
+}
+
+ul.game_box {
+	overflow: hidden;
+	/*padding-top: 10px;*/
+}
+
+ul.game_box li {
+	list-style-type: none;
+	width: 50%;
+	float: left;
+	min-height: 100px;
+	/* padding-left: 22px;*/
+}
+
+ul.game_box li img {
+	width: 110px;
+}
+
+ul.game_box .mui-checkbox {
+	text-align: center;
+}
+
+ul.game_box .mui-checkbox label {
+	width: 100%;
+	padding-right: 0;
+}
+
+ul.game_box .mui-checkbox input[type=checkbox],
+.mui-radio input[type=radio] {
+	position: absolute;
+	top: 4px;
+	right: -7px;
+	display: inline-block;
+	width: 28px;
+	height: 26px;
+	border: 0;
+	outline: 0!important;
+	background-color: transparent;
+	-webkit-appearance: none;
+}
+
+ul.game_box .mui-checkbox input[type=checkbox],
+.mui-radio input[type=radio] {
+	top: 44px;
+}
+
+ul.game_box .mui-checkbox input[type=checkbox]:checked:before,
+.mui-radio input[type=radio]:checked:before {
+	/* color: #007aff; */
+	color: #fc4e3e;
+}
+
+ul.game_box .mui-checkbox input[type=checkbox]:before,
+.mui-radio input[type=radio]:before {
+	font-family: Muiicons;
+	font-size: 17px;
+	font-weight: 400;
+	line-height: 1.1;
+	text-decoration: none;
+	color: #aaa;
+	border-radius: 0;
+	background: 0 0;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+/*个人信息页面样式*/
+body.gren {
+	background: url(../images/selectgamebg_02.webp) no-repeat center top;
+	background-size: 100% auto;
+}
+#showEdit {
+	background: url(../images/heitou_07.png);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 99999;
+	display: none;
+}
+
+#showEdit .mui-bar {
+	background: none;
+	position: absolute;
+	top: 0;
+	z-index: 9999999999;
+}
+
+#showEdit .mui-icon-close_btn {
+	width: 45px;
+	
+}
+#showEdit .mui-icon-close_btn img{
+	width: 100%;
+}
+#showEdit .mui-icon-check_btn {
+	width: 45px;
+	
+}
+#showEdit .mui-icon-check_btn img{
+	width: 100%;
+}
+#report {
+	/*padding: 30px;*/
+	text-align: center;
+}
+
+#report img {
+	width: 100%;
+	/*margin-top: 55px;*/
+}
+
+#face_box {
+	width: 120px;
+	height: 120px;
+	background: url(../images/face_03.png) no-repeat center center #739abd;
+	background-size: 100%;
+	margin: 20px auto;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border: 1px solid #658bae;
+	overflow: hidden;
+}
+#face_box img {
+	width: 100%;
+}
+
+#face_box canvas{width: 100%;border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border: 1px solid #658bae;}
+
+canvas{width: 100%;border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border: 1px solid #658bae;}

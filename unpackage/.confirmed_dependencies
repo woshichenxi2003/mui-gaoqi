@@ -1,0 +1,372 @@
+{
+	"main.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/app.js",
+			"js/mui.min.js"
+		],
+		"refer": [
+			"setting.html"
+		]
+	},
+	"login.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"images/sinaweibo.png",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/weixin.png",
+			"images/qq.png",
+			"js/mui.enterfocus.js",
+			"images/loginbg_01.jpg",
+			"images/baitou_03.png",
+			"fonts/mui.ttf",
+			"images/login_icon_03.png",
+			"images/login_icon_07.png",
+			"images/loginbg_01.webp"
+		],
+		"refer": [
+			"main.html",
+			"forget_password.html",
+			"reg.html"
+		]
+	},
+	"setting.html": {
+		"resources": [
+			"libs/easymob-webim-sdk/easemob.im-1.0.5.js",
+			"fonts/mui.ttf",
+			"libs/easymob-webim-sdk/json2.js",
+			"libs/easymob-webim-sdk/jquery-1.11.1.js",
+			"js/mui.locker.js",
+			"js/feedback.js",
+			"css/feedback-page.css",
+			"js/feedback-page.js",
+			"libs/easymob-webim-sdk/strophe-custom-2.0.0.js",
+			"js/mui.view.js",
+			"css/mui.min.css",
+			"js/app.js",
+			"js/mui.min.js"
+		],
+		"refer": []
+	},
+	"forget_password.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"js/app.js",
+			"images/baitou_03.png",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/loginbg_01.jpg",
+			"images/regbg_01.jpg",
+			"images/login_icon_03.png",
+			"images/login_icon_07.png",
+			"images/regbg_01.webp"
+		],
+		"refer": []
+	},
+	"reg.html": {
+		"resources": [
+			"images/baitou_03.png",
+			"fonts/mui.ttf",
+			"images/loginbg_01.jpg",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/login_icon_03.png",
+			"images/login_icon_07.png",
+			"images/regbg_01.jpg",
+			"images/regbg_01.webp"
+		],
+		"refer": [
+			"unlock.html",
+			"login.html",
+			"agreement.html",
+			"selectgame.html",
+			"information.html"
+		]
+	},
+	"unlock.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/mui.locker.js"
+		],
+		"refer": [
+			"main.html"
+		]
+	},
+	"agreement.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"selectgame.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/selectgamebg_02.jpg",
+			"css/style.css",
+			"images/loginbg_01.jpg",
+			"images/gamelogo_03.png",
+			"images/selectgamexian_02.png",
+			"images/gamelogo_05.png",
+			"images/gamelogo_10.png",
+			"images/gamelogo_13.png",
+			"fonts/mui.ttf",
+			"images/selectgamebg_02.png",
+			"images/selectgamebg_02.webp"
+		],
+		"refer": []
+	},
+	"information.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"js/mui.poppicker.js",
+			"css/mui.min.css",
+			"js/city.data.js",
+			"css/mui.poppicker.css",
+			"css/mui.picker.css",
+			"js/city.data-3.js",
+			"images/baitou_03.png",
+			"fonts/mui.ttf",
+			"css/style.css",
+			"images/regbg_01.webp",
+			"images/login_icon_03.png",
+			"images/login_icon_07.png",
+			"images/arrow_04.png",
+			"js/mui.picker.min.js",
+			"images/gamelogo_03.png",
+			"images/heitou_07.png",
+			"images/IMG_20161206_094211.jpg",
+			"images/face_03.png",
+			"images/selectgamebg_02.webp",
+			"css/cropper.css",
+			"js/jquery.min.js",
+			"js/cropper.js",
+			"images/close.png",
+			"images/open.png",
+			"information.html"
+		],
+		"refer": [
+			"selectgame.html",
+			"information.html"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/iconfont.ttf",
+			"css/public.css",
+			"html/user_private.html",
+			"images/titlebg_01.jpg",
+			"fonts/mui.ttf",
+			"html/msg.html",
+			"match.html"
+		],
+		"refer": [
+			"html/user_private.html",
+			"html/setting.html",
+			"html/saishi.html",
+			"information.html",
+			"reg.html",
+			"unlock.html",
+			"forget_password.html",
+			"login.html",
+			"html/msg.html",
+			"match.html"
+		]
+	},
+	"html/user_private.html": {
+		"resources": [
+			"images/titlebg_01.jpg",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/public.css",
+			"images/iconall_09.png",
+			"images/kulou.png",
+			"images/baitou_03.png",
+			"images/right_line_03.jpg",
+			"images/iconall_07.png",
+			"images/iconall_12.png",
+			"images/iconall_05.png",
+			"images/selectgamebg_02.jpg",
+			"images/iconall_03.png",
+			"images/team_logo_03.jpg",
+			"images/dunpai_03.jpg"
+		],
+		"refer": []
+	},
+	"html/setting.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/feedback.js",
+			"js/mui.view.js",
+			"images/titlebg_01.jpg",
+			"css/feedback.css",
+			"images/setting_03.jpg",
+			"images/setting_02.jpg",
+			"images/kulou.png",
+			"css/cropper.css",
+			"js/jquery.min.js",
+			"js/cropper.js",
+			"images/heitou_07.png",
+			"images/close.png",
+			"images/open.png",
+			"images/arrow_04.png",
+			"html/setting.html",
+			"js/mui.picker.min.js",
+			"css/mui.picker.css",
+			"js/city.data-3.js",
+			"js/mui.poppicker.js",
+			"js/city.data.js",
+			"css/mui.poppicker.css",
+			"images/arrow_03.jpg"
+		],
+		"refer": [
+			"html/setting.html"
+		]
+	},
+	"html/saishi.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"html/msg.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/public.css",
+			"fonts/mui.ttf",
+			"js/mui.pullToRefresh.js",
+			"js/mui.pullToRefresh.material.js",
+			"images/team_logo_03.jpg",
+			"images/iconall_09.png",
+			"images/iconall_07.png",
+			"images/iconall_03.png",
+			"images/iconall_05.png",
+			"images/kulou.png",
+			"images/titlebg_01.jpg",
+			"html/pullrefresh_sub.html"
+		],
+		"refer": [
+			"html/sub.html",
+			"html/pullrefresh_sub.html",
+			"html/im-chat.html"
+		]
+	},
+	"html/sub.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/public.css",
+			"images/titlebg_01.jpg",
+			"fonts/iconfont.ttf"
+		],
+		"refer": []
+	},
+	"html/pullrefresh_sub.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"html/im-chat.html": {
+		"resources": [
+			"js/mui.imageViewer.js",
+			"js/arttmpl.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/mui.imageviewer.css",
+			"css/public.css",
+			"images/titlebg_01.jpg",
+			"images/grzxbg_02.jpg"
+		],
+		"refer": []
+	},
+	"match.html": {
+		"resources": [
+			"images/lunbo_02.jpg",
+			"images/dun_03.png",
+			"images/kulou.png",
+			"js/mui.pullToRefresh.js",
+			"js/mui.min.js",
+			"js/mui.pullToRefresh.material.js",
+			"images/team_logo_03.jpg",
+			"css/mui.min.css",
+			"css/public.css",
+			"images/iconall_05.png",
+			"fonts/mui.ttf",
+			"css/mui.poppicker.css",
+			"css/mui.picker.css",
+			"js/mui.poppicker.js",
+			"js/mui.picker.min.js",
+			"images/iconall_03.png"
+		],
+		"refer": [
+			"match_details.html"
+		]
+	},
+	"match_details.html": {
+		"resources": [
+			"images/matchbg_01.jpg",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/public.css",
+			"images/kulou.png",
+			"images/baitou_03.png",
+			"fonts/mui.ttf",
+			"images/iconall_05.png",
+			"images/titlebg_01.jpg",
+			"fonts/mui-icons-extra.ttf",
+			"css/icons-extra.css",
+			"images/tousu_22.png",
+			"images/obArrow_14.jpg",
+			"images/logo_18.jpg",
+			"images/jiangjin_05.jpg",
+			"images/jiangjin_08.jpg",
+			"images/jiangjin_03.jpg",
+			"images/team_logo_03.jpg"
+		],
+		"refer": [
+			"match_one.html"
+		]
+	},
+	"match_one.html": {
+		"resources": [
+			"js/mui.imageViewer.js",
+			"js/mui.min.js",
+			"images/wri_center_04.png",
+			"css/mui.min.css",
+			"images/zhibo_02.jpg",
+			"css/mui.imageviewer.css",
+			"images/bgbgb_07.jpg",
+			"css/icons-extra.css",
+			"images/bgbgb_03.jpg",
+			"js/arttmpl.js",
+			"fonts/mui.ttf",
+			"css/public.css",
+			"images/iconall_05.png",
+			"images/tousu_22.png",
+			"fonts/mui-icons-extra.ttf",
+			"images/team_logo_03.jpg",
+			"images/titlebg_01.jpg"
+		]
+	}
+}

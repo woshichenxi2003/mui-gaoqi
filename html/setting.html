@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link href="../css/mui.picker.css" rel="stylesheet" />
+		<link href="../css/mui.poppicker.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/cropper.css"/>
+		<style>
+			html,
+			body {
+				background-color: #ffffff;
+				font-size: 14px;
+			}
+			.xyb{
+				margin-top: 20px;
+			}
+			.mui-views,
+			.mui-view,
+			.mui-pages,
+			.mui-page,
+			.mui-page-content {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #efeff4;
+			}
+			.mui-pages {
+				top: 44px;
+				height: auto;
+			}
+			.mui-scroll-wrapper,
+			.mui-scroll {
+				background-color: #efeff4;
+			}
+			.mui-page.mui-transitioning {
+				-webkit-transition: -webkit-transform 300ms ease;
+				transition: transform 300ms ease;
+			}
+			.mui-page-left {
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			.mui-ios .mui-page-left {
+				-webkit-transform: translate3d(-20%, 0, 0);
+				transform: translate3d(-20%, 0, 0);
+			}
+			.mui-navbar {
+				position: fixed;
+				right: 0;
+				left: 0;
+				z-index: 10;
+				height: 44px;
+				background-color: #f7f7f8;
+			}
+			.mui-navbar .mui-bar {
+				position: absolute;
+				background: url(../images/titlebg_01.jpg) no-repeat left top;
+				background-size: 100% auto;
+				text-align: center;
+				color: #ffffff;
+			}
+			.mui-navbar .mui-title {
+				color: #ffffff;
+			}
+			.mui-bar .mui-btn-nav.mui-pull-left .mui-icon-left-nav {
+				color: #fff;
+			    margin-right: -3px;
+			}
+			.mui-android .mui-navbar-inner.mui-navbar-left {
+				opacity: 0;
+			}
+			.mui-ios .mui-navbar-left .mui-left,
+			.mui-ios .mui-navbar-left .mui-center,
+			.mui-ios .mui-navbar-left .mui-right {
+				opacity: 0;
+			}
+			.mui-navbar .mui-btn-nav {
+				-webkit-transition: none;
+				transition: none;
+				-webkit-transition-duration: .0s;
+				transition-duration: .0s;
+			}
+			.mui-navbar .mui-bar .mui-title {
+				display: inline-block;
+				width: auto;
+			}
+			.mui-page-shadow {
+				position: absolute;
+				right: 100%;
+				top: 0;
+				width: 16px;
+				height: 100%;
+				z-index: -1;
+				content: '';
+			}
+			.mui-page-shadow {
+				background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+				background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+			}
+			.mui-navbar-inner.mui-transitioning,
+			.mui-navbar-inner .mui-transitioning {
+				-webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+				transition: opacity 300ms ease, transform 300ms ease;
+			}
+			.mui-page {
+				display: none;
+			}
+			.mui-pages .mui-page {
+				display: block;
+			}
+			.mui-page .mui-table-view:first-child {
+				margin-top: 15px;
+			}
+			.mui-page .mui-table-view:last-child {
+				margin-bottom: 30px;
+			}
+			.mui-table-view {
+				margin-top: 20px;
+			}
+			
+			.mui-table-view span.mui-pull-right {
+				color: #999;
+			}
+			.mui-table-view-divider {
+				background-color: #efeff4;
+				font-size: 14px;
+			}
+			.mui-table-view-divider:before,
+			.mui-table-view-divider:after {
+				height: 0;
+			}
+			.head {
+				height: 40px;
+			}
+			#head {
+				line-height: 40px;
+			}
+			.head-img {
+				width: 40px;
+				height: 40px;
+			}
+			#head-img1 {
+				position: absolute;
+				bottom: 10px;
+				right: 40px;
+				width: 40px;
+				height: 40px;
+			}
+			.update {
+				font-style: normal;
+				color: #999999;
+				margin-right: -25px;
+				font-size: 15px
+			}
+			.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+			.mui-ios .mui-navbar .mui-bar .mui-title {
+				position: static;
+			}
+			/*问题反馈在setting页面单独的css*/
+			#feedback .mui-popover{
+				position: fixed;
+			}
+			#feedback .mui-table-view:last-child {
+			    margin-bottom: 0px;
+			}
+			#feedback .mui-table-view:first-child {
+			    margin-top: 0px;
+			}
+			/*问题反馈在setting页面单独的css==end*/
+			.mui-table-view-cell>a[btn].mui-active {
+				background-color: #fd8484
+			}
+			.mui-segmented-control1 {
+				font-size: 15px;
+				font-weight: 400;
+				position: relative;
+				display: table;
+				overflow: hidden;
+				width: 100%;
+				table-layout: fixed;
+				border: 1px solid #fc3e3e;
+				border-radius: 0px;
+				background-color: transparent;
+				-webkit-touch-callout: none
+			}
+			
+			.mui-segmented-control1.mui-segmented-control-vertical1 {
+				border-collapse: collapse;
+				border-width: 0;
+				border-radius: 0
+			}
+			
+			.mui-segmented-control1.mui-segmented-control-vertical1 .mui-control-item1 {
+				display: block;
+				border-bottom: 1px solid #c8c7cc;
+				border-left-width: 0
+			}
+			
+			.mui-segmented-control1 .mui-control-item1 {
+				background: #ffffff;
+				line-height: 38px;
+				display: table-cell;
+				overflow: hidden;
+				width: 1%;
+				-webkit-transition: background-color .1s linear;
+				transition: background-color .1s linear;
+				text-align: center;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				color: #fc3e3e;
+				border-color: #fc3e3e;
+				border-left: 1px solid #fc3e3e
+			}
+			
+			.mui-segmented-control1 .mui-control-item:first-child {
+				border-left-width: 0
+			}
+			
+			.mui-segmented-control1 .mui-control-item1.mui-active {
+				color: #fff;
+				background-color: #fc3e3e;
+			}
+			
+			.mui-control-content1 {
+				display: none;
+			}
+			
+			.mui-control-content1.active {
+				display: block;
+			}
+			.face_con{
+				overflow: hidden;
+				background: url(../images/setting_02.jpg) no-repeat;
+				background-size: 100%;
+				/*margin-bottom: 15px;*/
+			}
+			#face_box {
+				width: 100px;
+				height: 100px;
+				background: url(../images/setting_03.jpg) no-repeat center center #ffffff;
+				background-size: 50% auto;
+				margin: 20px auto;
+				border-radius: 50%;
+				-moz-border-radius: 50%;
+				-webkit-border-radius: 50%;
+				border: 1px solid #bab9b6;
+				overflow: hidden;
+			}
+			#face_box img {
+				width: 100%;
+			}
+			
+			#face_box canvas{
+				width: 100%;
+			    border-radius: 50%;
+				-moz-border-radius: 50%;
+				-webkit-border-radius: 50%;
+				border: 1px solid #bab9b6;
+				}
+			
+			canvas{width: 100%;border-radius: 50%;
+				-moz-border-radius: 50%;
+				-webkit-border-radius: 50%;
+				border: 1px solid #bab9b6;}
+				
+			#showEdit {
+				background: url(../images/heitou_07.png);
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				top: 0;
+				z-index: 99999;
+				display: none;
+			}
+			
+			#showEdit .mui-bar {
+				background: none;
+				position: absolute;
+				top: 0;
+				z-index: 9999999999;
+			}
+			
+			#showEdit .mui-icon-close_btn {
+				width: 45px;
+				
+			}
+			#showEdit .mui-icon-close_btn img{
+				width: 100%;
+			}
+			#showEdit .mui-icon-check_btn {
+				width: 45px;
+				
+			}
+			#showEdit .mui-icon-check_btn img{
+				width: 100%;
+			}
+			#report {
+				/*padding: 30px;*/
+				text-align: center;
+			}
+			
+			#report img {
+				width: 100%;
+				/*margin-top: 55px;*/
+			}
+			
+			
+			
+			.mui-input-group {
+				background-color: transparent !important;
+			}
+			
+			
+			.mui-input-group label {
+				width: 30%;
+				line-height: 20px;
+				font-size: 14px;
+				padding: 11px 14px;
+			}
+			
+			.mui-input-group label.iconuser {
+				background: url(../images/login_icon_03.png) no-repeat 15px center;
+				background-size: auto 60%;
+			}
+			
+			.mui-input-group label.iconpassword {
+				background: url(../images/login_icon_07.png) no-repeat 17px center;
+				background-size: auto 65%;
+			}
+			
+			.mui-input-group .mui-input-row {
+				width: 100%;
+				margin: 0 auto;
+				/*background: url(../images/baitou_03.png);*/
+				/*border-radius: 35px;
+				-moz-border-radius: 35px;
+				-webkit-border-radius: 35px;*/
+				font-size: 14px;
+				/*margin-bottom: 10px;*/
+				border-bottom: 1px solid #c8c7cc;
+			}
+			
+			.text_show {
+				height: 40px;
+				line-height: 40px;
+				outline: 0;
+				-webkit-appearance: none;
+				font-family: 'Helvetica Neue', Helvetica, sans-serif;
+				font-size: 14px;
+				float: right;
+				width: 70%;
+				color: #c3c3c3;
+				background: url(../images/arrow_03.jpg) 95% center no-repeat;
+				background-size: auto 40%;
+			}
+			
+			.mui-input-group .mui-input-row.text_area {
+				width: 95%;
+				margin: 0 auto;
+				height: auto;
+				min-height: 40px;
+				border-radius: 15px;
+				-moz-border-radius: 15px;
+				-webkit-border-radius: 15px;
+				border: 1px solid #c8c7cc;
+				margin-bottom: 20px;
+				margin-top: 10px;
+			}
+			
+			.mui-input-group:before {
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				height: 0px;
+				content: '';
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #c8c7cc;
+			}
+			
+			.mui-input-group:after {
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				height: 0px;
+				content: '';
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #c8c7cc;
+			}
+			
+			.mui-input-group .mui-input-row:after {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 15px;
+				height: 0px;
+				content: '';
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #c8c7cc;
+			}
+			
+			.mui-input-group .mui-input-row textarea {
+				color: #000000;
+				
+			}
+			
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 70%;
+				height: 38px;
+				
+
+			}
+			input::-webkit-input-placeholder{
+			    color:#c3c3c3;
+			}
+						
+			.mui-input-row .mui-input-clear~.mui-icon-clear, .mui-input-row .mui-input-password~.mui-icon-eye, .mui-input-row .mui-input-speech~.mui-icon-speech 
+			{
+			    font-size: 20px;
+			    position: absolute;
+			    z-index: 1;
+			    top: 10px;
+			    right: 0;
+			    width: 40px;
+			    height: 40px;
+			    text-align: center;
+			    color: red;
+			}
+			
+			
+			.mui-btn-cheng,
+			input[type=submit] {
+				color: #fff;
+				border: 1px solid #fc3e3e;
+				background-color: #fc3e3e
+			}
+			.mui-btn.mui-btn-cheng.mui-active:enabled,
+			.mui-btn.mui-btn-cheng:enabled:active
+			 {
+				color: #fff;
+				border: 1px solid #ff9999;
+				background-color: #ff9999
+			}
+			
+			.mui-checkbox {
+				text-align: center;
+				width: 35px;
+				float: left;
+				margin-top: 7px;
+			}
+			
+			/*.mui-checkbox label {
+				width: 30px;
+				height: 30px;
+				padding-right: 0;
+				padding: 0;
+			}*/
+			
+			
+			.mui-checkbox span {
+				display: inline-block;
+				width: 25px;
+				height: 25px;
+			}
+			
+			.mui-checkbox span.dota {
+				background: url(../images/iconall_05.png) no-repeat;
+				background-size: auto 100%;
+			}
+			
+			.mui-checkbox span.lol {
+				background: url(../images/iconall_03.png) no-repeat;
+				background-size: auto 100%;
+			}
+			
+			.mui-checkbox span.fengbao {
+				background: url(../images/iconall_09.png) no-repeat;
+				background-size: auto 100%;
+			}
+			
+			.mui-checkbox span.csgo {
+				background: url(../images/iconall_07.png) no-repeat;
+				background-size: auto 100%;
+			}
+			.mui-checkbox input[type=checkbox]:before {
+				content: ''
+			}
+
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				position: absolute;
+				top: 12px;
+				right: 3px;
+				display: inline-block;
+				width: 15px;
+				height: 15px;
+				border: 0;
+				outline: 0!important;
+				background-color: transparent;
+				-webkit-appearance: none;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				/*top: 44px;*/
+			}
+			
+			.mui-checkbox input[type=checkbox]:checked:before,
+			.mui-radio input[type=radio]:checked:before {
+				/* color: #007aff; */
+				color: #fc4e3e;
+			}
+			
+			.mui-checkbox input[type=checkbox]:before,
+			.mui-radio input[type=radio]:before {
+				font-family: Muiicons;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 1.1;
+				text-decoration: none;
+				color: #aaa;
+				border-radius: 0;
+				background: 0 0;
+				-webkit-font-smoothing: antialiased;
+			}
+
+			.yz {
+				width: 100%;
+			}
+			
+			.yz label {
+				width: 27%;
+				float: left;
+			}
+			
+			.yz .mui-input {
+				width: 40%;
+				float: left;
+			}
+			
+			.yz span.dang {
+				display: block;
+				width: 10px;
+				margin-top: 7px;
+				float: left;
+				height: 70%;
+				border-left: 1px solid #afc4d7;
+				padding: 0;
+			}
+			
+			.yz .mui-btn {
+				width: 28%;
+				float: left;
+				font-size: 12px;
+				padding: 10px 10px;
+				margin-top: 2px;
+			}
+
+		</style>
+		<link rel="stylesheet" type="text/css" href="../css/feedback.css" />
+	</head>
+
+	<body class="mui-fullscreen">
+		<!--页面主结构开始-->
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<!--页面主结构结束-->
+		<!--单页面开始-->
+		<div id="setting" class="mui-page">
+			<!--页面标题栏开始-->
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+				<h1 class="mui-center mui-title">设置</h1>
+			</div>
+			<!--页面标题栏结束-->
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell mui-media">
+								<a class="mui-navigate-right" href="#account">
+									<img class="mui-media-object mui-pull-left head-img" id="head-img" src="">
+									<div class="mui-media-body">
+										Hello MUI
+										<p class='mui-ellipsis'>手机号:1381178929</p>
+									</div>
+								</a>
+							</li>
+						</ul>
+						
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a href="#changphone" class="mui-navigate-right">修改手机号</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#changpassword" class="mui-navigate-right">修改密码</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate">关于搞起 <i class="mui-pull-right update">V3.3.0</i></a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell" style="text-align: center; background: #fc3e3e; color: #ffffff;">
+								<a btn='btn'>退出登录</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--页面主内容区结束-->
+		</div>
+		<!--单页面结束-->
+		<div id="account" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+				<h1 class="mui-center mui-title">编辑个人信息</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" style="background: #ffffff;">
+					<div class="mui-scroll"style="background: #ffffff;">
+						<div class="con">
+							<div class="mui-segmented-control1">
+								<a class="mui-control-item1 mui-active" index=0>
+									修改个人信息
+								</a>
+								<a class="mui-control-item1" index=1>
+									填写OB信息
+								</a>			
+							</div>
+							<div class="display_box">
+								<div class="mui-control-content1 active">
+									<form class="mui-input-group">
+										<div class="face_con">
+											<div id="face_box">
+												<img src="../images/kulou.png"/>
+											</div>
+										</div>
+										<div class="mui-input-row">
+											<label>昵称：</label>
+											<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入昵称">
+										</div>
+										<div class="mui-input-row"  id='showUserPicker'>
+											<label>性别：</label>
+											<div id="userResult" class="text_show">
+												请选择性别
+											</div>
+										</div>
+										<div class="mui-input-row" id="showCityPicker3">
+											<label>常驻地：</label>
+											<div class="text_show" id="cityResult3">
+												请选择常驻地
+											</div>
+										</div>
+										<div class="mui-input-row" id="showCityPicker3">
+											<label>选择项目：</label>
+											<div class="mui-checkbox">
+												<span class="dota"></span>
+												<input name="checkbox" value="Item 1" type="checkbox">
+											</div>
+											<div class="mui-checkbox">
+												<span class="lol"></span>
+												<input name="checkbox" value="Item 1" type="checkbox" checked="checked">
+											</div>
+											<div class="mui-checkbox">
+												<span class="fengbao"></span>
+												<input name="checkbox" value="Item 1" type="checkbox">
+											</div>
+											<div class="mui-checkbox">
+												<span class="csgo"></span>
+												<input name="checkbox" value="Item 1" type="checkbox">
+											</div>
+										</div>
+										
+										<div class="mui-input-row text_area">
+											<textarea id="textarea" rows="3" placeholder="签名："></textarea>
+										</div>
+									</form>
+									<ul class="mui-table-view">
+										<li class="mui-table-view-cell" style="text-align: center; background: #fc3e3e; color: #ffffff;">
+											<a btn='btn'>确 认</a>
+										</li>
+									</ul>
+									
+									
+								</div>
+								<div class="mui-control-content1">
+									<form class="mui-input-group" style="margin-top: 10px;">
+										<div class="mui-input-row">
+											<label>姓名：</label>
+											<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入昵称">
+										</div>
+										<div class="mui-input-row">
+											<label>身份证号：</label>
+											<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入身份证号">
+										</div>
+										<div class="mui-input-row">
+											<label>支付宝号：</label>
+											<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入支付宝号">
+										</div>
+										<div class="mui-input-row"  id='showUserPicker4'>
+											<label>直播平台：</label>
+											<div id="userResult4" class="text_show">
+												请选择直播平台
+											</div>
+										</div>
+										<div class="mui-input-row">
+											<label>直播地址：</label>
+											<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入直播地址">
+										</div>
+										
+									</form>
+									<ul class="mui-table-view">
+										<li class="mui-table-view-cell" style="text-align: center; background: #fc3e3e; color: #ffffff;">
+											<a btn='btn'>确 认</a>
+										</li>
+									</ul>
+									
+								</div>					
+							</div>
+							
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="changphone" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+				<h1 class="mui-center mui-title">修改手机号</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" style="background: #ffffff;">
+					<div class="mui-scroll" style="background: #ffffff;">
+						<form class="mui-input-group" style="margin-top: 10px;">
+							<div class="mui-input-row">
+								<label style="width: 27%;">手机号：</label>
+								<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入手机号" style="width: 73%;height: 38px;">
+							</div>
+							<div class="mui-input-row yz">
+								<label>验证码：</label>
+								<input id='email' type="email" class="mui-input-clear mui-input" placeholder="请输入验证码">
+								<span class="dang">&nbsp;</span>
+								<button type="button" class="mui-btn mui-btn-danger yzm" >获取验证码</button>
+							</div>
+						</form>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell" style="text-align: center; background: #fc3e3e; color: #ffffff;">
+								<a btn='btn'>确 认</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="changpassword" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+				<h1 class="mui-center mui-title">修改密码</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" style="background: #ffffff;">
+					<div class="mui-scroll" style="background: #ffffff;">
+						<form class="mui-input-group" style="margin-top: 10px;">
+							<div class="mui-input-row">
+								<label style="width: 27%;">原密码：</label>
+								<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入原密码" style="width: 73%;height: 38px;">
+							</div>
+							<div class="mui-input-row">
+								<label style="width: 27%;">新密码：</label>
+								<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入新密码" style="width: 73%;height: 38px;">
+							</div>
+							<div class="mui-input-row">
+								<label style="width: 27%;">新密码：</label>
+								<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请再次输入密码" style="width: 73%;height: 38px;">
+							</div>
+							
+						</form>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell" style="text-align: center; background: #fc3e3e; color: #ffffff;">
+								<a btn='btn'>确 认</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="showEdit">
+	        <header class="mui-bar mui-bar-nav mui-nav-bg">
+	            <a class="mui-icon  mui-icon-close_btn mui-pull-left" id="close_btn"><img src="../images/close.png"/></a>
+	            <a class="mui-icon mui-icon-check_btn mui-pull-right" id="check_btn"><img src="../images/open.png"/></a>
+	        </header>
+	        <div id="report">
+	        	&nbsp;
+	        </div>
+	    </div>
+	    <script src="../js/mui.min.js "></script>
+	<script src="../js/mui.view.js "></script>
+	<script src='../js/feedback.js'></script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/cropper.js"></script>
+	<script src="../js/mui.picker.min.js"></script>
+	<script src="../js/mui.poppicker.js"></script>
+	<script src="../js/city.data.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		mui.init();
+		//初始化单页view
+		var viewApi = mui('#app').view({
+			defaultPage: '#setting'
+		});
+		//初始化单页的区域滚动
+		mui('.mui-scroll-wrapper').scroll();
+		//分享操作
+		var shares = {};
+		
+		mui.plusReady(function() {
+			
+			function defaultImg() {
+				if(mui.os.plus){
+					plus.io.resolveLocalFileSystemURL("_doc/head.jpg", function(entry) {
+						var s = entry.fullPath + "?version=" + new Date().getTime();;
+						document.getElementById("head-img").src = s;
+						document.getElementById("head-img1").src = s;
+					}, function(e) {
+						document.getElementById("head-img").src = '../images/kulou.png';
+						/*document.getElementById("head-img1").src = '../images/kulou.png';*/
+					})
+				}else{
+					document.getElementById("head-img").src = '../images/kulou.png';
+					/*document.getElementById("head-img1").src = '../images/kulou.png';*/
+				}
+				
+			}
+			
+			document.querySelector('form').addEventListener('submit', function(e){
+					    e.preventDefault(); // 阻止默认事件
+					});
+	
+			function initImgPreview() {
+				var imgs = document.querySelectorAll("img.mui-action-preview");
+				imgs = mui.slice.call(imgs);
+				if (imgs && imgs.length > 0) {
+					var slider = document.createElement("div");
+					slider.setAttribute("id", "__mui-imageview__");
+					slider.classList.add("mui-slider");
+					slider.classList.add("mui-fullscreen");
+					slider.style.display = "none";
+					slider.addEventListener("tap", function() {
+						slider.style.display = "none";
+					});
+					slider.addEventListener("touchmove", function(event) {
+						event.preventDefault();
+					})
+					var slider_group = document.createElement("div");
+					slider_group.setAttribute("id", "__mui-imageview__group");
+					slider_group.classList.add("mui-slider-group");
+					imgs.forEach(function(value, index, array) {
+						//给图片添加点击事件，触发预览显示；
+						value.addEventListener('tap', function() {
+							slider.style.display = "block";
+							_slider.refresh();
+							_slider.gotoItem(index, 0);
+						})
+						var item = document.createElement("div");
+						item.classList.add("mui-slider-item");
+						var a = document.createElement("a");
+						var img = document.createElement("img");
+						img.setAttribute("src", value.src);
+						a.appendChild(img)
+						item.appendChild(a);
+						slider_group.appendChild(item);
+					});
+					slider.appendChild(slider_group);
+					document.body.appendChild(slider);
+					var _slider = mui(slider).slider();
+				}
+			}
+			
+				setTimeout(function () {
+				defaultImg();
+				setTimeout(function() {
+					initImgPreview();
+				}, 300);
+			},500);
+			/*选择性别代码*/
+					
+			        var userPicker = new mui.PopPicker();
+					userPicker.setData([{
+						value: 'man',
+						text: '男'
+					}, {
+						value: 'wemen',
+						text: '女'
+					}]);
+					var showUserPickerButton = document.getElementById('showUserPicker');
+					var userResult = document.getElementById('userResult');
+					showUserPickerButton.addEventListener('tap', function(event) {
+						userPicker.show(function(items) {
+							userResult.innerText = items[0].text;
+							userResult.style.color = "#000000";
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					
+					
+					
+					/*选择直播平台代码*/
+					
+			        var userPicker4 = new mui.PopPicker();
+					userPicker4.setData([{
+						value: 'man',
+						text: '火猫'
+					}, {
+						value: 'wemen',
+						text: '斗鱼'
+					}, {
+						value: 'wemen',
+						text: '熊猫'
+					}, {
+						value: 'wemen',
+						text: '战旗'
+					}, {
+						value: 'wemen',
+						text: '暴风'
+					}]);
+					var showUserPickerButton4 = document.getElementById('showUserPicker4');
+					var userResult4 = document.getElementById('userResult4');
+					showUserPickerButton4.addEventListener('tap', function(event) {
+						userPicker4.show(function(items) {
+							userResult4.innerText = items[0].text;
+							userResult4.style.color = "#000000";
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					
+					
+					/*选择省市县代码*/
+					var cityPicker3 = new mui.PopPicker({
+						layer: 3
+					});
+					cityPicker3.setData(cityData3);
+					var showCityPickerButton = document.getElementById('showCityPicker3');
+					var cityResult3 = document.getElementById('cityResult3');
+					showCityPickerButton.addEventListener('tap', function(event) {
+						cityPicker3.show(function(items) {
+							cityResult3.innerText = (items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text;
+							cityResult3.style.color = "#000000";
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+			       
+			/*照片相关函数*/
+					mui(".face_con").on("tap","#face_box", function(e) {
+						if(mui.os.plus){
+							var a = [{
+								title: "拍照"
+							}, {
+								title: "从手机相册选择"
+							}];
+							plus.nativeUI.actionSheet({
+								title: "修改头像",
+								cancel: "取消",
+								buttons: a
+							}, function(b) {
+								switch (b.index) {
+									case 0:
+										break;
+									case 1:
+										getImage();
+										break;
+									case 2:
+										galleryImgs();
+										break;
+									default:
+										break
+								}
+							})	
+						}
+						
+					});
+					
+					
+					//拍照
+					function getImage() {
+					    var cmr = plus.camera.getCamera();
+					    cmr.captureImage( function (p) {
+					        plus.io.resolveLocalFileSystemURL( p, function ( entry ) {    
+					            var localurl = entry.toLocalURL();
+					            $("#report").html('<img src="'+localurl+'">');
+					            cutImg();
+					        });
+					    });
+					}
+					
+					//相册选取
+					function galleryImgs(){
+					    plus.gallery.pick( function(e){
+					        $("#report").html('<img src="'+e.files[0]+'">');
+					        cutImg();
+					        /*mui('#face_box').popover('toggle');*/
+					    }, function ( e ) {
+					        //outSet( "取消选择图片" );
+					    },{filter:"image",multiple:true});
+					}
+					function cutImg(){  
+					    $("#showEdit").show();
+					    var $image = $('#report > img');
+					    $image.cropper({
+					      aspectRatio: 1 / 1,
+					      autoCropArea: 0.8
+					    });
+					}
+					
+					mui(".mui-bar").on("tap","#check_btn",function(e){
+						confirme();
+					});
+					
+					mui(".mui-bar").on("tap","#close_btn",function(e){
+						$("#showEdit").fadeOut();
+					});
+					
+					function confirme(){
+					    $("#showEdit").fadeOut();
+					    var $image = $('#report > img');
+					    var dataURL = $image.cropper('getCroppedCanvas');			    
+					    var basecode = dataURL.toDataURL();
+					    $("#face_box").html(dataURL); 
+					    /*plus.storage.face = dataURL;*/
+					   plus.storage.setItem('face', dataURL+"");
+					    
+					    /*localStorage.face = dataURL;*/
+					    /*是储存64还是直接存储canvas还需要再考虑*/
+					   
+					}
+					mui('.yz').on('tap', '.mui-btn', function(e) {
+						var startTime = 100;
+						var _this = this;
+						plus.nativeUI.toast('验证码已经发送，请注意查收！');
+			           	var timeObj = setInterval(function(){
+			           		if(startTime == 0 && startTime <= 0){
+			           			setTimeout(function() {
+			           				clearInterval(timeObj);
+					                mui(_this).button('reset');
+					            }.bind(_this), 10);
+			           		}else{
+			           			var timeString = startTime+'秒';
+			           			mui(_this).button('loading');
+			           			mui('.textmsg')[0].innerHTML = timeString;
+			           			startTime--;
+			           		}
+			           	},1000)
+			            
+			        });
+			
+			
+		});
+		
+		
+		
+		
+		var view = viewApi.view;
+		(function($) {
+			//处理view的后退与webview后退
+			var oldBack = $.back;
+			$.back = function() {
+				if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
+			//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+			//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+			view.addEventListener('pageBeforeShow', function(e) {
+				//				console.log(e.detail.page.id + ' beforeShow');
+			});
+			view.addEventListener('pageShow', function(e) {
+				//				console.log(e.detail.page.id + ' show');
+			});
+			view.addEventListener('pageBeforeBack', function(e) {
+				//				console.log(e.detail.page.id + ' beforeBack');
+			});
+			view.addEventListener('pageBack', function(e) {
+				//				console.log(e.detail.page.id + ' back');
+			});
+		})(mui);
+		
+
+		
+		mui('.mui-segmented-control1').on('tap','.mui-control-item1',function(){
+					var index = this.getAttribute('index') - 0;
+					mui('.mui-control-item1').each(function(){
+						this.classList.remove('mui-active');
+					})
+					this.classList.add('mui-active')
+					mui('.mui-control-content1').each(function(){
+						this.classList.remove('active');
+					})
+					mui('.mui-control-content1')[index].classList.add('active');
+					
+
+			});
+		
+	</script>
+	</body>
+	
+
+</html>

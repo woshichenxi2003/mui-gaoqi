@@ -1,0 +1,637 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/icons-extra.css" />
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style>
+			.mui-card {
+				font-size: 14px;
+				position: relative;
+				overflow: hidden;
+				margin: 0px;
+				border-radius: 0px;
+				background-color: #fff;
+				background-clip: padding-box;
+				box-shadow: 0 0px 0px rgba(0, 0, 0, 0)
+			}
+			.mui-table-view-cell:after {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0px;
+				height: 1px;
+				content: '';
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #c8c7cc
+			}
+			ul,li{list-style: none;}
+			
+			.slider_box .mui-slider {
+				position: relative;
+				z-index: 1;
+				overflow: hidden;
+				width: 100%;
+				padding: 20px 0 40px;
+			}
+			
+			.slider_box .mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				border-bottom: 0
+			}
+			
+			.slider_box .mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item {
+				border-top: 1px solid #c8c7cc;
+				border-bottom: 1px solid #c8c7cc
+			}
+			
+			.slider_box .mui-slider .mui-slider-group {
+				font-size: 0;
+				position: relative;
+				-webkit-transition: all 0s linear;
+				transition: all 0s linear;
+				white-space: nowrap
+			}
+			
+			.slider_box .mui-slider .mui-slider-group .mui-slider-item {
+				font-size: 14px;
+				position: relative;
+				display: inline-block;
+				padding-left: 10px;
+				width: 100%;
+				height: 100%;
+				vertical-align: top;
+				white-space: normal;
+				 text-align:justify;
+				 text-align-last:justify;
+				 font-size: 0;
+                letter-spacing: -3px;
+			}
+			
+			.slider_box .mui-slider .mui-slider-group .mui-slider-item>a:not(.mui-control-item) {
+				line-height: 0;
+				position: relative;
+				display: block
+			}
+			
+			.slider_box .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%
+			}
+			
+			.slider_box .mui-slider .mui-slider-group .mui-slider-item .mui-table-view:after,
+			.slider_box .mui-slider .mui-slider-group .mui-slider-item .mui-table-view:before {
+				height: 0
+			}
+			
+			.slider_box .mui-slider .mui-slider-group.mui-slider-loop {
+				-webkit-transform: translate(-100%, 0);
+				transform: translate(-100%, 0)
+			}
+			
+			.slider_box .mui-slider-title {
+				line-height: 30px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 30px;
+				margin: 0;
+				text-align: left;
+				text-indent: 12px;
+				opacity: .8;
+				background-color: #000
+			}
+			
+			.slider_box .mui-slider-indicator {
+				position: absolute;
+				bottom: 8px;
+				width: 100%;
+				text-align: center;
+				background: 0 0
+			}
+			
+			.slider_box .mui-slider-indicator.mui-segmented-control {
+				position: relative;
+				bottom: auto
+			}
+			
+			.slider_box .mui-slider-indicator .mui-indicator {
+				display: inline-block;
+				width: 6px;
+				height: 6px;
+				margin: 1px 6px;
+				cursor: pointer;
+				border-radius: 50%;
+				background: #aaa;
+				-webkit-box-shadow: 0 0 1px 1px rgba(130, 130, 130, .7);
+				box-shadow: 0 0 1px 1px rgba(130, 130, 130, .7)
+			}
+			
+			.slider_box .mui-slider-indicator .mui-active.mui-indicator {
+				background: #fff
+			}
+			
+			
+			
+			.slider_box .team_logo_box {
+				width: 70px !important;
+				display: inline-block;
+				/*float: left;*/
+				position: relative;
+				/*margin: 0 5px;*/
+				letter-spacing: 0;
+			}
+			
+			.slider_box .team_logo_box .team_games {
+				position: absolute;
+				color: #fc4e3e;
+				bottom: -15px;
+				right: 9px;
+			}
+			.slider_box .team_logo_box .team_games span {
+				display: inline-block;
+				width: 20px;
+				height: 25px;
+			}
+			
+			.slider_box .team_logo_box .team_games span.dota {
+				background: url(images/iconall_05.png) no-repeat;
+				background-size: auto 100%;
+			}
+			
+			.slider_box .team_logo_box .team_games span.lol {
+				background: url(images/iconall_03.png) no-repeat;
+				background-size: auto 100%;
+			}
+			
+			.slider_box .team_logo_box .team_games span.fengbao {
+				background: url(images/iconall_09.png) no-repeat;
+				background-size: auto 100%;
+			}
+			
+			.slider_box .team_logo_box .team_games span.csgo {
+				background: url(images/iconall_07.png) no-repeat;
+				background-size: auto 100%;
+			}
+			
+			.slider_box .team_logo_box .team_logo {
+				width: 60px;
+				border-radius: 50%;
+				overflow: hidden;
+				height: 60px;
+				background: url(images/team_logo_03.jpg) no-repeat center center;
+				background-size: 100% auto;
+			}
+			
+			.slider_box .team_logo_box .team_logo img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.mui-bar-footer {
+				    bottom: 0;
+				    background: #fc3e3e;
+				    transition: all 0.5 linear;
+				}
+				
+			.mui-bar {
+			    position: fixed;
+			    z-index: 10;
+			    right: 0;
+			    left: 0;
+			    height: 44px;
+			    padding-right: 0px;
+			    padding-left: 0px;
+			    border-bottom: 0;
+			    background-color: #f7f7f7;
+			    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+			    box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+			    -webkit-backface-visibility: hidden;
+			    backface-visibility: hidden;
+			}
+			 .mui-bar-footer .mui-btn-hong-creat {
+				width: 100%;
+				line-height: 20px;
+				position: relative;
+				
+			}
+			 .mui-bar-footer .mui-btn-hong-creat .ts{
+				display: block;
+				position: absolute;
+				right: 10%;
+				top:5px;
+				width: 29px;
+				
+				/*background: url(images/tousu_22.png) no-repeat;*/
+			}
+			.mui-bar-footer .mui-btn-hong-creat .ts img{
+				width: 100%;
+				height: 100%;
+			}
+			.mui-btn-hong-creat .btn_title{
+				height: 27px;
+				line-height: 27px;
+				
+			}
+			.blink{
+				-webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+				  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+				  animation: neon1 1.5s ease-in-out infinite alternate; 
+			}
+			.mui-btn-hong-creat p{
+				color: #fff;
+				font-size: 12px;
+				line-height: 12px;
+			}
+			@-webkit-keyframes neon1 {
+			  from {
+			    text-shadow: 
+			        0 0 1px #fff,
+			        0 0 5px  #fff;
+
+			  }
+			  to {
+			    text-shadow: 
+	               0 0 10px #FF1177,
+	               0 0 25px #FF1177;
+			  }
+			}
+		</style>
+	</head>
+	<body class="match_details">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a class="mui-icon-extra mui-icon-extra-share mui-pull-right" style="margin-top: 10px; margin-right: 10px;"></a>
+			<h1 class="mui-title">赛事详情</h1>
+		</header>
+		<footer class="mui-bar mui-bar-footer" id="join_btn">
+		    <button type="button" class="mui-btn mui-btn-hong-creat">
+		    	<div class="btn_title blink">报 名 参 赛</div>
+		    	<p>已报名1/32</p>
+		    	<div class="ts">
+			    	<img src="images/tousu_22.png"/>
+			    </div>
+		    </button>    
+		</footer>
+		<!--<footer class="mui-bar mui-bar-footer" id="join_btn">
+		    <button type="button" class="mui-btn mui-btn-hong-creat">
+		    	<div class="btn_title">取 消 报 名</div>
+		    	<div class="ts">
+			    	<img src="images/tousu_22.png"/>
+			    </div>
+		    </button>    
+		</footer>-->
+		<!--<footer class="mui-bar mui-bar-footer" id="join_btn">
+		    <button type="button" class="mui-btn mui-btn-hong-creat">
+		    	<div class="btn_title">弃&nbsp;&nbsp;&nbsp;&nbsp;权</div>
+		    	<div class="ts">
+			    	<img src="images/tousu_22.png"/>
+			    </div>
+		    </button>    
+		</footer>-->
+		<div class="mui-content" id="pullrefresh">
+			<div class="match_info">
+				<div class="match_info_face">
+					<div id="face">
+						<!--<img src="../images/regbg_01.jpg"/>-->
+					</div>
+					<div id="like_game1">
+						<span class="dota"></span>
+					</div>
+				</div>
+				<div class="match_msg mui-ellipsis">
+					ECL秋季线上预选赛
+				</div>
+				<div class="match_msg_id mui-ellipsis">
+					赛事ID：1230689
+				</div>
+				<div class="match_info_msg">
+					<p class="mui-ellipsis">赛事类型：<span>高校赛</span></p>
+					<p class="mui-ellipsis">所在地区：<span>北京市朝阳区</span></p>
+				</div>
+				
+				<div class="match_stat onmatch"></div>
+			</div>
+		    <div class="con">
+				<div class="mui-card">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-collapse">
+							<a class="mui-navigate-right" href="#">赛事简介</a>
+							<div class="mui-collapse-content">
+								竞游ECL（Esports Champion League简称ECL）,是中国电子竞技运动发展中心打造的一个全新的赛事，相比较传统的电子竞技比赛来讲,无论是从赛制还是比赛规模上都不可同日而语。国家体育总局、北京市人民政府的强力支持以及石景山区打造CRD京西虚拟经济圈的大背景下，将以打造全球第一大电子竞技赛事为目标，打造竞游ECL电子竞技冠军联赛。另外，ECL也有发射极耦合逻辑电路的意思，在化学领域，是一种化学发光试剂。
+							</div>
+						</li>
+						<li class="mui-table-view-cell mui-collapse">
+							<a class="mui-navigate-right" href="#">赛事详情</a>
+							<div class="mui-collapse-content">
+								竞游ECL（Esports Champion League简称ECL）,是中国电子竞技运动发展中心打造的一个全新的赛事，相比较传统的电子竞技比赛来讲,无论是从赛制还是比赛规模上都不可同日而语。国家体育总局、北京市人民政府的强力支持以及石景山区打造CRD京西虚拟经济圈的大背景下，将以打造全球第一大电子竞技赛事为目标，打造竞游ECL电子竞技冠军联赛。另外，ECL也有发射极耦合逻辑电路的意思，在化学领域，是一种化学发光试剂。
+							</div>
+						</li>
+						<li class="mui-table-view-cell mui-collapse">
+							<a class="mui-navigate-right" href="#">比赛赛程</a>
+							<div class="mui-collapse-content">
+								竞游ECL（Esports Champion League简称ECL）,是中国电子竞技运动发展中心打造的一个全新的赛事，相比较传统的电子竞技比赛来讲,无论是从赛制还是比赛规模上都不可同日而语。国家体育总局、北京市人民政府的强力支持以及石景山区打造CRD京西虚拟经济圈的大背景下，将以打造全球第一大电子竞技赛事为目标，打造竞游ECL电子竞技冠军联赛。另外，ECL也有发射极耦合逻辑电路的意思，在化学领域，是一种化学发光试剂。
+							</div>
+						</li>
+						<li class="mui-table-view-cell mui-collapse  mui-active">
+							<a class="mui-navigate-right" href="#">赛事奖金</a>
+							<div class="mui-collapse-content">
+								<div class="prize">
+									<div class="prize_con">
+										<img src="images/jiangjin_03.jpg"/>
+									</div>
+									<div class="prize_con">
+										<img src="images/jiangjin_08.jpg"/>
+									</div>
+									<div class="prize_con">
+										<img src="images/jiangjin_05.jpg"/>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="ob_con">
+					<div class="ob_title">OB奖励</div>
+					<div class="ob_msg">
+						<p class="mui-ellipsis">积分奖励：<span>1200</span></p>
+						<p class="mui-ellipsis">其他奖励：鼠标</p>
+					</div>
+					<div class="ob_btn">
+						申请OB
+					</div>
+				</div>
+				<div class="sponsor">
+					<div class="con_title">
+						赛事赞助商					
+					</div>
+					<ul>
+						<li>
+							<img src="images/logo_18.jpg" Url="sdflskdf"/>
+						</li>
+						<li>
+							<img src="images/logo_18.jpg" Url="sdflskdf"/>
+						</li>
+						<li>
+							<img src="images/logo_18.jpg" Url="sdflskdf"/>
+						</li>
+						<li>
+							<img src="images/logo_18.jpg" Url="sdflskdf"/>
+						</li>
+						<li>
+							<img src="images/logo_18.jpg" Url="sdflskdf"/>
+						</li>
+						<li>
+							<img src="images/logo_18.jpg" Url="sdflskdf"/>
+						</li>
+					</ul>
+				</div>
+				<div class="over_match">
+					<div class="con_title">
+						即将开始的比赛					
+					</div>
+					<div class="tostartgame_box">
+						<div class="tostartgame_con">
+							<div class="team_logo">
+								<div class="team_logo_box">
+									<img src="images/team_logo_03.jpg">
+								</div>
+								<div class="team_name">
+									TE-NAME
+								</div>
+							</div>
+							<!--<div class="game_score">2</div>-->
+							<div class="team_vs">
+								<div class="vs">vs</div>
+								<!--<div class="game_type">正赛</div>-->
+								<div class="game_time">2.12 12：00</div>
+							</div>
+							<!--<div class="game_score">1</div>-->
+							<div class="team_logo">
+								<div class="team_logo_box">
+									<img src="images/team_logo_03.jpg">
+								</div>
+								<div class="team_name">
+									TE-NAME
+								</div>
+							</div>
+						</div>
+						<!--<div class="btn_box">
+							<button type="button" class="mui-btn mui-btn-cheng-jieshou">接 受</button>
+							<button type="button" class="mui-btn mui-btn-bai-jujue">拒 绝</button>
+						</div>-->
+					</div>
+					<div class="goto_matchList">
+						<button type="button" class="mui-btn mui-btn-hong-creat goto">查看所有赛程</button>
+					</div>
+				</div>
+				<div class="slider_box">
+					<div id="slider1" class="mui-slider">
+						<div class="mui-slider-group mui-slider-loop">
+							<div class="mui-slider-item mui-slider-item-duplicate">
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+							</div>
+		
+							<div class="mui-slider-item">
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+							</div>
+		
+							<div class="mui-slider-item">
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+							</div>
+			
+							<div class="mui-slider-item mui-slider-item-duplicate">
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+								<div class="team_logo_box">
+									<div class="team_logo">
+	
+									</div>
+									<div class="team_games">
+										<span class="dota"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="mui-slider-indicator">
+							<div class="mui-indicator mui-active"></div>
+							<div class="mui-indicator"></div>
+							<!--<div class="mui-indicator"></div>
+							<div class="mui-indicator"></div>-->
+						</div>
+					</div>
+				</div>
+				
+				
+		    </div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+		    
+			mui.init({
+				/*pullRefresh: {
+                    container: '#pullrefresh',
+                    down: {
+                        callback: pulldownRefresh
+                    }
+                }下拉刷新代码*/
+			});
+			mui.plusReady(function(){
+				
+			/*	mui.ajax('http://api.gaoqi.cespc.com:9378/comm/game/lol',{
+					data:{},
+					dataType:'json',//服务器返回json格式数据
+					crossDomain: true,
+					type:'post',//HTTP请求类型
+					timeout:10000,//超时时间设置为10秒；
+					headers:{'Content-Type':'application/json'},	              
+					success:function(data){
+						alert(data.data.game_name);
+					},
+					error:function(xhr,type,errorThrown){
+						//异常处理；
+						alert('请求失败');
+					}
+				});*/
+				
+				mui('.tostartgame_box').on('tap','.tostartgame_con',function(){
+						mui.openWindow({
+		      				url:"match_one.html",
+		      				id:"match_one",
+		      				preload: true,
+		      				
+	      				})
+					})
+					
+			})	
+			
+			
+			//轮播相关代码
+			var slider1 = mui("#slider1");
+
+			//轮播相关代码结束
+			
+		
+		</script>
+	</body>
+
+</html>

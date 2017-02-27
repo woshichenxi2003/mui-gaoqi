@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+	</head>
+
+	<body class="selectgame">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">选择喜欢的游戏项目</h1>
+		</header>
+		<footer class="mui-bar mui-bar-footer">
+		    <button type="button" class="mui-btn mui-btn-red mui-btn-block">搞 起</button>
+		</footer>
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<ul class="game_box">
+					<li>
+						<div class="mui-checkbox">
+							<label><img src="images/gamelogo_03.png"/></label>
+							<input name="checkbox" value="Item 1" type="checkbox">
+						</div>
+					</li>
+					<li>
+						<div class="mui-checkbox">
+							<label><img src="images/gamelogo_05.png" style="width: 80px;"/></label>
+							<input name="checkbox" value="Item 1" type="checkbox">
+						</div>
+					</li>
+					<li>
+						<div class="mui-checkbox">
+							<label><img src="images/gamelogo_10.png"/></label>
+							<input name="checkbox" value="Item 1" type="checkbox">
+						</div>
+					</li>
+					<li>
+						<div class="mui-checkbox">
+							<label><img src="images/gamelogo_13.png"/></label>
+							<input name="checkbox" value="Item 1" type="checkbox">
+						</div>
+					</li>
+				</ul>
+				<div class="shishi">
+					
+				</div>
+			</form>	
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<script>
+			(function($, doc) {
+				$.init();
+				$.plusReady(function() {
+					/*$('.mui-input-group').on('tap','.shishi',function(e){
+						this.innerHTML = '<img src="'+plus.storage.face+'">'
+					})*/
+					
+				});
+			}(mui, document));
+		</script>
+	</body>
+
+</html>
