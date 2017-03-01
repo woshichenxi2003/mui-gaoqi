@@ -1,397 +1,684 @@
 <!doctype html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title>比赛报名</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="css/mui.min.css" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <title>比赛报名</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="css/cropper.css"/>
+    <style>
 
-		<link rel="stylesheet" type="text/css" href="css/public.css"/>
-		<style>
+        .mui-input-group {
+            margin-top: 10px;
+            background-color: transparent !important;
+        }
 
-			.mui-input-group {
-				margin-top: 10px;
-				background-color: transparent !important;
-			}
+        .mui-input-group:first-child {
+            margin-top: 0;
+            background-color: transparent !important;
+        }
 
-			.mui-input-group:first-child {
-				margin-top: 0;
-				background-color: transparent !important;
-			}
+        .mui-input-group label {
+            width: 15%;
+        }
 
-			.mui-input-group label {
-				width: 15%;
-			}
+        .mui-input-group label.iconuser {
+            background: url(images/login_icon_03.png) no-repeat 15px center;
+            background-size: auto 60%;
+        }
 
-			.mui-input-group label.iconuser {
-				background: url(images/login_icon_03.png) no-repeat 15px center;
-				background-size: auto 60%;
-			}
+        .mui-input-group label.iconpassword {
+            background: url(images/login_icon_07.png) no-repeat 17px center;
+            background-size: auto 65%;
+        }
 
-			.mui-input-group label.iconpassword {
-				background: url(images/login_icon_07.png) no-repeat 17px center;
-				background-size: auto 65%;
-			}
+        .mui-input-group .mui-input-row {
+            width: 85%;
+            margin: 0 auto;
+            background: url(images/baitou_03.png);
+            border-radius: 35px;
+            -moz-border-radius: 35px;
+            -webkit-border-radius: 35px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
 
-			.mui-input-group .mui-input-row {
-				width: 85%;
-				margin: 0 auto;
-				background: url(images/baitou_03.png);
-				border-radius: 35px;
-				-moz-border-radius: 35px;
-				-webkit-border-radius: 35px;
-				font-size: 14px;
-				margin-bottom: 10px;
-			}
+        .text_show {
+            height: 40px;
+            line-height: 40px;
+            outline: 0;
+            -webkit-appearance: none;
+            font-family: 'Helvetica Neue', Helvetica, sans-serif;
+            font-size: 14px;
+            float: right;
+            width: 85%;
+            color: #a5a9a9;
+            background: url(images/arrow_04.png) 95% center no-repeat;
+            background-size: auto 40%;
+        }
 
-			.text_show {
-				height: 40px;
-				line-height: 40px;
-				outline: 0;
-				-webkit-appearance: none;
-				font-family: 'Helvetica Neue', Helvetica, sans-serif;
-				font-size: 14px;
-				float: right;
-				width: 85%;
-				color: #a5a9a9;
-				background: url(images/arrow_04.png) 95% center no-repeat;
-				background-size: auto 40%;
-			}
+        .mui-input-group .mui-input-row.text_area {
+            height: auto;
+            min-height: 40px;
+            border-radius: 15px;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+        }
 
-			.mui-input-group .mui-input-row.text_area {
-				height: auto;
-				min-height: 40px;
-				border-radius: 15px;
-				-moz-border-radius: 15px;
-				-webkit-border-radius: 15px;
-			}
+        .mui-input-group:before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 0px;
+            content: '';
+            -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+            background-color: #c8c7cc;
+        }
 
-			.mui-input-group:before {
-				position: absolute;
-				top: 0;
-				right: 0;
-				left: 0;
-				height: 0px;
-				content: '';
-				-webkit-transform: scaleY(.5);
-				transform: scaleY(.5);
-				background-color: #c8c7cc;
-			}
+        .mui-input-group:after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 0px;
+            content: '';
+            -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+            background-color: #c8c7cc;
+        }
 
-			.mui-input-group:after {
-				position: absolute;
-				top: 0;
-				right: 0;
-				left: 0;
-				height: 0px;
-				content: '';
-				-webkit-transform: scaleY(.5);
-				transform: scaleY(.5);
-				background-color: #c8c7cc;
-			}
+        .mui-input-group .mui-input-row:after {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 15px;
+            height: 0px;
+            content: '';
+            -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+            background-color: #c8c7cc;
+        }
 
-			.mui-input-group .mui-input-row:after {
-				position: absolute;
-				right: 0;
-				bottom: 0;
-				left: 15px;
-				height: 0px;
-				content: '';
-				-webkit-transform: scaleY(.5);
-				transform: scaleY(.5);
-				background-color: #c8c7cc;
-			}
+        .mui-input-group .mui-input-row textarea {
+            color: #ffffff;
+        }
 
-			.mui-input-group .mui-input-row textarea {
-				color: #ffffff;
-			}
+        .mui-input-row label ~ input,
+        .mui-input-row label ~ select,
+        .mui-input-row label ~ textarea {
+            width: 85%;
+            color: #ffffff;
+        }
 
-			.mui-input-row label~input,
-			.mui-input-row label~select,
-			.mui-input-row label~textarea {
-				width: 85%;
-				color: #ffffff;
-			}
+        .mui-checkbox input[type=checkbox],
+        .mui-radio input[type=radio] {
+            top: 6px;
+        }
 
-			.mui-checkbox input[type=checkbox],
-			.mui-radio input[type=radio] {
-				top: 6px;
-			}
+        .mui-btn-cheng {
+            width: 85%;
+            margin: 0 auto;
+            border-radius: 35px;
+            -moz-border-radius: 35px;
+            -webkit-border-radius: 35px;
+        }
 
-			.mui-btn-cheng {
-				width: 85%;
-				margin: 0 auto;
-				border-radius: 35px;
-				-moz-border-radius: 35px;
-				-webkit-border-radius: 35px;
-			}
+        /*html,body{*/
+        /*height: 100%;*/
+        /*}*/
+
+        .mui-content {
+            /*height: 100%;*/
+            background: -webkit-linear-gradient(top, #0153a9, #015591, #002540);;
+
+        }
+
+        .mui-bar-footer {
+            bottom: 0;
+            background: #002540;
+            transition: all 0.5s linear;
+            height: 80px !important;
+        }
+
+        .match_info {
+            background: none;
+            height: 325px;
+        }
+
+        .mui-bar {
+            position: fixed;
+            z-index: 10;
+            right: 0;
+            left: 0;
+            height: 45px;
+            padding-right: 0px;
+            padding-left: 0px;
+            border-bottom: 0;
+            /*background-color: #f7f7f7;*/
+            -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+            box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .mui-bar-footer .mui-btn-hong-creat {
+            width: 100%;
+            line-height: 20px;
+            position: relative;
+            height: 45px;
+
+        }
+
+        .mui-bar-footer .mui-btn-hong-creat .ts {
+            display: block;
+            position: absolute;
+            right: 10%;
+            top: 5px;
+            width: 29px;
+
+            /*background: url(images/tousu_22.png) no-repeat;*/
+        }
+
+        .mui-bar-footer .mui-btn-hong-creat .ts img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .mui-btn-hong-creat .btn_title {
+            height: 27px;
+            line-height: 27px;
+
+        }
+
+        .blink {
+            -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+            -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+            animation: neon1 1.5s ease-in-out infinite alternate;
+        }
+
+        .mui-btn-hong-creat p {
+            color: #fff;
+            font-size: 12px;
+            line-height: 12px;
+        }
+
+        .show_title {
+            width: 85%;
+            margin: 0 auto;
+            border-radius: 35px;
+            -moz-border-radius: 35px;
+            -webkit-border-radius: 35px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .show_title1 {
+            width: 85%;
+            margin: 0 auto;
+            border-radius: 35px;
+            -moz-border-radius: 35px;
+            -webkit-border-radius: 35px;
+            font-size: 16px;
+            margin-top: 30px;
+            text-align: left;
+            color: #fff;
+        }
+
+        .inform {
+            width: 185px;
+            text-align: center;
+            margin: 0 auto;
+            font-size: 12px;
+            line-height: 35px;
+            height: 35px;
+            color: #fc3e3e;
+            vertical-align: middle;
+            background: url(images/gaozhi_18.png) no-repeat center left #002540;
+            background-size: auto 60%;
+            text-indent: 25px;
+        }
+
+        /*.inform img{display: inline-block;}*/
+        .match_game {
+            width: 100%;
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            margin-top: 10px;
+        }
+
+        .match_game:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 25%;
+            height: 1px;
+            background: url(images/toubg_05.png) repeat-x;
+            top: 50%;
+            left: 0;
+            margin-top: -1px;
+            opacity: 0.6;
+        }
+
+        .match_game:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 25%;
+            height: 1px;
+            background: url(images/toubg_05.png) repeat-x;
+            top: 50%;
+            right: 0;
+            margin-top: -1px;
+            opacity: 0.6;
+        }
+
+        .match_game .game_name {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+            color: #ffffff;
+            background: url(images/bgd_02.png) no-repeat center center;
+            background-size: 100% auto;
+
+        }
+
+        .team_name {
+            color: #ffffff;
+        }
+
+        .match_time {
+            line-height: 25px;
+            color: #ffffff;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .match_con {
+            width: 100%;
+            border-top: 1px dashed #cdcdcd;
+            padding-bottom: 40px;
+        }
+
+        .match_num {
+            width: 85%;
+            margin: 0 auto;
+            line-height: 30px;
+            color: #ffffff;
+            margin-top: 15px;
+        }
+
+        .match_infomain {
+
+            text-align: center;
+            color: #ffffff;
+            padding: 0px;
+        }
+
+        .match_infomain .match_info_zy {
+            width: 85%;
+            margin: 20px auto;
+            text-align: justify;
+            text-align-last: justify;
+
+        }
+
+        .match_infomain .match_info_zy select {
+            width: 30%;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            line-height: 25px;
+            text-align: center;
+            text-align-last: center;
+        }
+
+        .match_infomain .match_info_zy select option {
+            padding: 0;
+            margin-left: 10px;
+        }
+
+        .match_infomain .match_info_zy span {
+            display: inline-block;
+            font-size: 14px;
+        }
+
+        .match_infomain .match_info_zy .match_info_inputstyle input {
+            display: inline-block;
+            width: 60%;
+            padding: 0;
+            margin: 0;
+            line-height: 25px;
+            font-size: 14px;
+            height: 25px;
+
+        }
+
+        .match_infomain .match_info_zy .match_info_inputstyle span {
+            display: inline-block;
+            width: 30%;
+        }
+        #showEdit {
+            background: url(images/heitou_07.png);
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 99999;
+            display: none;
+        }
+
+        #showEdit .mui-bar {
+            background: none;
+            position: absolute;
+            top: 0;
+            z-index: 9999999999;
+        }
+
+        #showEdit .mui-icon-close_btn {
+            width: 45px;
+
+        }
+        #showEdit .mui-icon-close_btn img{
+            width: 100%;
+        }
+        #showEdit .mui-icon-check_btn {
+            width: 45px;
+
+        }
+        #showEdit .mui-icon-check_btn img{
+            width: 100%;
+        }
+        #report {
+            /*padding: 30px;*/
+            text-align: center;
+        }
+
+        #report img {
+            width: 100%;
+            /*margin-top: 55px;*/
+        }
+
+        #face_box {
+            width: 85%;
+            min-height: 200px;
+            background: url(images/face_04.png) no-repeat center center #739abd;
+            background-size: 30%;
+            margin: 20px auto;
+            border: 1px solid #658bae;
+            overflow: hidden;
+        }
+        #face_box img {
+            width: 100%;
+        }
+
+        #face_box canvas{width: 100%;border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border: 1px solid #658bae;}
+
+        canvas{width: 100%;border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border: 1px solid #658bae;}
+
+    </style>
+</head>
+<body class="match_details">
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-icon-extra mui-icon-extra-share mui-pull-right" style="margin-top: 10px; margin-right: 10px;"></a>
+    <h1 class="mui-title">比赛报名</h1>
+</header>
+<footer class="mui-bar mui-bar-footer" id="join_btn">
+    <button type="button" class="mui-btn mui-btn-hong-creat">
+        <div class="btn_title">结果成绩提交</div>
+        <div class="ts">
+            <img src="images/tousu_22.png"/>
+        </div>
+    </button>
+    <div class="inform">
+        请认真阅读比赛结果呈报说明
+    </div>
+</footer>
+
+<div class="mui-content">
+    <div class="match_info">
+        <div class="show_title1">
+            请填报比赛结果：
+        </div>
+        <div class="match_information">
+            <div class="match_game">
+                <div class="game_name">比赛项目：<span>DOTA2</span></div>
+            </div>
+        </div>
+        <div class="match_time">
+            16.02.12 18：00-21:00
+            <br>
+            赛制：BO3
+        </div>
+        <div class="tostartgame_box">
+            <div class="tostartgame_con">
+                <div class="team_logo">
+                    <div class="zhuke">
+                        主队
+                    </div>
+                    <div class="team_logo_box">
+                        <img src="images/team_logo_03.jpg">
+                    </div>
+                    <div class="team_name">
+                        TE-NAME
+                    </div>
+                </div>
+                <div class="team_vs">
+                    <div class="vs">vs</div>
+                    <div class="game_time">2.12 12：00</div>
+                </div>
+                <div class="team_logo">
+                    <div class="zhuke">
+                        客队
+                    </div>
+                    <div class="team_logo_box">
+                        <img src="images/team_logo_03.jpg">
+                    </div>
+                    <div class="team_name">
+                        TE-NAME
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="match_con">
+        <form action="#">
+            <div class="match_num">
+                第<span>一</span>局比赛:
+            </div>
+            <div class="match_infomain">
+                <div class="match_info_zy">
+                    <select class="mui-btn mui-btn-block">
+                        <option value="item-1">天灾</option>
+                        <option value="item-2">夜魇</option>
+
+                    </select>
+                    <span>阵营</span>
+                    <select class="mui-btn mui-btn-block">
+                        <option value="item-1">天灾</option>
+                        <option value="item-2">夜魇</option>
+                    </select>
+                </div>
+                <div class="match_info_zy">
+                    <select class="mui-btn mui-btn-block">
+                        <option value="item-1">胜</option>
+                        <option value="item-2">负</option>
+
+                    </select>
+                    <span>结果</span>
+                    <select class="mui-btn mui-btn-block">
+                        <option value="item-1">负</option>
+                        <option value="item-2">胜</option>
+
+                    </select>
+                </div>
+                <div class="match_info_zy">
+                    <div class="match_info_inputstyle">
+                        <span>比赛时长</span>
+                        <input type="text" id="match_info_time" value="请输入比赛时长">
+                    </div>
+
+                </div>
+                <div class="match_info_zy">
+                    <div class="match_info_inputstyle">
+                        <span>游戏端ID</span>
+                        <input type="text" id="match_info_id" value="请输入游戏端比赛ID">
+                    </div>
+                </div>
 
 
+                <div class="face_con">
+                    <div id="face_box">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </form>
 
 
-			html,body{height: 100%;}
-			.mui-content{
-				height: 100%;
-				background: -webkit-linear-gradient(top,#0153a9,#015591,#002540);;
-			}
-			.mui-bar-footer {
-				    bottom: 0;
-				    background: transparent;
-				    transition: all 0.5s linear;
-				    height: 80px !important;
-				}
-			.match_info{ background: none;height: 300px;}
-			.mui-bar {
-			    position: fixed;
-			    z-index: 10;
-			    right: 0;
-			    left: 0;
-			    height: 45px;
-			    padding-right: 0px;
-			    padding-left: 0px;
-			    border-bottom: 0;
-			    /*background-color: #f7f7f7;*/
-			    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
-			    box-shadow: 0 0 1px rgba(0, 0, 0, .85);
-			    -webkit-backface-visibility: hidden;
-			    backface-visibility: hidden;
-			}
-			 .mui-bar-footer .mui-btn-hong-creat {
-				width: 100%;
-				line-height: 20px;
-				position: relative;
-				height: 45px;
-
-			}
-			 .mui-bar-footer .mui-btn-hong-creat .ts{
-				display: block;
-				position: absolute;
-				right: 10%;
-				top:5px;
-				width: 29px;
-
-				/*background: url(images/tousu_22.png) no-repeat;*/
-			}
-			.mui-bar-footer .mui-btn-hong-creat .ts img{
-				width: 100%;
-				height: 100%;
-			}
-			.mui-btn-hong-creat .btn_title{
-				height: 27px;
-				line-height: 27px;
-
-			}
-			.blink{
-				-webkit-animation: neon1 1.5s ease-in-out infinite alternate;
-				  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
-				  animation: neon1 1.5s ease-in-out infinite alternate;
-			}
-			.mui-btn-hong-creat p{
-				color: #fff;
-				font-size: 12px;
-				line-height: 12px;
-			}
-			.show_title{
-			    width: 85%;
-			    margin: 0 auto;
-			    border-radius: 35px;
-			    -moz-border-radius: 35px;
-			    -webkit-border-radius: 35px;
-			    font-size: 14px;
-			    margin-bottom: 10px;
-			    color: #fff;
-			}
-			.show_title1{
-			    width: 85%;
-			    margin: 0 auto;
-			    border-radius: 35px;
-			    -moz-border-radius: 35px;
-			    -webkit-border-radius: 35px;
-			    font-size: 14px;
-			    margin-top: 30px;
-			    color: #fff;
-			}
-			.inform{
-				width: 185px;
-				text-align: center;
-				margin: 0 auto;
-				font-size: 12px;
-				line-height:35px;
-				height: 35px;
-				color: #fc3e3e;
-				vertical-align: middle;
-				background: url(images/gaozhi_18.png) no-repeat center left;
-				background-size: auto 60%;
-				text-indent: 25px;
-			}
-			/*.inform img{display: inline-block;}*/
-			.match_game{overflow: hidden;
-				width: 100%;
-				position: relative;
-				height: 40px;
-				line-height: 40px;
-				margin-top: 10px;
-			}
-			.match_game:before{
-				content: "";
-				display: block;
-				position: absolute;
-				width: 25%;
-				height: 1px;
-				background: url(images/toubg_05.png) repeat-x;
-				top: 50%;
-				left: 0;
-				margin-top: -1px;
-				opacity: 0.6;
-			}
-			.match_game:after{
-				content: "";
-				display: block;
-				position: absolute;
-				width: 25%;
-				height: 1px;
-				background: url(images/toubg_05.png) repeat-x;
-				top: 50%;
-				right: 0;
-				margin-top: -1px;
-				opacity: 0.6;
-			}
-			.match_game .game_name{
-				width: 50%;
-				margin: 0 auto;
-				text-align: center;
-				color: #ffffff;
-				background: url(images/bgd_02.png) no-repeat center center;
-				background-size:100% auto;
-
-			}
-			.team_name{color: #ffffff;}
-			.match_time{
-				line-height: 25px;
-				color: #ffffff;
-				font-size:14px;
-				text-align: center;
-			}
-			.match_con{
-				width:100%;
-				overflow: hidden;
-				border-top:1px solid #cdcdcd;
-			}
-		</style>
-	</head>
-	<body class="match_details">
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<a class="mui-icon-extra mui-icon-extra-share mui-pull-right" style="margin-top: 10px; margin-right: 10px;"></a>
-			<h1 class="mui-title">比赛报名</h1>
-		</header>
-		<footer class="mui-bar mui-bar-footer" id="join_btn">
-		    <button type="button" class="mui-btn mui-btn-hong-creat">
-		    	<div class="btn_title">结果成绩提交</div>
-		    	<div class="ts">
-			    	<img src="images/tousu_22.png"/>
-			    </div>
-		    </button>
-		    <div class="inform">
-		    	请认真阅读比赛结果呈报说明
-		    </div>
-		</footer>
-
-		<div class="mui-content">
-			<div class="match_info">
-				<div class="show_title1">
-					请填报比赛结果：
-				</div>
-				<div class="match_information">
-					<div class="match_game">
-						<div class="game_name">比赛项目：<span>DOTA2</span></div>
-					</div>
-				</div>
-				<div class="match_time">
-					16.02.12   18：00-21:00
-					<br>
-					赛制：BO3
-				</div>
-				<div class="tostartgame_box">
-					<div class="tostartgame_con">
-						<div class="team_logo">
-							<div class="zhuke">
-								主队
-							</div>
-							<div class="team_logo_box">
-								<img src="images/team_logo_03.jpg">
-							</div>
-							<div class="team_name">
-								TE-NAME
-							</div>
-						</div>
-						<div class="team_vs">
-							<div class="vs">vs</div>
-							<div class="game_time">2.12 12：00</div>
-						</div>
-						<div class="team_logo">
-							<div class="zhuke">
-								客队
-							</div>
-							<div class="team_logo_box">
-								<img src="images/team_logo_03.jpg">
-							</div>
-							<div class="team_name">
-								TE-NAME
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<div class="match_con">
-					<!-- <select class="mui-btn mui-btn-block">
-						<option value="item-1">item-1</option>
-						<option value="item-2">item-2</option>
-						<option value="item-3">item-3</option>
-						<option value="item-4">item-4</option>
-						<option value="item-5">item-5</option>
-					</select> -->
-
-				</div>
-				<div class="skdfk">
-
-				</div>
+    </div>
 
 
-			</div>
+</div>
+<div id="showEdit">
+    <header class="mui-bar mui-bar-nav mui-nav-bg">
+        <a class="mui-icon  mui-icon-close_btn mui-pull-left" id="close_btn"><img src="images/close.png"/></a>
+        <a class="mui-icon mui-icon-check_btn mui-pull-right" id="check_btn"><img src="images/open.png"/></a>
+    </header>
+    <div id="report">
+        &nbsp;
+    </div>
+</div>
 
-		</div>
-		<script src="js/mui.min.js"></script>
-		<script type="text/javascript">
+<script src="js/mui.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/cropper.js"></script>
+<script type="text/javascript">
 
-			mui.init({
-				/*pullRefresh: {
-                    container: '#pullrefresh',
-                    down: {
-                        callback: pulldownRefresh
-                    }
-                }下拉刷新代码*/
-			});
-			mui.plusReady(function(){
-
-
-
-				mui('.tostartgame_box').on('tap','.tostartgame_con',function(){
-						mui.openWindow({
-		      				url:"match_one.html",
-		      				id:"match_one",
-		      				preload: true,
-
-	      				})
-					})
-
-			})
+    (function (mm, doc) {
+        mm.init();
+        mm.plusReady(function () {
+            // 点击跳转
+            mui('.tostartgame_box').on('tap', '.tostartgame_con', function () {
+                mui.openWindow({
+                    url: "match_one.html",
+                    id: "match_one",
+                    preload: true,
+                })
+            })
+            //结束
+            var settings = app.getSettings();
 
 
+            document.querySelector('form').addEventListener('submit', function (e) {
+                e.preventDefault(); // 阻止默认事件
+            });
+
+            /*照片相关函数*/
+            mui(".face_con").on("tap", "#face_box", function (e) {
+                if (mui.os.plus) {
+                    var a = [{
+                        title: "拍照"
+                    }, {
+                        title: "从手机相册选择"
+                    }];
+                    plus.nativeUI.actionSheet({
+                        title: "修改头像",
+                        cancel: "取消",
+                        buttons: a
+                    }, function (b) {
+                        switch (b.index) {
+                            case 0:
+                                break;
+                            case 1:
+                                getImage();
+                                break;
+                            case 2:
+                                galleryImgs();
+                                break;
+                            default:
+                                break
+                        }
+                    })
+                }
+
+            });
 
 
-		</script>
-	</body>
+            //拍照
+            function getImage() {
+                var cmr = plus.camera.getCamera();
+                cmr.captureImage(function (p) {
+                    plus.io.resolveLocalFileSystemURL(p, function (entry) {
+                        var localurl = entry.toLocalURL();
+                        $("#report").html('<img src="' + localurl + '">');
+                        cutImg();
+                    });
+                });
+            }
+
+            //相册选取
+            function galleryImgs() {
+                plus.gallery.pick(function (e) {
+                    $("#report").html('<img src="' + e.files[0] + '">');
+                    cutImg();
+                    /*mui('#face_box').popover('toggle');*/
+                }, function (e) {
+                    //outSet( "取消选择图片" );
+                }, {filter: "image", multiple: true});
+            }
+
+            function cutImg() {
+                $("#showEdit").show();
+                var $image = $('#report > img');
+                $image.cropper({
+                    aspectRatio: 1 / 1,
+                    autoCropArea: 0.8
+                });
+            }
+
+            mm(".mui-bar").on("tap", "#check_btn", function (e) {
+                confirme();
+            });
+
+            mui(".mui-bar").on("tap", "#close_btn", function (e) {
+                $("#showEdit").fadeOut();
+            });
+
+            function confirme() {
+                $("#showEdit").fadeOut();
+                var $image = $('#report > img');
+                var dataURL = $image.cropper('getCroppedCanvas');
+                var basecode = dataURL.toDataURL();
+                $("#face_box").html(dataURL);
+                /*plus.storage.face = dataURL;*/
+                plus.storage.setItem('face', dataURL + "");
+
+                /*localStorage.face = dataURL;*/
+                /*是储存64还是直接存储canvas还需要再考虑*/
+
+            }
+
+
+        });
+    }(mui, document));
+
+
+</script>
+</body>
 
 </html>

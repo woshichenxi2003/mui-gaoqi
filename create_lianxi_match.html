@@ -1,0 +1,345 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>创建练习赛</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/icons-extra.css" />
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style>
+			ul,li{list-style: none;}
+			.mui-bar-footer {
+				    bottom: 0;
+				    background: #fc3e3e;
+				    transition: all 0.5s lnear;
+				}
+
+			.mui-bar {
+			    position: fixed;
+			    z-index: 10;
+			    right: 0;
+			    left: 0;
+			    height: 44px;
+			    padding-right: 0px;
+			    padding-left: 0px;
+			    border-bottom: 0;
+			    background-color: #f7f7f7;
+			    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+			    box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+			    -webkit-backface-visibility: hidden;
+			    backface-visibility: hidden;
+			}
+			 .mui-bar-footer .mui-btn-hong-creat {
+				width: 100%;
+				line-height: 20px;
+				position: relative;
+
+			}
+			 .mui-bar-footer .mui-btn-hong-creat .ts{
+				display: block;
+				position: absolute;
+				right: 10%;
+				top:5px;
+				width: 29px;
+
+
+			}
+			.mui-bar-footer .mui-btn-hong-creat .ts img{
+				width: 100%;
+				height: 100%;
+			}
+			.mui-btn-hong-creat .btn_title{
+				height: 27px;
+				line-height: 27px;
+
+			}
+
+			.mui-btn-hong-creat p{
+				color: #fff;
+				font-size: 12px;
+				line-height: 12px;
+			}
+
+
+			.mui-input-group .mui-input-row {
+				width: 100%;
+				margin: 0 auto;
+				/*background: url(../images/baitou_03.png);*/
+				/*border-radius: 35px;
+				-moz-border-radius: 35px;
+				-webkit-border-radius: 35px;*/
+				font-size: 14px;
+				/*margin-bottom: 10px;*/
+				border-bottom: 1px solid #c8c7cc;
+			}
+
+			.text_show {
+				height: 40px;
+				line-height: 40px;
+				outline: 0;
+				-webkit-appearance: none;
+				font-family: 'Helvetica Neue', Helvetica, sans-serif;
+				font-size: 14px;
+				float: right;
+				width: 70%;
+				color: #c3c3c3;
+				background: url(images/arrow_03.jpg) 95% center no-repeat;
+				background-size: auto 40%;
+			}
+
+			.mui-input-group .mui-input-row.text_area {
+				width: 95%;
+				margin: 0 auto;
+				height: auto;
+				min-height: 40px;
+				border-radius: 15px;
+				-moz-border-radius: 15px;
+				-webkit-border-radius: 15px;
+				border: 1px solid #c8c7cc;
+				margin-bottom: 20px;
+				margin-top: 10px;
+			}
+
+			.mui-input-group:before {
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				height: 0px;
+				content: '';
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #c8c7cc;
+			}
+
+			.mui-input-group:after {
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				height: 0px;
+				content: '';
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #c8c7cc;
+			}
+
+			.mui-input-group .mui-input-row:after {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 15px;
+				height: 0px;
+				content: '';
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #c8c7cc;
+			}
+
+			.mui-input-group .mui-input-row textarea {
+				color: #000000;
+
+			}
+			.mui-input-group .mui-input-row label {
+				width: 30%;
+				line-height: 20px;
+				font-size: 14px;
+				padding: 9px 14px;
+			}
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 70%;
+				height: 38px;
+			}
+			.mui-input-row .mui-input-clear~.mui-icon-clear, .mui-input-row .mui-input-password~.mui-icon-eye, .mui-input-row .mui-input-speech~.mui-icon-speech
+			{
+				font-size: 20px;
+				position: absolute;
+				z-index: 1;
+				top: 10px;
+				right: 0;
+				width: 40px;
+				height: 40px;
+				text-align: center;
+				color: red;
+			}
+			input::-webkit-input-placeholder{
+				color:#c3c3c3;
+			}
+
+
+			.mui-checkbox {
+				text-align: center;
+				width: 35px;
+				float: left;
+				margin-top: 7px;
+			}
+
+
+
+
+			.mui-checkbox span {
+				display: inline-block;
+				width: 25px;
+				height: 25px;
+			}
+
+			.mui-checkbox span.dota {
+				background: url(images/iconall_05.png) no-repeat;
+				background-size: auto 100%;
+			}
+
+			.mui-checkbox span.lol {
+				background: url(images/iconall_03.png) no-repeat;
+				background-size: auto 100%;
+			}
+
+			.mui-checkbox span.fengbao {
+				background: url(images/iconall_09.png) no-repeat;
+				background-size: auto 100%;
+			}
+
+			.mui-checkbox span.csgo {
+				background: url(images/iconall_07.png) no-repeat;
+				background-size: auto 100%;
+			}
+			.mui-checkbox input[type=checkbox]:before {
+				content: ''
+			}
+
+
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				position: absolute;
+				top: 12px;
+				right: 3px;
+				display: inline-block;
+				width: 15px;
+				height: 15px;
+				border: 0;
+				outline: 0!important;
+				background-color: transparent;
+				-webkit-appearance: none;
+			}
+
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				/*top: 44px;*/
+			}
+
+			.mui-checkbox input[type=checkbox]:checked:before,
+			.mui-radio input[type=radio]:checked:before {
+				/* color: #007aff; */
+				color: #fc4e3e;
+			}
+
+			.mui-checkbox input[type=checkbox]:before,
+			.mui-radio input[type=radio]:before {
+				font-family: Muiicons;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 1.1;
+				text-decoration: none;
+				color: #aaa;
+				border-radius: 0;
+				background: 0 0;
+				-webkit-font-smoothing: antialiased;
+			}
+			.title{
+				width:100%;
+
+			}
+			.title img{
+				width:100%;
+
+			}
+		</style>
+	</head>
+	<body class="match_details">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a class="mui-icon-extra mui-icon-extra-share mui-pull-right" style="margin-top: 10px; margin-right: 10px;"></a>
+			<h1 class="mui-title">赛事详情</h1>
+		</header>
+		<footer class="mui-bar mui-bar-footer" id="join_btn">
+		    <button type="button" class="mui-btn mui-btn-hong-creat">
+		    	<div class="btn_title">报 名 参 赛</div>
+		    </button>
+		</footer>
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<div class="title">
+						<img src="images/cjbg.jpg"/>
+				</div>
+				<div class="mui-input-row" id="showCityPicker3">
+					<label>选择项目：</label>
+					<div class="mui-checkbox">
+						<span class="dota"></span>
+						<input name="checkbox" value="Item 1" type="checkbox">
+					</div>
+					<div class="mui-checkbox">
+						<span class="lol"></span>
+						<input name="checkbox" value="Item 1" type="checkbox" checked="checked">
+					</div>
+					<div class="mui-checkbox">
+						<span class="fengbao"></span>
+						<input name="checkbox" value="Item 1" type="checkbox">
+					</div>
+					<div class="mui-checkbox">
+						<span class="csgo"></span>
+						<input name="checkbox" value="Item 1" type="checkbox">
+					</div>
+				</div>
+				<div class="mui-input-row">
+					<label>昵称：</label>
+					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入昵称">
+				</div>
+				<div class="mui-input-row">
+					<label>Input</label>
+					<input type="text" class="mui-input-clear" placeholder="带清除按钮的输入框">
+				</div>
+				<div class="mui-input-row"  id='showUserPicker'>
+					<label>性别：</label>
+					<div id="userResult" class="text_show">
+						请选择性别
+					</div>
+				</div>
+				<div class="mui-input-row" id="showCityPicker3">
+					<label>常驻地：</label>
+					<div class="text_show" id="cityResult3">
+						请选择常驻地
+					</div>
+				</div>
+
+
+				<div class="mui-input-row text_area">
+					<textarea id="textarea" rows="3" placeholder="签名："></textarea>
+				</div>
+			</form>
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+
+			mui.init({
+				/*pullRefresh: {
+                    container: '#pullrefresh',
+                    down: {
+                        callback: pulldownRefresh
+                    }
+                }下拉刷新代码*/
+			});
+			mui.plusReady(function(){
+
+			})
+
+
+
+
+
+		</script>
+	</body>
+
+</html>
