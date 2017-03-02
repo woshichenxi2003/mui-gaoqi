@@ -1,0 +1,14 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+html	/Users/chenxi/work/mui/this.html	/^<html>$/;"	function	line:2
+head	/Users/chenxi/work/mui/this.html	/^  <head>$/;"	function	line:3
+meta	/Users/chenxi/work/mui/this.html	/^    <meta charset="utf-8">$/;"	function	line:4
+title	/Users/chenxi/work/mui/this.html	/^    <title>this<\/title>$/;"	function	line:5
+body	/Users/chenxi/work/mui/this.html	/^  <body>$/;"	function	line:7
+input	/Users/chenxi/work/mui/this.html	/^    <input type="button" id="test" name="" value="sfsldf" style="text-align:center">$/;"	function	line:8
+script	/Users/chenxi/work/mui/this.html	/^    <script type="text\/javascript">$/;"	function	line:9
+test	/Users/chenxi/work/mui/this.html	/^      function test() {$/;"	function	line:10
