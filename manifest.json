@@ -4,13 +4,13 @@
 		"iPhone",
 		"iPad"
 	],
-	"id": "mui_template_login",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"id": "H5F1CE480",/*应用的标识，创建应用时自动生成，勿手动修改*/
 	"name": "mui登录模板",/*应用名称，程序桌面图标名称*/
 	"version": {
 		"name": "1.0.0",/*应用版本名称*/
 		"code": "83"
 	},
-	"description": "",/*应用描述信息*/
+	"description": "电子竞技综合平台",/*应用描述信息*/
 	"icons": {
 		"72": "icon.png"
 	},
@@ -107,10 +107,7 @@
 				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
 				"permissions": ["<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>"]
 			},
-			"orientation": [
-				"portrait-primary",
-				"portrait-secondary"
-			],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
+			"orientation": ["portrait-primary"],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
 			"icons": {
 				"ios": {
 					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
@@ -380,7 +377,9 @@
 					"reg.html",
 					"unlock.html",
 					"forget_password.html",
-					"login.html"
+					"login.html",
+					"html/team.html",
+					"html/friend.html"
 				],
 				"priority": 0
 			},
@@ -402,7 +401,9 @@
 					"images/team_logo_03.jpg",
 					"images/dunpai_03.jpg"
 				],
-				"refer": [],
+				"refer": [
+					"create_lianxi_match.html"
+				],
 				"priority": 0
 			},
 			"html/setting.html": {
@@ -574,6 +575,38 @@
 					"images/titlebg_01.jpg"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"create_lianxi_match.html": {
+				"resources": [
+					"fonts/mui-icons-extra.ttf",
+					"images/cjbg.jpg",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"images/arrow_03.jpg",
+					"css/icons-extra.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/friend.html": {
+				"resources": [
+					"images/kulou.png",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js"
+				],
+				"refer": [
+					"html/im-chat.html",
+					"html/sub.html"
+				],
+				"priority": 0
+			},
+			"html/team.html": {
+				"resources": [],
+				"refer": [
+					"html/im-chat.html",
+					"html/sub.html"
+				],
 				"priority": 0
 			}
 		},
