@@ -444,7 +444,7 @@ body.login {
 }
 
 
-/*战队列表显示样式(需带按钮)*/
+/*战队和会员列表显示样式(需带按钮)*/
 
 .team_box {
 	width: 100%;
@@ -464,15 +464,23 @@ body.login {
 }
 
 .team_box .team_logo_box .team_games {
-	position: absolute;
+	/* position: absolute;
 	color: #fc4e3e;
 	bottom: -3px;
-	right: 9px;
+	right: 9px; */
+	position: absolute;
+    color: #fc4e3e;
+    bottom: -3px;
+    width: 89px;
+    text-align: right;
+    right: 10px;
 }
 .team_box .team_logo_box .team_games span {
 	display: inline-block;
-	width: 20px;
-	height: 25px;
+	/* width: 20px;
+	height: 25px; */
+	width: 17px;
+	height: 21px;
 }
 
 .team_box .team_logo_box .team_games span.dota {
@@ -546,7 +554,7 @@ body.login {
 
 
 
-/*战队列表显示样式(需带按钮)*/
+/*好友列表(需带按钮)*/
 
 .msg_box {
 	width: 100%;
@@ -630,13 +638,13 @@ body.login {
 }
 
 #msg_like_game {
-	width: 72px;
-	position: absolute;
-	top: 37px;
-	left: 50%;
-	text-align: center;
-	margin-left: -43px;
-	font-size: 0;
+	width: 68px;
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    text-align: right;
+    margin-left: -43px;
+    font-size: 0;
 }
 
 #msg_like_game span {
@@ -667,6 +675,7 @@ body.login {
 }
 
 /*结束*/
+
 /*赛事列表页样式*/
 .match_box {
 	width: 100%;

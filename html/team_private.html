@@ -1,0 +1,1023 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>战队详情页面</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../css/public.css" />
+    <style type="text/css" media="screen">
+    * .mui-segmented-control.mui-scroll-wrapper .mui-control-item {
+        line-height: 36px;
+        display: table-cell;
+        overflow: hidden;
+        width: 1%;
+        -webkit-transition: background-color .1s linear;
+        transition: background-color .1s linear;
+        text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #232323;
+        border-color: #fc3e3e;
+        border-bottom: 1px solid #fc3e3e;
+        border-left: none;
+        padding: 0 15px;
+    }
+    
+    .mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+        border-bottom: 4px solid #fc3e3e;
+    }
+    
+    .mui-segmented-control.mui-scroll-wrapper .mui-control-item.mui-active {
+        color: #fc3e3e;
+        background-color: #ffffff;
+        border-bottom: 4px solid #fc3e3e;
+    }
+    
+    .mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item {
+        border-top: none;
+        border-bottom: none;
+        min-height: 300px;
+    }
+    
+    * .mui-segmented-control .mui-control-item:first-child {
+        border-left-width: 0
+    }
+    
+    * .mui-segmented-control .mui-control-item.mui-active {
+        color: #fff;
+        background-color: #007aff
+    }
+    
+    .mui-segmented-control.mui-scroll-wrapper {
+        height: 40px;
+    }
+    
+    .mui-segmented-control.mui-scroll-wrapper .mui-scroll {
+        width: auto;
+        height: 40px;
+        white-space: nowrap
+    }
+    
+    .mui-table-view-cell {
+        position: relative;
+        overflow: hidden;
+        padding: 11px 15px;
+        -webkit-touch-callout: none
+    }
+    
+    .mui-table-view-cell:after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 1px;
+        height: 1px;
+        content: '';
+        -webkit-transform: scaleY(.5);
+        transform: scaleY(.5);
+        background-color: #c8c7cc;
+    }
+    
+    .mui-table-view .mui-media-object {
+        line-height: 60px;
+        max-width: 90px;
+        height: 60px
+    }
+    
+    .mui-table-view .mui-media-object.mui-pull-left {
+        margin-right: 10px
+    }
+    
+    .mui-table-view .mui-media-object.mui-pull-right {
+        margin-left: 10px
+    }
+    
+    .mui-table-view .mui-media-body {
+        overflow: hidden;
+        font-size: 17px;
+    }
+    
+    .mui-table-view .mui-media-body p {
+        font-size: 14px;
+    }
+    
+    .mui-table-view .mui-media-body span {
+        display: block;
+        width: 100%;
+        line-height: 21px;
+        text-align: right;
+        font-size: 14px;
+        color: #eb6d20;
+    }
+    
+    .mui-icon-compose:before {
+        font-size: 20px;
+        color: #878c92;
+    }
+    
+    .mui-segmented-control {
+        font-size: 15px;
+        font-weight: 400;
+        position: relative;
+        display: table;
+        overflow: hidden;
+        width: 100%;
+        table-layout: fixed;
+        border: none;
+        border-radius: 0px;
+        background-color: transparent;
+        -webkit-touch-callout: none;
+    }
+    
+    .mui-segmented-control.mui-segmented-control-vertical {
+        border-collapse: collapse;
+        border-width: 0;
+        border-radius: 0
+    }
+    
+    .mui-segmented-control.mui-segmented-control-vertical .mui-control-item {
+        display: block;
+        border-bottom: 1px solid #c8c7cc;
+        border-left-width: 0
+    }
+    
+    .mui-segmented-control .mui-control-item {
+        line-height: 36px;
+        display: table-cell;
+        overflow: hidden;
+        width: 1%;
+        -webkit-transition: background-color .1s linear;
+        transition: background-color .1s linear;
+        text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #232323;
+        border-color: #fc3e3e;
+        border-bottom: 1px solid #fc3e3e;
+        border-left: none;
+    }
+    
+    .mui-segmented-control .mui-control-item:first-child {
+        border-left-width: 0
+    }
+    
+    .mui-segmented-control .mui-control-item.mui-active {
+        color: #fc3e3e;
+        background-color: #ffffff;
+        border-bottom: 4px solid #fc3e3e
+    }
+    
+    .teamer_num {
+        width: 27px;
+        height: 27px;
+        position: absolute;
+        top: 112px;
+        left: 39%;
+        text-align: center;
+        /* margin-left: -43px; */
+        font-size: 15px;
+        background: #fc4e3e;
+        border-radius: 50%;
+        color: #ffffff;
+        text-align: center;
+    }
+    
+    .teamer_num span {
+        display: block;
+        height: 27px;
+        overflow: hidden;
+        float: left;
+        line-height: 27px;
+        margin-left: -2px;
+        /* padding: 0 0px; */
+        /* margin-top: 10px; */
+    }
+    
+    .teamer_num span:first-child {
+        margin: 0px;
+        margin-top: -2px;
+        margin-left: 2px;
+        margin-right: 1px;
+    }
+    
+    .teamer_num span:last-child {
+        margin: 0px;
+        margin-top: 2px;
+    }
+    
+    .like_game {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 110px;
+        left: 55%;
+        text-align: center;
+        /* margin-left: -43px; */
+        font-size: 0;
+    }
+    
+    .like_game span {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin: 0 1px;
+    }
+    
+    .like_game span.dota {
+        background: url(../images/iconall_05.png) no-repeat;
+        background-size: auto 100%;
+    }
+    
+    .like_game span.lol {
+        background: url(../images/iconall_03.png) no-repeat;
+        background-size: auto 100%;
+    }
+    
+    .like_game span.fengbao {
+        background: url(../images/iconall_09.png) no-repeat;
+        background-size: auto 100%;
+    }
+    
+    .like_game span.csgo {
+        background: url(../images/iconall_07.png) no-repeat;
+        background-size: auto 100%;
+    }
+    
+    .user_info {
+        height: 265px;
+        width: 100%;
+        background: url(../images/selectgamebg_02.jpg) no-repeat center -80px;
+        background-size: 100% auto;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .user_info .user_info_face {
+        width: 110px;
+        height: 110px;
+        background: url(../images/kulou.png) no-repeat center center #eaeaea;
+        background-size: 100%;
+        margin: 20px auto;
+        margin-bottom: 10px;
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        overflow: hidden;
+    }
+    
+    .team_name1 {
+        height: 30px;
+        line-height: 30px;
+        font-size: 17px;
+        color: #fff;
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+    }
+    
+    .manifesto {
+        height: 20px;
+        line-height: 20px;
+        font-size: 12px;
+        color: #fff;
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+    }
+    
+    .user_info_msg .user_name {
+        width: 34%;
+        background: none;
+        text-align: right;
+        height: 40px;
+        line-height: 40px;
+    }
+    
+    .user_info_msg .user_gamenum {
+        width: 33%;
+        text-align: center;
+        background: url(../images/right_line_03.jpg) right center no-repeat;
+        background-size: auto 60%;
+    }
+    
+    .user_info_msg .user_odds {
+        width: 33%;
+        text-align: center;
+        background: url(../images/right_line_03.jpg) right center no-repeat;
+        background-size: auto 60%;
+    }
+    
+    .team_gk {
+        width: 100%;
+        overflow: hidden;
+        padding: 20px 15px;
+        font-size: 14px;
+        /* border-bottom: 1px solid #cdcdcd; */
+    }
+    .team_gk .gk_title{
+        color: #000000;
+    }
+    
+    .team_gk .team_box {
+        width: 100%;
+        overflow: visible;
+        display: flex;
+        position: relative;
+        padding: 0;
+        border-bottom: none;
+        padding-bottom: 15px;
+    }
+    
+    .team_gk .team_box:last-child {
+        border-bottom: none;
+    }
+    
+    .team_gk .team_box .team_logo_box {
+        width: 80px !important;
+        /*float: left;*/
+        position: relative;
+    }
+    
+    .team_gk .team_box .team_logo_box .team_scale {
+        position: absolute;
+        color: #fc4e3e;
+        bottom: -3px;
+        right: 9px;
+    }
+    
+    .team_gk .team_box .team_logo_box .team_scale span {
+        display: inline-block;
+        width: 20px;
+        height: 25px;
+    }
+    
+    .team_gk .team_box .team_logo_box .team_scale span.dota {
+        background: url(../images/iconall_05.png) no-repeat;
+        background-size: auto 100%;
+    }
+    
+    .team_gk .team_box .team_logo_box .team_logo {
+        width: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        height: 60px;
+        background: url(../images/team_logo_03.jpg) no-repeat center center;
+        background-size: 100% auto;
+    }
+    
+    .team_gk .team_box .team_logo_box .team_logo .zhuke {
+        width: 100%;
+        text-align: center !important;
+    }
+    
+    .team_gk .team_box .team_logo_box .team_logo img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .team_gk .team_box .team_ifno {
+        flex: 1;
+        overflow: hidden;
+        padding-right: 0px;
+        padding-top: 0px;
+        margin-left: 10px;
+    }
+    
+    .team_gk .team_box .team_ifno h5 {
+        font-size: 15px;
+        font-weight: bold;
+        color: #231f20;
+        line-height: 20px;
+    }
+    
+    .team_gk .team_box .team_ifno h5 span {
+        color: #fc4e3e;
+        padding: 0 8px;
+    }
+    
+    .team_gk .team_box .team_ifno h5 i {
+        padding: 0 5px;
+    }
+    
+    .team_gk .team_box .team_btnbox {
+        padding-top: 30px;
+        text-align: right;
+        position: absolute;
+        right: 15px;
+        top: 35px;
+    }
+    
+    .team_logo_box .team_cm {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        color: #fc4e3e;
+        bottom: -3px;
+        right: 15px;
+        /* overflow: hidden; */
+    }
+    
+    .team_logo_box .team_cm span {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        border-radius: 50%;
+        text-align: center;
+        color: #ffffff;
+        overflow: hidden;
+    }
+    
+    .team_logo_box .team_cm span.c:before {
+        content: "C";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #fc4e3e;
+    }
+    
+    .team_logo_box .team_cm span.m:before {
+        content: "M";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #2baf2b;
+    }
+    
+    .mui-btn.mui-btn-cheng-ty1 {
+        color: #fff;
+        border: 1px solid #f96332;
+        background-color: #f96332;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        padding: 5px 10px;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    
+    .team_gk .team_member {
+        padding: 15px 0 0px;
+        border-top: 1px dashed #cdcdcd;
+        display: flex;
+    }
+    
+    .team_gk .team_member .team_logo_box {
+        width: 60px !important;
+        /*float: left;*/
+        position: relative;
+        flex: 1;
+    }
+    
+    .team_gk .team_member .team_logo_box .team_logo {
+        width: 60px;
+        margin: 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+        height: 60px;
+        background: url(../images/team_logo_03.jpg) no-repeat center center;
+        background-size: 100% auto;
+    }
+    
+    .team_gk .team_member .team_logo_box .team_logo .zhuke {
+        width: 100%;
+        text-align: center !important;
+    }
+    
+    .team_gk .team_member .team_logo_box .team_logo img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .mui-collapse {
+        font-size: 15px;
+    }
+    
+    .mui-collapse .mui-collapse-content {
+        font-size: 14px;
+        text-indent: 25px;
+    }
+    
+    .team_introduce {
+        padding: 10px 20px;
+    }
+    
+    .padding25 {
+        padding: 10px;
+    }
+    .team_private .mui-bar-footer {
+	    height: 40px;
+	    background: #fc3e3e;
+	    -webkit-box-shadow: 0 -1px 50px rgba(0, 0, 0, .85);
+	    box-shadow: 0 -1px 50px rgba(0, 0, 0, .85);
+	    padding: 0;
+	    transition: all 0.4s;
+	    /* opacity: 0; */
+	    /* bottom: -40px; */
+	}
+    </style>
+</head>
+
+<body class="team_private">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <a class="mui-icon-extra mui-icon-extra-share mui-pull-right" style="margin-top: 10px; margin-right: 10px;"></a>
+        <h1 class="mui-title">战队详情</h1>
+    </header>
+    <footer class="mui-bar mui-bar-footer" id="join_btn">
+        <button type="button" class="mui-btn mui-btn-hong-creat">
+            <div class="btn_title blink">申 请 加 入</div>
+        </button>
+    </footer>
+    <div class="mui-content" id="pullrefresh">
+        <div class="user_info">
+            <div class="user_info_face">
+                <div id="face">
+                    <!--<img src="../images/regbg_01.jpg"/>-->
+                </div>
+            </div>
+            <div class="team_name1 mui-ellipsis">
+                IG战队
+            </div>
+            <div class="manifesto mui-ellipsis">
+                小伙伴，搞起来！搞起来小伙伴，搞起来！搞起来小伙伴，搞起来！搞起来
+            </div>
+            <div class="user_info_msg">
+                <div class="user_gamenum mui-pull-left">
+                    <p>参赛场数</p>
+                    <p class="fontweight">120</p>
+                </div>
+                <div class="user_odds mui-pull-left">
+                    <p>胜率</p>
+                    <p class="fontweight">78%</p>
+                </div>
+                <div class="user_name mui-pull-left">
+                    <button type="button" class="mui-btn mui-btn-cheng-ty1">修改信息</button>
+                </div>
+            </div>
+            <div class="like_game">
+                <span class="dota"></span>
+            </div>
+            <div class="teamer_num">
+                <span>5</span><span>/</span><span>5</span>
+            </div>
+            <div class="combat_values">
+                2312
+            </div>
+        </div>
+        <div class="con">
+            <div class="show_module">
+                <div class="module_title">战队概况</div>
+                <div class="module_con">
+                    <div class="team_gk">
+                        <div class="team_box">
+                            <div class="team_logo_box">
+                                <div class="team_logo">
+                                    <!--<img src="../images/dunpai_01.jpg"/>-->
+                                </div>
+                                <div class="team_cm">
+                                    <span class="c"></span>
+                                </div>
+                            </div>
+                            <div class="team_ifno">
+                                <h5 class="mui-ellipsis">战队ID:<span>192389123</span></h5>
+                                <h5 class="mui-ellipsis">成立时间：2016.4.23
+									<i>北京</i>
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="team_member">
+                            <div class="team_logo_box">
+                                <div class="team_logo">
+                                    <img src="../images/kulou.png" />
+                                </div>
+                                <div class="team_cm">
+                                    <span class="m"></span>
+                                </div>
+                            </div>
+                            <div class="team_logo_box">
+                                <div class="team_logo">
+                                    <img src="../images/kulou.png" />
+                                </div>
+                                <div class="team_cm">
+                                    <span class="m"></span>
+                                </div>
+                            </div>
+                            <div class="team_logo_box">
+                                <div class="team_logo">
+                                    <img src="../images/kulou.png" />
+                                </div>
+                                <div class="team_cm">
+                                    <span class="m"></span>
+                                </div>
+                            </div>
+                            <div class="team_logo_box">
+                                <div class="team_logo">
+                                    <img src="../images/kulou.png" />
+                                </div>
+                                <div class="team_cm">
+                                    <span class="m"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="show_module">
+                <div class="module_title">战队简介</div>
+                <div class="module_con">
+                    <p class="team_introduce">
+                        Invictus Gaming（以下简称iG）是一家以电子竞技及周边业务为核心、旗下有多名国内顶级电子竞技选手的平台，iG的目标之一是打造全球顶级电竞俱乐部。iG已整合前CCM电竞俱乐部Dota2（刀塔）、星际争霸2（SC2）、英雄联盟（LOL）、《炉石传说》项目所有队员。
+                    </p>
+                </div>
+            </div>
+            <div class="show_module">
+                <div class="module_title">即将开始的比赛</div>
+                <div class="module_con">
+                    <div class="tostartgame_box">
+                        <div class="tostartgame_con">
+                            <div class="team_logo">
+                                <div class="team_logo_box">
+                                    <img src="../images/team_logo_03.jpg" />
+                                </div>
+                                <div class="team_name">
+                                    TE-NAME
+                                </div>
+                            </div>
+                            <!--<div class="game_score">2</div>-->
+                            <div class="team_vs">
+                                <div class="vs">vs</div>
+                                <!--<div class="game_type">正赛</div>-->
+                                <div class="game_time">2.12 12：00</div>
+                            </div>
+                            <!--<div class="game_score">1</div>-->
+                            <div class="team_logo">
+                                <div class="team_logo_box">
+                                    <img src="../images/team_logo_03.jpg" />
+                                </div>
+                                <div class="team_name">
+                                    TE-NAME
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="btn_box">
+										<button type="button" class="mui-btn mui-btn-cheng-jieshou">接 受</button>
+										<button type="button" class="mui-btn mui-btn-bai-jujue">拒 绝</button>
+									</div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="show_module">
+                <div class="module_title">正在参加的赛事</div>
+                <div class="module_con padding25">
+                    <div class="match_box">
+                        <div class="match_logo_box">
+                            <div class="match_logo">
+                                <img src="../images/kulou.png">
+                            </div>
+                            <div id="match_like_game">
+                                <span class="dota"></span>
+                            </div>
+                        </div>
+                        <div class="match_ifno">
+                            <h4 class="mui-ellipsis">ECL秋季赛线上预选赛季赛线上</h4>
+                            <p>
+                                <span>比赛形式：<i>线上赛</i></span>
+                                <span>类型：<i>职业赛</i></span>
+                            </p>
+                        </div>
+                        <div class="match_effectiveness">
+                            2315
+                        </div>
+                        <div class="num">
+                            1/16
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="slider" class="mui-slider">
+                <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted slider-header">
+                    <div class="mui-scroll">
+                        <a class="mui-control-item mui-active" href="#item1mobile">
+							战队发出的邀请
+						</a>
+                        <a class="mui-control-item" href="#item2mobile">
+							队员推荐
+						</a>
+                        <a class="mui-control-item" href="#item3mobile">
+							申请加入战队
+						</a>
+                    </div>
+                </div>
+                <div class="mui-slider-group slider-body" id="slider-body">
+                    <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+                        <div id="scroll">
+                            <div>
+                                <ul class="mui-table-view">
+                                    <li class="team_box">
+                                        <div class="team_logo_box">
+                                            <div class="team_logo">
+                                                <!--<img src="../images/dunpai_01.jpg"/>-->
+                                            </div>
+                                            <div class="team_games">
+                                                <span class="dota"></span>
+                                            </div>
+                                        </div>
+                                        <div class="team_ifno">
+                                            <h4 class="mui-ellipsis">Mesut Ozil</h4>
+                                            <p class="mui-ellipsis">小伙伴们！搞起来啊！快来啊搞起来啊！快来啊</p>
+                                        </div>
+                                        <div class="team_effectiveness">
+                                            2341
+                                        </div>
+                                        <div class="team_btnbox">
+                                            <!-- <button type="button" class="mui-btn mui-btn-green-jujue">同意加入</button> -->
+                                            <button type="button" class="mui-btn mui-btn-cheng-ty">撤销邀请</button>
+                                        </div>
+                                    </li>
+                                    <li class="team_box">
+                                        <div class="team_logo_box">
+                                            <div class="team_logo">
+                                                <!--<img src="../images/dunpai_01.jpg"/>-->
+                                            </div>
+                                            <div class="team_games">
+                                                <span class="dota"></span>
+                                            </div>
+                                        </div>
+                                        <div class="team_ifno">
+                                            <h4 class="mui-ellipsis">Mesut Ozil</h4>
+                                            <p class="mui-ellipsis">小伙伴们！搞起来啊！快来啊搞起来啊！快来啊</p>
+                                        </div>
+                                        <div class="team_effectiveness">
+                                            2341
+                                        </div>
+                                        <div class="team_btnbox">
+                                            <button type="button" class="mui-btn mui-btn-green-jujue">同意加入</button>
+                                            <!--<button type="button" class="mui-btn mui-btn-cheng">拒绝邀请</button>-->
+                                        </div>
+                                    </li>
+                                    <li class="team_box">
+                                        <div class="team_logo_box">
+                                            <div class="team_logo">
+                                                <!--<img src="../images/dunpai_01.jpg"/>-->
+                                            </div>
+                                            <div class="team_games">
+                                                <span class="dota"></span>
+                                                <span class="lol"></span>
+                                                <span class="csgo"></span>
+                                                <span class="csgo"></span>
+                                            </div>
+                                        </div>
+                                        <div class="team_ifno">
+                                            <h4 class="mui-ellipsis">Mesut Ozil</h4>
+                                            <p class="mui-ellipsis">小伙伴们！搞起来啊！快来啊搞起来啊！快来啊</p>
+                                        </div>
+                                        <div class="team_effectiveness">
+                                            2341
+                                        </div>
+                                        <div class="team_btnbox">
+                                            <button type="button" class="mui-btn mui-btn-green-jujue">同意加入</button>
+                                            <!--<button type="button" class="mui-btn mui-btn-cheng">拒绝邀请</button>-->
+                                        </div>
+                                    </li>
+                                    <li class="team_box">
+                                        <div class="team_logo_box">
+                                            <div class="team_logo">
+                                                <!--<img src="../images/dunpai_01.jpg"/>-->
+                                            </div>
+                                            <div class="team_games">
+                                                <span class="dota"></span>
+                                                <span class="csgo"></span>
+                                            </div>
+                                        </div>
+                                        <div class="team_ifno">
+                                            <h4 class="mui-ellipsis">Mesut Ozil</h4>
+                                            <p class="mui-ellipsis">小伙伴们！搞起来啊！快来啊搞起来啊！快来啊</p>
+                                        </div>
+                                        <div class="team_effectiveness">
+                                            2341
+                                        </div>
+                                        <div class="team_btnbox">
+                                            <button type="button" class="mui-btn mui-btn-green-jujue">同意加入</button>
+                                            <!--<button type="button" class="mui-btn mui-btn-cheng">拒绝邀请</button>-->
+                                        </div>
+                                    </li>
+                                    <li class="team_box">
+                                        <div class="team_logo_box">
+                                            <div class="team_logo">
+                                                <!--<img src="../images/dunpai_01.jpg"/>-->
+                                            </div>
+                                            <div class="team_games">
+                                                <span class="dota"></span>
+                                                <span class="csgo"></span>
+                                                <span class="csgo"></span>
+                                            </div>
+                                        </div>
+                                        <div class="team_ifno">
+                                            <h4 class="mui-ellipsis">Mesut Ozil</h4>
+                                            <p class="mui-ellipsis">小伙伴们！搞起来啊！快来啊搞起来啊！快来啊</p>
+                                        </div>
+                                        <div class="team_effectiveness">
+                                            2341
+                                        </div>
+                                        <div class="team_btnbox">
+                                            <button type="button" class="mui-btn mui-btn-green-jujue">同意加入</button>
+                                            <!--<button type="button" class="mui-btn mui-btn-cheng">拒绝邀请</button>-->
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="item2mobile" class="mui-slider-item mui-control-content">
+                        <div class="mui-scroll-wrapper" id="scroll1">
+                            <div class="mui-scroll">
+                                <ul class="mui-table-view">
+                                    <li class="team_box">
+                                        <div class="team_logo_box">
+                                            <div class="team_logo">
+                                                <!--<img src="../images/dunpai_01.jpg"/>-->
+                                            </div>
+                                            <div class="team_games">
+                                                <span class="dota"></span>
+                                            </div>
+                                        </div>
+                                        <div class="team_ifno">
+                                            <h4 class="mui-ellipsis">Mesut Ozil</h4>
+                                            <p class="mui-ellipsis">小伙伴们！搞起来啊！快来啊搞起来啊！快来啊</p>
+                                        </div>
+                                        <div class="team_effectiveness">
+                                            2341
+                                        </div>
+                                        <div class="team_btnbox">
+                                            <button type="button" class="mui-btn mui-btn-cheng-ty">拒绝邀请</button>
+                                            <button type="button" class="mui-btn mui-btn-green-jujue">邀请加入</button>
+                                        </div>
+                                    </li>
+                                    <li class="team_box">
+                                        <div class="team_logo_box">
+                                            <div class="team_logo">
+                                                <!--<img src="../images/dunpai_01.jpg"/>-->
+                                            </div>
+                                            <div class="team_games">
+                                                <span class="dota"></span>
+                                            </div>
+                                        </div>
+                                        <div class="team_ifno">
+                                            <h4 class="mui-ellipsis">Mesut Ozil</h4>
+                                            <p class="mui-ellipsis">小伙伴们！搞起来啊！快来啊搞起来啊！快来啊</p>
+                                        </div>
+                                        <div class="team_effectiveness">
+                                            2341
+                                        </div>
+                                        <div class="team_btnbox">
+                                            <button type="button" class="mui-btn mui-btn-green-jujue">同意加入</button>
+                                            <!--<button type="button" class="mui-btn mui-btn-cheng">拒绝邀请</button>-->
+                                        </div>
+                                    </li>
+                                    <li class="team_box">
+                                        <div class="team_logo_box">
+                                            <div class="team_logo">
+                                                <!--<img src="../images/dunpai_01.jpg"/>-->
+                                            </div>
+                                            <div class="team_games">
+                                                <span class="dota"></span>
+                                            </div>
+                                        </div>
+                                        <div class="team_ifno">
+                                            <h4 class="mui-ellipsis">Mesut Ozil</h4>
+                                            <p class="mui-ellipsis">小伙伴们！搞起来啊！快来啊搞起来啊！快来啊</p>
+                                        </div>
+                                        <div class="team_effectiveness">
+                                            2341
+                                        </div>
+                                        <div class="team_btnbox">
+                                            <button type="button" class="mui-btn mui-btn-green-jujue">同意加入</button>
+                                            <!--<button type="button" class="mui-btn mui-btn-cheng">拒绝邀请</button>-->
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="item3mobile" class="mui-slider-item mui-control-content">
+                        <div class="mui-scroll-wrapper" id="scroll1">
+                            <div class="mui-scroll">
+                                <ul class="mui-table-view">
+                                    <li class="team_box">
+                                        <div class="team_logo_box">
+                                            <div class="team_logo">
+                                                <!--<img src="../images/dunpai_01.jpg"/>-->
+                                            </div>
+                                            <div class="team_games">
+                                                <span class="dota"></span>
+                                            </div>
+                                        </div>
+                                        <div class="team_ifno">
+                                            <h4 class="mui-ellipsis">Mesut Ozil</h4>
+                                            <p class="mui-ellipsis">小伙伴们！搞起来啊！快来啊搞起来啊！快来啊</p>
+                                        </div>
+                                        <div class="team_effectiveness">
+                                            2341
+                                        </div>
+                                        <div class="team_btnbox">
+                                            <button type="button" class="mui-btn mui-btn-cheng-ty">拒绝申请</button>
+                                            <button type="button" class="mui-btn mui-btn-green-jujue">邀请加入</button>
+                                        </div>
+                                    </li>
+                                    <li class="team_box">
+                                        <div class="team_logo_box">
+                                            <div class="team_logo">
+                                                <!--<img src="../images/dunpai_01.jpg"/>-->
+                                            </div>
+                                            <div class="team_games">
+                                                <span class="dota"></span>
+                                            </div>
+                                        </div>
+                                        <div class="team_ifno">
+                                            <h4 class="mui-ellipsis">Mesut Ozil</h4>
+                                            <p class="mui-ellipsis">小伙伴们！搞起来啊！快来啊搞起来啊！快来啊</p>
+                                        </div>
+                                        <div class="team_effectiveness">
+                                            2341
+                                        </div>
+                                        <div class="team_btnbox">
+                                            <button type="button" class="mui-btn mui-btn-green-jujue">同意加入</button>
+                                            <!--<button type="button" class="mui-btn mui-btn-cheng">拒绝邀请</button>-->
+                                        </div>
+                                    </li>
+                                    <li class="team_box">
+                                        <div class="team_logo_box">
+                                            <div class="team_logo">
+                                                <!--<img src="../images/dunpai_01.jpg"/>-->
+                                            </div>
+                                            <div class="team_games">
+                                                <span class="dota"></span>
+                                            </div>
+                                        </div>
+                                        <div class="team_ifno">
+                                            <h4 class="mui-ellipsis">Mesut Ozil</h4>
+                                            <p class="mui-ellipsis">小伙伴们！搞起来啊！快来啊搞起来啊！快来啊</p>
+                                        </div>
+                                        <div class="team_effectiveness">
+                                            2341
+                                        </div>
+                                        <div class="team_btnbox">
+                                            <button type="button" class="mui-btn mui-btn-green-jujue">同意加入</button>
+                                            <!--<button type="button" class="mui-btn mui-btn-cheng">拒绝邀请</button>-->
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/mui.min.js"></script>
+    <script type="text/javascript">
+    mui.init({
+        /*pullRefresh: {
+                    container: '#pullrefresh',
+                    down: {
+                        callback: pulldownRefresh
+                    }
+                }下拉刷新代码*/
+    });
+    mui.plusReady(function() {
+            var cteate_btn = document.getElementById('cteate_btn');
+            mui('.mui-segmented-control1').on('tap', '.mui-control-item1', function() {
+                var index = this.getAttribute('index') - 0;
+                mui('.mui-control-item1').each(function() {
+                    this.classList.remove('mui-active');
+                })
+                this.classList.add('mui-active')
+                mui('.mui-control-content1').each(function() {
+                    this.classList.remove('active');
+                })
+                mui('.mui-control-content1')[index].classList.add('active');
+                cteate_btn.classList.remove('show')
+                if (index) {
+                    cteate_btn.classList.add('show');
+                }
+
+            });
+            mui('.mui-bar-footer').on('tap', '.mui-btn-hong-creat', function() {
+                mui.openWindow({
+                    url: "../create_lianxi_match.html",
+                    id: "create_lianxi_match.html",
+                    preload: true,
+
+                })
+            });
+        })
+        /*function pulldownRefresh(){
+        	alert(11111);
+        } 下拉刷新代码*/
+    </script>
+</body>
+
+</html>

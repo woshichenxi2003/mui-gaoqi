@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>单场比赛页面</title>
+		<title>练习赛单场比赛页面</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="css/icons-extra.css" />
@@ -197,9 +197,10 @@
 			    backface-visibility: hidden;
 			}
 			 .mui-bar-footer .mui-btn-hong-creat {
-				width: 100%;
+				width: 50%;
 				line-height: 20px;
 				position: relative;
+				float: left;
 
 			}
 			 .mui-bar-footer .mui-btn-hong-creat .ts{
@@ -626,7 +627,7 @@
 				height: 140px;
 				margin-left: -70px;
 				margin-top: -70px;
-				background-image: url(../images/arecord.png);
+				b/* ackground-image: url(images/arecord.png); */
 				background-repeat: no-repeat;
 				background-position: center center;
 				background-size: 30px 30px;
@@ -725,6 +726,7 @@
 				background-color: darkred;
 			}
 
+
 		</style>
 	</head>
 	<body class="match_details">
@@ -733,13 +735,17 @@
 			<a class="mui-icon-extra mui-icon-extra-share mui-pull-right" style="margin-top: 10px; margin-right: 20px;"></a>
 			<h1 class="mui-title">单场比赛</h1>
 		</header>
-		<footer class="mui-bar mui-bar-footer" id="join_btn">
+		<footer class="mui-bar mui-bar-footer .lianxi_one" id="join_btn">
+		    <button type="button" class="mui-btn mui-btn-hong-creat">
+		    	<div class="btn_title blink">放 弃 比 赛</div>
+		    </button>
 		    <button type="button" class="mui-btn mui-btn-hong-creat">
 		    	<div class="btn_title blink">提 交 赛 果</div>
 		    	<div class="ts">
 			    	<img src="images/tousu_22.png"/>
 			    </div>
 		    </button>
+
 		</footer>
 
 		<div class="mui-content">
@@ -1184,43 +1190,7 @@
 				});
 			}(mui, document));
 		</script>
-		<script type="text/javascript">
-
-			mui.init({
-				/*pullRefresh: {
-                    container: '#pullrefresh',
-                    down: {
-                        callback: pulldownRefresh
-                    }
-                }下拉刷新代码*/
-			});
-			/*mui.plusReady(function(){
-
-				mui.ajax('http://api.gaoqi.cespc.com:9378/comm/game/lol',{
-					data:{},
-					dataType:'json',//服务器返回json格式数据
-					crossDomain: true,
-					type:'post',//HTTP请求类型
-					timeout:10000,//超时时间设置为10秒；
-					headers:{'Content-Type':'application/json'},
-					success:function(data){
-						alert(data.data.game_name);
-					},
-					error:function(xhr,type,errorThrown){
-						//异常处理；
-						alert('请求失败');
-					}
-				});
-
-			})	*/
-
-			/*function pulldownRefresh(){
-				alert(11111);
-			} 下拉刷新代码*/
-
-
-
-		</script>
+		
 	</body>
 
 </html>

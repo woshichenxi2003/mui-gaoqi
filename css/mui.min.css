@@ -2845,12 +2845,12 @@ select:focus {
 	font-size: 20px;
 	font-weight: 400;
 	position: absolute;
-	top: 50%;
+	top: 20%;
 	right: 50%;
 	display: none;
 	margin-top: -18px;
 	margin-right: 31px;
-	content: '\e466'
+	content: '\e466';
 }
 
 .mui-search.mui-active:before {
@@ -4676,3 +4676,39 @@ body>.mui-progressbar {
 	height: 100%;
 	border: 0
 }
+
+
+.mui-table-view .mui-media-object {
+				line-height: 60px;
+				max-width: 90px;
+				height: 60px
+			}
+			
+			.mui-table-view .mui-media-object.mui-pull-left {
+				margin-right: 10px
+			}
+			
+			.mui-table-view .mui-media-object.mui-pull-right {
+				margin-left: 10px
+			}
+			
+			.mui-table-view .mui-media-body {
+				overflow: hidden;
+				font-size: 17px;
+			}
+			.mui-table-view .mui-media-body p{
+				font-size: 14px;
+			}
+			.mui-table-view .mui-media-body span
+			{
+				display: block;
+				width: 100%;
+				line-height: 21px;
+				text-align: right;
+				font-size: 14px;
+				color: #eb6d20;
+			}
+			.mui-icon-compose:before {
+			    font-size: 20px;
+			    color: #878c92;
+			}

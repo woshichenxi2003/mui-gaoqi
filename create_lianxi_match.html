@@ -72,6 +72,7 @@
 				font-size: 14px;
 				/*margin-bottom: 10px;*/
 				border-bottom: 1px solid #c8c7cc;
+				vertical-align: middle;
 			}
 
 			.text_show {
@@ -136,13 +137,38 @@
 				transform: scaleY(.5);
 				background-color: #c8c7cc;
 			}
-
+			.mui-input-row .mui-btn-block.create_match_select{
+				display: inline-block;
+				vertical-align: middle;
+				float: left;
+				font-size:12px;
+				/*border: 1px solid #c3c3c3;*/
+				background: url("images/arrow_down.png") no-repeat 90% center #f2f2f2;
+				background-size: 9px auto;
+				height: 25px;
+				padding:0 10px ;
+				margin-top: 6px;
+				position: relative;
+			}
+			.mui-input-row .repoints{
+				display: inline-block;
+				width:50%;
+				float: left;
+				line-height: 38px;
+				text-align: center;
+				
+			}
+			.mui-input-row .repoints span{
+				color: #fc3e3e;
+				padding:0 5px
+			}
+			
 			.mui-input-group .mui-input-row textarea {
 				color: #000000;
 
 			}
 			.mui-input-group .mui-input-row label {
-				width: 30%;
+				width: 35%;
 				line-height: 20px;
 				font-size: 14px;
 				padding: 9px 14px;
@@ -150,7 +176,7 @@
 			.mui-input-row label~input,
 			.mui-input-row label~select,
 			.mui-input-row label~textarea {
-				width: 70%;
+				width: 65%;
 				height: 38px;
 			}
 			.mui-input-row .mui-input-clear~.mui-icon-clear, .mui-input-row .mui-input-password~.mui-icon-eye, .mui-input-row .mui-input-speech~.mui-icon-speech
@@ -176,9 +202,6 @@
 				float: left;
 				margin-top: 7px;
 			}
-
-
-
 
 			.mui-checkbox span {
 				display: inline-block;
@@ -234,18 +257,69 @@
 				/* color: #007aff; */
 				color: #fc4e3e;
 			}
-
+			/*.mui-checkbox input[type=checkbox]:before {*/
+				 /*content: '\e411'*/
+			 /*}*/
+			/*.mui-checkbox.mui-left label,*/
+			/*.mui-radio.mui-left label {*/
+				/*padding-right: 15px;*/
+				/*padding-left: 58px;*/
+				/*float: left;*/
+			/*}*/
 			.mui-checkbox input[type=checkbox]:before,
 			.mui-radio input[type=radio]:before {
 				font-family: Muiicons;
-				font-size: 14px;
+				font-size: 18px;
 				font-weight: 400;
 				line-height: 1.1;
 				text-decoration: none;
 				color: #aaa;
 				border-radius: 0;
 				background: 0 0;
-				-webkit-font-smoothing: antialiased;
+				-webkit-font-smoothing: antialiased
+			}
+
+			/*下面的选择按钮*/
+			.mui-checkbox1 input[type=checkbox],
+			.mui-radio input[type=radio] {
+				position: absolute;
+				top: 10px;
+				left:20px;
+				display: inline-block;
+				width: 18px;
+				height: 18px;
+				border: 0;
+				outline: 0!important;
+				background-color: transparent;
+				-webkit-appearance: none;
+			}
+			.mui-checkbox1 input[type=checkbox]:before {
+				content: '\e411'
+			}
+			.mui-checkbox1 input[type=checkbox]:checked:before,
+			.mui-radio input[type=radio]:checked:before {
+				color: #007aff;
+				content: '\e442'
+			}
+			.mui-input-group .mui-input-row.mui-checkbox1 label {
+				width: 35%;
+				line-height: 20px;
+				font-size: 14px;
+				/*padding: 9px 14px;*/
+				padding-right: 15px;
+				padding-left: 15px;
+			}
+			.mui-checkbox1 input[type=checkbox]:before,
+			.mui-radio input[type=radio]:before {
+				font-family: Muiicons;
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 1.1;
+				text-decoration: none;
+				color: #aaa;
+				border-radius: 0;
+				background: 0 0;
+				-webkit-font-smoothing: antialiased
 			}
 			.title{
 				width:100%;
@@ -255,21 +329,36 @@
 				width:100%;
 
 			}
+			.mui-input-row .mui-switch {
+				float: left;
+				margin-top: 5px;
+				margin-right: 0px;
+				margin-left: 0px;
+			}
+			.swicth_box{
+				height:0;
+				overflow: hidden;
+				/*display: none;*/
+				transition:all 0.5s ease;
+			}
+			.swicth_box.showit{
+				/*display: block;*/
+				height: 80px;
+			}
 		</style>
 	</head>
 	<body class="match_details">
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<a class="mui-icon-extra mui-icon-extra-share mui-pull-right" style="margin-top: 10px; margin-right: 10px;"></a>
-			<h1 class="mui-title">赛事详情</h1>
+			<h1 class="mui-title">创建练习赛</h1>
 		</header>
 		<footer class="mui-bar mui-bar-footer" id="join_btn">
 		    <button type="button" class="mui-btn mui-btn-hong-creat">
-		    	<div class="btn_title">报 名 参 赛</div>
+		    	<div class="btn_title">确 定 创 建</div>
 		    </button>
 		</footer>
 		<div class="mui-content">
-			<form class="mui-input-group">
+			<form class="mui-input-group" id="create_lianxi">
 				<div class="title">
 						<img src="images/cjbg.jpg"/>
 				</div>
@@ -281,7 +370,7 @@
 					</div>
 					<div class="mui-checkbox">
 						<span class="lol"></span>
-						<input name="checkbox" value="Item 1" type="checkbox" checked="checked">
+						<input name="checkbox" value="Item 1" type="checkbox">
 					</div>
 					<div class="mui-checkbox">
 						<span class="fengbao"></span>
@@ -297,30 +386,63 @@
 					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入昵称">
 				</div>
 				<div class="mui-input-row">
-					<label>Input</label>
-					<input type="text" class="mui-input-clear" placeholder="带清除按钮的输入框">
-				</div>
-				<div class="mui-input-row"  id='showUserPicker'>
-					<label>性别：</label>
-					<div id="userResult" class="text_show">
-						请选择性别
+					<label>积分奖励：</label>
+					<select class="mui-btn mui-btn-block create_match_select" id="point">
+	                    <option value="100">1</option>
+	                    <option value="300">3</option>
+	                    <option value="500">5</option>
+	                </select>
+					<div class="repoints">
+						奖励OB积分:<span>100</span>
 					</div>
 				</div>
-				<div class="mui-input-row" id="showCityPicker3">
-					<label>常驻地：</label>
-					<div class="text_show" id="cityResult3">
-						请选择常驻地
+				<div class="mui-input-row">
+					<label>战斗力限制：</label>
+					<select class="mui-btn mui-btn-block create_match_select" style="width: 50%;">
+						<option value="100">100-500</option>
+						<option value="300">500-1000</option>
+						<option value="500">1000以上</option>
+					</select>
+				</div>
+				<div class="mui-input-row">
+					<label style="font-size: 13px;">服务器/地图：</label>
+					<select class="mui-btn mui-btn-block create_match_select" style="width: 50%; ">
+						<option value="拉玛西亚">拉玛西亚</option>
+						<option value="拉玛西亚">拉玛西亚-1000</option>
+						<option value="拉玛西亚">拉玛西亚</option>
+					</select>
+				</div>
+				<div class="mui-input-row mui-checkbox1 mui-left">
+					<label>开启直播：</label>
+					<div class="mui-switch">
+						<div class="mui-switch-handle"></div>
+					</div>
+					<!--<input name="checkbox" value="Item 1" type="checkbox">-->
+
+				</div>
+				<div class="swicth_box">
+					<div class="mui-input-row">
+						<label>直播平台：</label>
+						<select class="mui-btn mui-btn-block create_match_select" style="width: 30%;">
+							<option value="huomao">火猫</option>
+							<option value="xiongmao">熊猫</option>
+						</select>
+					</div>
+					<div class="mui-input-row">
+						<label>直播地址：</label>
+						<input id='dizhi' type="text" class="mui-input-clear mui-input" placeholder="请输入直播地址">
 					</div>
 				</div>
+
 
 
 				<div class="mui-input-row text_area">
-					<textarea id="textarea" rows="3" placeholder="签名："></textarea>
+					<textarea id="textarea" rows="3" placeholder="备注："></textarea>
 				</div>
 			</form>
 		</div>
 
-		<script src="js/mui.min.js"></script>
+		<script src="js/min1.js"></script>
 		<script type="text/javascript">
 
 			mui.init({
@@ -330,12 +452,44 @@
                         callback: pulldownRefresh
                     }
                 }下拉刷新代码*/
+                swipeBack:true
 			});
 			mui.plusReady(function(){
 
 			})
+			// 变成单选按钮
+			var checkList = document.querySelectorAll('.mui-checkbox');
+			checkList.forEach( function(ele, index) {
+				ele.addEventListener('tap', function(){		
+					checkList.forEach(function(el){
+						el.querySelector('input').checked = false;
+					})
+					// ele.querySelector('input').checked = checked;
+				})
+			});
+//			var subBtn = document.querySelector('.mui-btn-hong-creat');
+//			var formObj = document.querySelector('#create_lianxi')
+			// subBtn.addEventListener('tap', function(){
+			// 	formObj.submit();
+			// })
+			var point = document.querySelector('#point');
+			var rePoint = document.querySelector('.repoints');
+			point.addEventListener('change',function(){
+				rePoint.querySelector('span').innerHTML = point.value;
+			})
 
-
+//			滑动开关效果
+			var box = document.querySelector('.swicth_box')
+            mui('.mui-content .mui-switch').each(function() { //循环所有toggle
+                this.addEventListener('toggle', function(event) {
+                    console.log(event.detail.isActive)
+                    if(event.detail.isActive){
+						box.classList.add('showit')
+					}else{
+                        box.classList.remove('showit')
+					}
+                });
+            });
 
 
 
