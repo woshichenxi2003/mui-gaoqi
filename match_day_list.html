@@ -1,0 +1,443 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>比赛日比赛列表</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/public.css" />
+    <style>
+    .mui-fullscreen {
+        position: absolute;
+        top: 0px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    
+    html {
+        height: 100%;
+    }
+    
+    .mui-content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mui-fullscreen .mui-segmented-control~.mui-slider-group {
+        position: absolute;
+        top: 40px;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+    }
+    
+    #box-con {
+        position: relative;
+        top: 0;
+        flex: 1;
+        /*overflow: hidden;*/
+    }
+    
+    .mui-control-content {
+        width: 100%;
+        /*height: 100%;*/
+        position: absolute;
+        top: 0px;
+        bottom: 0;
+        overflow: hidden;
+    }
+    
+    .mui-bar-nav~.mui-content .mui-slider.mui-fullscreen {
+        top: 0px;
+    }
+    
+    * .mui-segmented-control.mui-scroll-wrapper .mui-control-item {
+        line-height: 38px;
+        display: table-cell;
+        overflow: hidden;
+        width: 1%;
+        -webkit-transition: background-color .1s linear;
+        transition: background-color .1s linear;
+        text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #fc3e3e;
+        border-color: #fc3e3e;
+        border: 1px solid #fc3e3e;
+        border-left: none;
+        padding: 0;
+    }
+    
+    .mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+        /*border-bottom: 4px solid #fc3e3e;*/
+    }
+    
+    .mui-segmented-control.mui-scroll-wrapper .mui-control-item.mui-active {
+        color: #ffffff;
+        background-color: #fc3e3e;
+        /*border-bottom: 4px solid #fc3e3e;*/
+    }
+    
+    .mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item {
+        border-top: none;
+        border-bottom: none
+    }
+    
+    * .mui-segmented-control .mui-control-item:first-child {
+        border-left-width: 0
+    }
+    
+    * .mui-segmented-control .mui-control-item.mui-active {
+        color: #fff;
+        background-color: #007aff
+    }
+    
+    .mui-segmented-control.mui-scroll-wrapper {
+        height: 40px;
+    }
+    
+    .mui-segmented-control.mui-scroll-wrapper .mui-scroll {
+        width: auto;
+        height: 40px;
+        white-space: nowrap
+    }
+    
+    .mui-icon-compose:before {
+        font-size: 20px;
+        color: #878c92;
+    }
+    
+    .mui-segmented-control {
+        font-size: 15px;
+        font-weight: 400;
+        position: relative;
+        display: table;
+        overflow: hidden;
+        width: 100%;
+        table-layout: fixed;
+        border: none;
+        border-radius: 0px;
+        background-color: transparent;
+        -webkit-touch-callout: none;
+    }
+    
+    .mui-segmented-control.mui-segmented-control-vertical {
+        border-collapse: collapse;
+        border-width: 0;
+        border-radius: 0
+    }
+    
+    .mui-segmented-control.mui-segmented-control-vertical .mui-control-item {
+        display: block;
+        border-bottom: 1px solid #c8c7cc;
+        border-left-width: 0
+    }
+    
+    .mui-segmented-control .mui-control-item {
+        line-height: 36px;
+        display: table-cell;
+        overflow: hidden;
+        width: 1%;
+        -webkit-transition: background-color .1s linear;
+        transition: background-color .1s linear;
+        text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #232323;
+        border-color: #fc3e3e;
+        border-bottom: 1px solid #fc3e3e;
+        border-left: none;
+    }
+    
+    .mui-segmented-control .mui-control-item:first-child {
+        border-left-width: 0
+    }
+    
+    .mui-segmented-control .mui-control-item.mui-active {
+        color: #fc3e3e;
+        background-color: #ffffff;
+        border-bottom: 4px solid #fc3e3e
+    }
+    .tostartgame_box{
+        padding: 5px 15px;
+        border-bottom: 1px dashed #E6E6E6
+    }
+    .tostartgame_box:first-child{
+       margin-top: 10px;
+    }
+    /* .mui-scroll{
+        padding-top: 10px;
+    } */
+    
+   
+    </style>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <a class="mui-icon-extra mui-icon-extra-share mui-pull-right" style="margin-top: 10px; margin-right: 10px;"></a>
+        <h1 class="mui-title">ECL秋季赛比赛日</h1>
+    </header>
+    
+    <div class="mui-content" id="mui-content">
+        <div id="box-con">
+            <div id="slider" class="mui-slider mui-fullscreen">
+                <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted slider-header">
+                    <div class="mui-scroll" id="mui-nav">
+                        <a class="mui-control-item mui-active" href="#item1mobile" index='0'>
+							3月15日
+						</a>
+                        <a class="mui-control-item" href="#item2mobile" index='1'>
+							3月16日
+						</a>
+                        <a class="mui-control-item" href="#item3mobile" index='2'>
+							3月17日
+						</a>
+                        <a class="mui-control-item" href="#item3mobile" index='2'>
+                            3月18日
+                        </a>
+                        <a class="mui-control-item" href="#item3mobile" index='2'>
+                            3月19日
+                        </a>
+                    </div>
+                </div>
+                <div class="mui-slider-group slider-body" id="slider-body">
+                    <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+                        <div id="scroll" class="mui-scroll-wrapper">
+                            <div class="mui-scroll">
+                                <div class="tostartgame_box">
+                                    <div class="tostartgame_con">
+                                        <div class="team_logo">
+                                            <div class="team_logo_box">
+                                                <img src="images/team_logo_03.jpg"/>
+                                            </div>
+                                            <div class="team_name">
+                                                TE-NAME
+                                            </div>
+                                        </div>
+                                        <div class="game_score">2</div>
+                                        <div class="team_vs">
+                                            <div class="vs">vs</div>
+                                            <!-- <div class="game_type">正赛</div> -->
+                                            <div class="game_time">2.12 12：00</div>
+                                        </div>
+                                        <div class="game_score">1</div>
+                                        <div class="team_logo">
+                                            <div class="team_logo_box">
+                                                <img src="images/team_logo_03.jpg"/>
+                                            </div>
+                                            <div class="team_name">
+                                                天生我才必
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="tostartgame_box">
+                                    <div class="tostartgame_con">
+                                        <div class="team_logo">
+                                            <div class="team_logo_box">
+                                                <img src="images/team_logo_03.jpg"/>
+                                            </div>
+                                            <div class="team_name">
+                                                TE-NAME
+                                            </div>
+                                        </div>
+                                        <div class="game_score">2</div>
+                                        <div class="team_vs">
+                                            <div class="vs">vs</div>
+                                            <!-- <div class="game_type">正赛</div> -->
+                                            <div class="game_time">2.12 12：00</div>
+                                        </div>
+                                        <div class="game_score">1</div>
+                                        <div class="team_logo">
+                                            <div class="team_logo_box">
+                                                <img src="images/team_logo_03.jpg"/>
+                                            </div>
+                                            <div class="team_name">
+                                                天生我才必
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="tostartgame_box">
+                                    <div class="tostartgame_con">
+                                        <div class="team_logo">
+                                            <div class="team_logo_box">
+                                                <img src="images/team_logo_03.jpg"/>
+                                            </div>
+                                            <div class="team_name">
+                                                TE-NAME
+                                            </div>
+                                        </div>
+                                        <div class="game_score">2</div>
+                                        <div class="team_vs">
+                                            <div class="vs">vs</div>
+                                            <!-- <div class="game_type">正赛</div> -->
+                                            <div class="game_time">2.12 12：00</div>
+                                        </div>
+                                        <div class="game_score">1</div>
+                                        <div class="team_logo">
+                                            <div class="team_logo_box">
+                                                <img src="images/team_logo_03.jpg"/>
+                                            </div>
+                                            <div class="team_name">
+                                                天生我才必
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="tostartgame_box">
+                                    <div class="tostartgame_con">
+                                        <div class="team_logo">
+                                            <div class="team_logo_box">
+                                                <img src="images/team_logo_03.jpg"/>
+                                            </div>
+                                            <div class="team_name">
+                                                TE-NAME
+                                            </div>
+                                        </div>
+                                        <div class="game_score">2</div>
+                                        <div class="team_vs">
+                                            <div class="vs">vs</div>
+                                            <!-- <div class="game_type">正赛</div> -->
+                                            <div class="game_time">2.12 12：00</div>
+                                        </div>
+                                        <div class="game_score">1</div>
+                                        <div class="team_logo">
+                                            <div class="team_logo_box">
+                                                <img src="images/team_logo_03.jpg"/>
+                                            </div>
+                                            <div class="team_name">
+                                                天生我才必
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="tostartgame_box">
+                                    <div class="tostartgame_con">
+                                        <div class="team_logo">
+                                            <div class="team_logo_box">
+                                                <img src="images/team_logo_03.jpg"/>
+                                            </div>
+                                            <div class="team_name">
+                                                TE-NAME
+                                            </div>
+                                        </div>
+                                        <div class="game_score">2</div>
+                                        <div class="team_vs">
+                                            <div class="vs">vs</div>
+                                            <!-- <div class="game_type">正赛</div> -->
+                                            <div class="game_time">2.12 12：00</div>
+                                        </div>
+                                        <div class="game_score">1</div>
+                                        <div class="team_logo">
+                                            <div class="team_logo_box">
+                                                <img src="images/team_logo_03.jpg"/>
+                                            </div>
+                                            <div class="team_name">
+                                                天生我才必
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="tostartgame_box">
+                                    <div class="tostartgame_con">
+                                        <div class="team_logo">
+                                            <div class="team_logo_box">
+                                                <img src="images/team_logo_03.jpg"/>
+                                            </div>
+                                            <div class="team_name">
+                                                TE-NAME
+                                            </div>
+                                        </div>
+                                        <div class="game_score">2</div>
+                                        <div class="team_vs">
+                                            <div class="vs">vs</div>
+                                            <!-- <div class="game_type">正赛</div> -->
+                                            <div class="game_time">2.12 12：00</div>
+                                        </div>
+                                        <div class="game_score">1</div>
+                                        <div class="team_logo">
+                                            <div class="team_logo_box">
+                                                <img src="images/team_logo_03.jpg"/>
+                                            </div>
+                                            <div class="team_name">
+                                                天生我才必
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="item2mobile" class="mui-slider-item mui-control-content">
+                        <div class="mui-scroll-wrapper" id="scroll1">
+                            <div class="mui-scroll">
+                                222
+                            </div>
+                        </div>
+                    </div>
+                    <div id="item3mobile" class="mui-slider-item mui-control-content">
+                        <div class="mui-scroll-wrapper" id="scroll1">
+                            <div class="mui-scroll">
+                                333
+                            </div>
+                        </div>
+                    </div>
+                    <div id="item4mobile" class="mui-slider-item mui-control-content">
+                        <div class="mui-scroll-wrapper" id="scroll1">
+                            <div class="mui-scroll">
+                                444
+                            </div>
+                        </div>
+                    </div>
+                    <div id="item5mobile" class="mui-slider-item mui-control-content">
+                        <div class="mui-scroll-wrapper" id="scroll1">
+                            <div class="mui-scroll">
+                                555
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/mui.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    mui.init({
+        swipeBack: true //启用右滑关闭功能
+    });
+
+
+
+    (function($, doc) {
+        $('.mui-scroll-wrapper').scroll({
+            indicators: true //是否显示滚动条
+        });
+        // $.ready(function() {
+
+
+
+        // });
+        $.plusReady(function() {
+
+        });
+       
+
+
+
+    })(mui, document);
+    </script>
+</body>
+
+</html>

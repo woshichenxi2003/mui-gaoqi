@@ -7,7 +7,7 @@ body {
 }
 
 body.login {
-	background: url(../images/loginbg_01.webp) no-repeat center top;
+	background: url(../images/loginbg_01.jpg) no-repeat center top;
 	background-size: 100% auto;
 }
 
@@ -321,7 +321,7 @@ body.login {
 }
 
 body.reg {
-	background: url(../images/regbg_01.webp) center top no-repeat;
+	background: url(../images/regbg_01.jpg) center top no-repeat;
 	background-size: 100% auto;
 }
 
@@ -329,7 +329,7 @@ body.reg {
 /*游戏选择页面*/
 
 body.selectgame {
-	background: url(../images/selectgamebg_02.webp) center top no-repeat;
+	background: url(../images/selectgamebg_02.jpg) center top no-repeat;
 	background-size: 100% auto;
 }
 

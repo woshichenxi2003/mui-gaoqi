@@ -1,0 +1,767 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>赛程详情页面</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/public.css" />
+    <style>
+    .mui-fullscreen {
+        position: absolute;
+        top: 0px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    
+    html {
+        height: 100%;
+    }
+    
+    .mui-content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mui-fullscreen .mui-segmented-control~.mui-slider-group {
+        position: absolute;
+        top: 40px;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+    }
+    
+    #box-con {
+        position: relative;
+        top: 0;
+        flex: 1;
+        /*overflow: hidden;*/
+    }
+    
+    .mui-control-content {
+        width: 100%;
+        /*height: 100%;*/
+        position: absolute;
+        top: 0px;
+        bottom: 0;
+        overflow: hidden;
+    }
+    
+    .mui-bar-nav~.mui-content .mui-slider.mui-fullscreen {
+        top: 0px;
+    }
+    
+    * .mui-segmented-control.mui-scroll-wrapper .mui-control-item {
+        line-height: 38px;
+        display: table-cell;
+        overflow: hidden;
+        width: 1%;
+        -webkit-transition: background-color .1s linear;
+        transition: background-color .1s linear;
+        text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #fc3e3e;
+        border-color: #fc3e3e;
+        border: 1px solid #fc3e3e;
+        border-left: none;
+        padding: 0;
+    }
+    
+    .mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+        /*border-bottom: 4px solid #fc3e3e;*/
+    }
+    
+    .mui-segmented-control.mui-scroll-wrapper .mui-control-item.mui-active {
+        color: #ffffff;
+        background-color: #fc3e3e;
+        /*border-bottom: 4px solid #fc3e3e;*/
+    }
+    
+    .mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item {
+        border-top: none;
+        border-bottom: none
+    }
+    
+    * .mui-segmented-control .mui-control-item:first-child {
+        border-left-width: 0
+    }
+    
+    * .mui-segmented-control .mui-control-item.mui-active {
+        color: #fff;
+        background-color: #007aff
+    }
+    
+    .mui-segmented-control.mui-scroll-wrapper {
+        height: 40px;
+    }
+    
+    .mui-segmented-control.mui-scroll-wrapper .mui-scroll {
+        width: auto;
+        height: 40px;
+        white-space: nowrap
+    }
+    
+    .mui-icon-compose:before {
+        font-size: 20px;
+        color: #878c92;
+    }
+    
+    .mui-segmented-control {
+        font-size: 15px;
+        font-weight: 400;
+        position: relative;
+        display: table;
+        overflow: hidden;
+        width: 100%;
+        table-layout: fixed;
+        border: none;
+        border-radius: 0px;
+        background-color: transparent;
+        -webkit-touch-callout: none;
+    }
+    
+    .mui-segmented-control.mui-segmented-control-vertical {
+        border-collapse: collapse;
+        border-width: 0;
+        border-radius: 0
+    }
+    
+    .mui-segmented-control.mui-segmented-control-vertical .mui-control-item {
+        display: block;
+        border-bottom: 1px solid #c8c7cc;
+        border-left-width: 0
+    }
+    
+    .mui-segmented-control .mui-control-item {
+        line-height: 36px;
+        display: table-cell;
+        overflow: hidden;
+        width: 1%;
+        -webkit-transition: background-color .1s linear;
+        transition: background-color .1s linear;
+        text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #232323;
+        border-color: #fc3e3e;
+        border-bottom: 1px solid #fc3e3e;
+        border-left: none;
+    }
+    
+    .mui-segmented-control .mui-control-item:first-child {
+        border-left-width: 0
+    }
+    
+    .mui-segmented-control .mui-control-item.mui-active {
+        color: #fc3e3e;
+        background-color: #ffffff;
+        border-bottom: 4px solid #fc3e3e
+    }
+    /* 赛程显示表格样式定义 */
+    
+    .match_table {
+        display: table;
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    .match_table .match_table_tr {
+        display: table-row;
+        line-height: 35px;
+    }
+    
+    .match_table .match_table_tr .match_table_td {
+        display: table-cell;
+        height: 100%;
+        border-bottom: 1px solid #CCCCCC;
+    }
+    
+    .match_table .match_table_tr .match_table_td span {
+        color: #808080;
+    }
+    
+    .match_table .match_table_tr .match_table_td.max_width {
+        width: 100%;
+    }
+    
+    .sub_table {
+        display: table;
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    .sub_table .sub_table_tr {
+        display: table-row;
+        line-height: 35px;
+    }
+    
+    .sub_table .sub_table_tr .sub_table_td {
+        width: 100%;
+        display: table-cell;
+        height: 100%;
+        border-bottom: 1px solid #CCCCCC;
+    }
+    
+    .sub_table .sub_table_tr .sub_table_td1 {
+        width: 100%;
+        display: table-cell;
+        height: 100%;
+        border-bottom: none;
+    }
+    
+    .sub_table .sub_table_tr .sub_table_td span {
+        color: #808080;
+    }
+    
+    .group {
+        display: table;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .group .group_title {
+        display: table-row;
+        line-height: 35px;
+        text-align: center;
+        background: #fc3e3e;
+    }
+    
+    .group .group_title .group_title_td {
+        display: table-cell;
+        height: 100%;
+        color: #ffffff;
+        /* border-bottom: 1px solid #CCCCCC; */
+    }
+    
+    .group_tr {
+        display: table-row;
+        line-height: 35px;
+        text-align: center;
+    }
+    
+    .group_tr_td {
+        display: table-cell;
+        vertical-align: top;
+        line-height: 35px;
+        height: 30px;
+        border-bottom: 1px solid #CCCCCC;
+    }
+    
+    .group_tr_td.align_left {
+        text-align: left;
+        text-indent: 15px;
+    }
+    
+    .group_tr_td.color_red {
+        color: #fc3e3e;
+    }
+    
+    .group_tr_td .team_avator {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+        border-radius: 50%;
+        overflow: hidden;
+        text-indent: 0;
+    }
+    
+    .group_tr_td .team_avator img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .group_tr_td .team_nanme {
+        display: inline-block;
+        height: 35px;
+        /* font-size: 12px; */
+        vertical-align: middle;
+        text-indent: 0;
+    }
+    
+    .mui-bar-footer {
+        height: 40px;
+        background: #fc3e3e;
+        -webkit-box-shadow: 0 -1px 50px rgba(0, 0, 0, .85);
+        box-shadow: 0 -1px 50px rgba(0, 0, 0, .85);
+        padding: 0;
+        transition: all 0.4s;
+        /* opacity: 0; */
+        /* bottom: -40px; */
+    }
+    
+    .mui-btn.mui-btn-hong-creat {
+        display: block;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        color: #fff;
+        border: none;
+        background-color: #FF8000;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        padding: 0;
+        margin: 0;
+        font-size: 16px;
+    }
+    
+    .mui-btn.mui-btn-hong-creat.mui-active:enabled,
+    .mui-btn.mui-btn-hong-creat:enabled:active {
+        color: #fff;
+        border: none;
+        background-color: #FFCC66;
+    }
+    </style>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <a class="mui-icon-extra mui-icon-extra-share mui-pull-right" style="margin-top: 10px; margin-right: 10px;"></a>
+        <h1 class="mui-title">ECL秋季赛</h1>
+    </header>
+    <footer class="mui-bar mui-bar-footer" id="join_btn">
+        <button type="button" class="mui-btn mui-btn-hong-creat">
+            <div class="btn_title blink">查 看 比 赛 日</div>
+        </button>
+    </footer>
+    <div class="mui-content" id="mui-content">
+        <div id="box-con">
+            <div id="slider" class="mui-slider mui-fullscreen">
+                <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted slider-header">
+                    <div class="mui-scroll" id="mui-nav">
+                        <a class="mui-control-item mui-active" href="#item1mobile" index='0'>
+							线上预选赛
+						</a>
+                        <a class="mui-control-item" href="#item2mobile" index='1'>
+							线下总决赛
+						</a>
+                        <a class="mui-control-item" href="#item3mobile" index='2'>
+							世界总决赛
+						</a>
+                    </div>
+                </div>
+                <div class="mui-slider-group slider-body" id="slider-body">
+                    <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+                        <div id="scroll" class="mui-scroll-wrapper">
+                            <div class="mui-scroll">
+                                <div class="basic_info">
+                                    <div class="match_table">
+                                        <div class="match_table_tr">
+                                            <div class="match_table_td">比赛形式：<span>线上赛</span></div>
+                                            <div class="match_table_td">胜出奖励：<span>出线权</span> </div>
+                                        </div>
+                                        <div class="match_table_tr">
+                                            <div class="match_table_td">参赛队伍数量：<span>16</span></div>
+                                            <div class="match_table_td">比赛局数：<span>BO3</span> </div>
+                                        </div>
+                                        <div class="match_table_tr">
+                                            <div class="match_table_td">比赛赛制：<span>小组循环</span></div>
+                                            <div class="match_table_td">分组数量：<span>4</span> </div>
+                                        </div>
+                                    </div>
+                                    <div class="sub_table">
+                                        <div class="sub_table_tr">
+                                            <div class="sub_table_td">比赛形式：<span>2016年3月12日-2016年4月12日</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="sub_table">
+                                        <div class="sub_table_tr">
+                                            <div class="sub_table_td ellipsis">比赛地点：<span>线上</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="agenda_list">
+                                    <div class="sub_table">
+                                        <div class="sub_table_tr">
+                                            <div class="sub_table_td1">赛程/分组/积分：</div>
+                                        </div>
+                                    </div>
+                                    <div class="agenda_con">
+                                        <div class="group">
+                                            <div class="group_title">
+                                                <div class="group_title_td">
+                                                    A组
+                                                </div>
+                                                <div class="group_title_td">
+                                                    胜-负
+                                                </div>
+                                                <div class="group_title_td">
+                                                    积分
+                                                </div>
+                                                <div class="group_title_td">
+                                                    晋级
+                                                </div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/kulou.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/kulou.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/kulou.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/gamelogo_03.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                        </div>
+                                        <div class="group">
+                                            <div class="group_title">
+                                                <div class="group_title_td">
+                                                    A组
+                                                </div>
+                                                <div class="group_title_td">
+                                                    胜-负
+                                                </div>
+                                                <div class="group_title_td">
+                                                    积分
+                                                </div>
+                                                <div class="group_title_td">
+                                                    晋级
+                                                </div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/kulou.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/kulou.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/kulou.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/gamelogo_03.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                        </div>
+                                        <div class="group">
+                                            <div class="group_title">
+                                                <div class="group_title_td">
+                                                    A组
+                                                </div>
+                                                <div class="group_title_td">
+                                                    胜-负
+                                                </div>
+                                                <div class="group_title_td">
+                                                    积分
+                                                </div>
+                                                <div class="group_title_td">
+                                                    晋级
+                                                </div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/kulou.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/kulou.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/kulou.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/gamelogo_03.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                        </div>
+                                        <div class="group">
+                                            <div class="group_title">
+                                                <div class="group_title_td">
+                                                    A组
+                                                </div>
+                                                <div class="group_title_td">
+                                                    胜-负
+                                                </div>
+                                                <div class="group_title_td">
+                                                    积分
+                                                </div>
+                                                <div class="group_title_td">
+                                                    晋级
+                                                </div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/kulou.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/kulou.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/kulou.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                            <div class="group_tr">
+                                                <div class="group_tr_td align_left">
+                                                    <div class="team_avator">
+                                                        <img src="images/gamelogo_03.png">
+                                                    </div>
+                                                    <div class="team_nanme">长天一笑</div>
+                                                </div>
+                                                <div class="group_tr_td color_red">
+                                                    2-0
+                                                </div>
+                                                <div class="group_tr_td">3</div>
+                                                <div class="group_tr_td">已晋级</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="item2mobile" class="mui-slider-item mui-control-content">
+                        <div class="mui-scroll-wrapper" id="scroll1">
+                            <div class="mui-scroll">
+                                222
+                            </div>
+                        </div>
+                    </div>
+                    <div id="item3mobile" class="mui-slider-item mui-control-content">
+                        <div class="mui-scroll-wrapper" id="scroll1">
+                            <div class="mui-scroll">
+                                333
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/mui.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    mui.init({
+        swipeBack: true //启用右滑关闭功能
+    });
+
+
+
+    (function($, doc) {
+        $('.mui-scroll-wrapper').scroll({
+            indicators: true //是否显示滚动条
+        });
+        // $.ready(function() {
+
+
+
+        // });
+        $.plusReady(function() {
+
+        });
+        // var GoList = {
+        //     btnobj: document.querySelector('.mui-btn-hong-creat'),
+        //     navObjList: document.querySelectorAll('#mui-nav a'),
+        //     init:function() {
+        //         this._hander();
+        //     },
+        //     _hander:function() {
+        //     	var _this = this;
+        //         this.btnobj.addEventListener('touchend',function(){
+        //         	Array.prototype.forEach.call(_this.navObjList,function(ev) {
+        //         	if(ev.classList.contains('mui-active')){
+        //         		console.log(ev.attributes['index'].nodeValue)
+        //         	}
+        //         });
+        //         }, false)
+        //     }
+        // }
+        // GoList.init();
+        // var GoList = {
+        //     btnobj: document.querySelector('.mui-btn-hong-creat'),
+        //     navObjList: document.querySelectorAll('#mui-nav a'),
+        //     init: function() {
+        //         this._hander();
+        //     },
+        //     _hander: function() {
+        //         this.btnobj.addEventListener('touchend', this._goto.bind(this), false)
+        //     },
+        //     _goto: function() {
+        //         Array.prototype.forEach.call(this.navObjList, function(ev) {
+        //             if (ev.classList.contains('mui-active')) {
+        //                 console.log(ev.attributes['index'].nodeValue)
+        //             }
+        //         });
+        //     }
+        // }
+        // GoList.init();
+        var GoList = {
+            btnobj: document.querySelector('.mui-btn-hong-creat'),
+            navObjList: document.querySelectorAll('#mui-nav a'),
+            init: function() {
+                this._hander();
+            },
+            _hander: function() {
+                var _this = this;
+                this.btnobj.addEventListener('touchend', function() {
+                    _this._goto.call(_this);
+                }, false)
+            },
+            _goto: function() {
+                Array.prototype.forEach.call(this.navObjList, function(ev) {
+                    if (ev.classList.contains('mui-active')) {
+                        console.log(ev.attributes['index'].nodeValue)
+                    }
+                });
+            }
+        }
+        GoList.init();
+
+
+
+    })(mui, document);
+    </script>
+</body>
+
+</html>

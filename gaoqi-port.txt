@@ -1,0 +1,42 @@
+
+http://api.gaoqi.cespc.com:9378/
+rewrite ^/comm/local                /index.php?m=comm&c=local&a=init last;
+            rewrite ^/comm/game$                /index.php?m=comm&c=game&a=init last;
+            rewrite ^/comm/game/(.*)$           /index.php?m=comm&c=game&a=init&game=$1 last;
+            rewrite ^/comm/live_platform$       /index.php?m=comm&c=live_platform&a=init last;
+            rewrite ^/comm/live_platform/(.*)$  /index.php?m=comm&c=live_platform&a=init&platform=$1 last;
+            #team
+            rewrite ^/team/team$                /index.php?m=team&c=team&a=info last;
+            rewrite ^/team/team/logo$           /index.php?m=team&c=team&a=logo last;
+            rewrite ^/team/team/(\d)$           /index.php?m=team&c=team&a=info&tid=$1 last;
+            rewrite ^/team/team/create$         /index.php?m=team&c=team&a=create last;
+            rewrite ^/team/team/save$           /index.php?m=team&c=team&a=save last;
+            rewrite ^/team/join/apply$          /index.php?m=team&c=join&a=apply last;
+            rewrite ^/team/join/invite$         /index.php?m=team&c=join&a=invite last;
+            rewrite ^/team/join/apply/views$    /index.php?m=team&c=join&a=views_apply last;
+            rewrite ^/team/join/invite/views$   /index.php?m=team&c=join&a=views_invite last;
+            rewrite ^/team/join/apply/dispose$  /index.php?m=team&c=join&a=dispose_apply last;
+            rewrite ^/team/join/invite/dispose$ /index.php?m=team&c=join&a=dispose_invite last;
+
+            #events
+            rewrite ^/event/formal$             /index.php?m=event&c=formal&a=init last;
+            rewrite ^/event/formal/enrol$       /index.php?m=event&c=formal&a=enrol last;
+
+            #user
+            rewrite ^/user/login$               /index.php?m=user&c=login&a=init last;
+            rewrite ^/user/register$            /index.php?m=user&c=register&a=init last;
+            rewrite ^/user/register/sendsms$    /index.php?m=user&c=register&a=sendsms last;
+            #user reset
+            rewrite ^/user/reset$               /index.php?m=user&c=reset&a=init last;
+            rewrite ^/user/reset/sendsms$       /index.php?m=user&c=reset&a=sendsms last;
+            #user replace
+            rewrite ^/user/replace$             /index.php?m=user&c=replace&a=init last;
+            rewrite ^/user/replace/sendsms$     /index.php?m=user&c=replace&a=sendsms last;
+            #user info
+            rewrite ^/user/info$                /index.php?m=user&c=info&a=init last;
+            rewrite ^/user/info/(\d)$           /index.php?m=user&c=info&a=init&uid=$1 last;
+            rewrite ^/user/info/edit$           /index.php?m=user&c=info&a=edit last;
+            rewrite ^/user/info/avatar$         /index.php?m=user&c=info&a=avatar last;
+            #user friends$
+            rewrite ^/user/friends$                /index.php?m=user&c=friends&a=init last;
+            rewrite ^/user/friends/(\d)$           /index.php?m=user&c=friends&a=init&uid=$1 last;

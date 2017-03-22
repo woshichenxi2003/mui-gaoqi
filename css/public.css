@@ -1,78 +1,78 @@
 body {
-	width: 100%;
-	height: 100%;
-	margin: 0px;
-	padding: 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
 body.login {
-	background: url(../images/loginbg_01.webp) no-repeat center top;
-	background-size: 100% auto;
+    background: url(../images/loginbg_01.webp) no-repeat center top;
+    background-size: 100% auto;
 }
 
 .mui-content {
-	/*height: 100%;*/
-	
+    /*height: 100%;*/
 }
 
 .mui-bar-nav~.mui-content {
-	/*padding-top: 60px*/
+    /*padding-top: 60px*/
 }
 
-
-
 .mui-bar-nav a {
-	color: #fff;
+    color: #fff;
 }
 
 .mui-bar {
-	/*height: 60px;*/
+    /*height: 60px;*/
 }
 
 .mui-bar-nav {
-	box-shadow: none;
-	background: url(../images/titlebg_01.jpg) no-repeat left top;
-	background-size: 100% auto;
+    box-shadow: none;
+    background: url(../images/titlebg_01.jpg) no-repeat left top;
+    background-size: 100% auto;
 }
 
 .mui-title {
-	color: #fff;
-	font-size: 17px;
-	/*line-height: 80px;*/
+    color: #fff;
+    font-size: 17px;
+    /*line-height: 80px;*/
 }
+
+
 /*首页专用样式*/
+
 @font-face {
-	font-family: 'iconfont';
-	font-weight: normal;
-	font-style: normal;
-	src: url(../fonts/iconfont.ttf) format('truetype')
+    font-family: 'iconfont';
+    font-weight: normal;
+    font-style: normal;
+    src: url(../fonts/iconfont.ttf) format('truetype')
 }
 
 .mui-bar-tab .mui-tab-item .gaoqi-icon {
-	top: 3px;
-	width: 24px;
-	height: 24px;
-	padding-top: 0;
-	padding-bottom: 0;
+    top: 3px;
+    width: 24px;
+    height: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .mui-bar .gaoqi-icon {
-	font-size: 24px;
-	position: relative;
-	z-index: 20;
-	padding-top: 10px;
-	padding-bottom: 10px;
+    font-size: 24px;
+    position: relative;
+    z-index: 20;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .gaoqi-icon {
-	font-family: 'iconfont' !important;
-	font-size: 24px;
-	font-weight: 400;
-	font-style: normal;
-	line-height: 1;
-	display: inline-block;
-	text-decoration: none;
-	-webkit-font-smoothing: antialiased;
+    font-family: 'iconfont' !important;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
 }
 
 .gaoqi-icon .mui-badge {
@@ -88,557 +88,579 @@ body.login {
 }
 
 .mui-bar-tab .mui-tab-item .gaoqi-icon~.mui-tab-label {
-	font-size: 11px;
-	display: block;
-	overflow: hidden;
-	text-overflow: ellipsis
+    font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis
 }
 
 .mui-bar-tab .mui-tab-item .gaoqi-icon:active {
-	background: 0 0
+    background: 0 0
 }
 
 .gaoqi-icon-me {
-	font-size: 25px !important;
+    font-size: 25px !important;
 }
 
 .gaoqi-icon-msg {
-	font-size: 18px !important;
+    font-size: 18px !important;
 }
 
 .gaoqi-icon-zd {
-	font-size: 25px !important;
+    font-size: 25px !important;
 }
 
 .gaoqi-icon-me:before {
-	content: '\e899';
+    content: '\e899';
 }
 
 .gaoqi-icon-msg:before {
-	content: '\e60d';
+    content: '\e60d';
 }
 
 .gaoqi-icon-zd:before {
-	content: '\e60a';
+    content: '\e60a';
 }
 
 .gaoqi-icon-ss:before {
-	content: '\e6ab';
+    content: '\e6ab';
 }
 
 .gaoqi-icon-hb:before {
-	content: '\e6b7';
-}
-.gaoqi-icon-like:before {
-	content: '\e68b';
-}
-.gaoqi-icon-read:before {
-	content: '\e603';
+    content: '\e6b7';
 }
 
+.gaoqi-icon-like:before {
+    content: '\e68b';
+}
+
+.gaoqi-icon-read:before {
+    content: '\e603';
+}
+
+
 /*首页专用样式结束*/
+
+
 /*个人中心*/
 
 .user_info {
-	height: 250px;
-	width: 100%;
-	background: url(../images/selectgamebg_02.jpg) no-repeat center -80px;
-	background-size: 100% auto;
-	overflow: hidden;
-	position: relative;
+    height: 250px;
+    width: 100%;
+    background: url(../images/selectgamebg_02.jpg) no-repeat center -80px;
+    background-size: 100% auto;
+    overflow: hidden;
+    position: relative;
 }
 
 .user_info .user_info_face {
-	width: 110px;
-	height: 110px;
-	background: url(../images/kulou.png) no-repeat center center #eaeaea;
-	background-size: 100%;
-	margin: 20px auto;
-	border-radius: 50%;
-	-moz-border-radius: 50%;
-	-webkit-border-radius: 50%;
-	overflow: hidden;
+    width: 110px;
+    height: 110px;
+    background: url(../images/kulou.png) no-repeat center center #eaeaea;
+    background-size: 100%;
+    margin: 20px auto;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    overflow: hidden;
 }
 
 #face img {
-	width: 100%;
+    width: 100%;
 }
 
 #like_game {
-	width: 100px;
-	position: absolute;
-	top: 116px;
-	left: 50%;
-	text-align: center;
-	margin-left: -50px;
+    width: 100px;
+    position: absolute;
+    top: 116px;
+    left: 50%;
+    text-align: center;
+    margin-left: -50px;
 }
 
 #like_game span {
-	display: inline-block;
-	width: 20px;
-	height: 25px;
+    display: inline-block;
+    width: 20px;
+    height: 25px;
 }
 
 #like_game span.dota {
-	background: url(../images/iconall_05.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_05.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #like_game span.lol {
-	background: url(../images/iconall_03.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_03.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #like_game span.fengbao {
-	background: url(../images/iconall_09.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_09.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #like_game span.csgo {
-	background: url(../images/iconall_07.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_07.png) no-repeat;
+    background-size: auto 100%;
 }
 
-
-
-
-
-
 .combat_values {
-	position: absolute;
-	height: 30px;
-	top: 24px;
-	right: 30px;
-	background: url(../images/iconall_12.png) left center no-repeat;
-	background-size: 15px auto;
-	line-height: 30px;
-	padding-left: 20px;
-	color: #fc4e3e;
-	font-weight: bold;
+    position: absolute;
+    height: 30px;
+    top: 24px;
+    right: 30px;
+    background: url(../images/iconall_12.png) left center no-repeat;
+    background-size: 15px auto;
+    line-height: 30px;
+    padding-left: 20px;
+    color: #fc4e3e;
+    font-weight: bold;
 }
 
 .manifesto {
-	height: 30px;
-	line-height: 30px;
-	font-size: 14px;
-	color: #fff;
-	width: 80%;
-	text-align: center;
-	margin: 0 auto;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #fff;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .user_info_msg {
-	width: 100%;
-	padding: 10px 7%;
-	height: 60px;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	background: url(../images/baitou_03.png);
+    width: 100%;
+    padding: 10px 7%;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(../images/baitou_03.png);
 }
 
 .user_info_msg p {
-	width: 100%;
-	color: #fff;
-	font-size: 14px;
-	line-height: 20px;
-	height: 20px;
-	margin: 0;
+    width: 100%;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    height: 20px;
+    margin: 0;
 }
 
 .user_info_msg p.fontweight {
-	font-weight: bold;
-	font-size: 17px;
+    font-weight: bold;
+    font-size: 17px;
 }
 
 .user_info_msg .user_name {
-	width: 50%;
-	background: url(../images/right_line_03.jpg) right center no-repeat;
-	background-size: auto 60%;
+    width: 50%;
+    background: url(../images/right_line_03.jpg) right center no-repeat;
+    background-size: auto 60%;
 }
 
 .user_info_msg .user_gamenum {
-	width: 25%;
-	text-align: center;
-	background: url(../images/right_line_03.jpg) right center no-repeat;
-	background-size: auto 60%;
+    width: 25%;
+    text-align: center;
+    background: url(../images/right_line_03.jpg) right center no-repeat;
+    background-size: auto 60%;
 }
 
 .user_info_msg .user_odds {
-	width: 25%;
-	text-align: center;
+    width: 25%;
+    text-align: center;
 }
 
 .mui-segmented-control1 {
-	font-size: 15px;
-	font-weight: 400;
-	position: relative;
-	display: table;
-	overflow: hidden;
-	width: 100%;
-	table-layout: fixed;
-	border: 1px solid #fc3e3e;
-	border-radius: 0px;
-	background-color: transparent;
-	-webkit-touch-callout: none
+    font-size: 15px;
+    font-weight: 400;
+    position: relative;
+    display: table;
+    overflow: hidden;
+    width: 100%;
+    table-layout: fixed;
+    border: 1px solid #fc3e3e;
+    border-radius: 0px;
+    background-color: transparent;
+    -webkit-touch-callout: none
 }
 
 .mui-segmented-control1.mui-segmented-control-vertical1 {
-	border-collapse: collapse;
-	border-width: 0;
-	border-radius: 0
+    border-collapse: collapse;
+    border-width: 0;
+    border-radius: 0
 }
 
 .mui-segmented-control1.mui-segmented-control-vertical1 .mui-control-item1 {
-	display: block;
-	border-bottom: 1px solid #c8c7cc;
-	border-left-width: 0
+    display: block;
+    border-bottom: 1px solid #c8c7cc;
+    border-left-width: 0
 }
 
 .mui-segmented-control1 .mui-control-item1 {
-	line-height: 38px;
-	display: table-cell;
-	overflow: hidden;
-	width: 1%;
-	-webkit-transition: background-color .1s linear;
-	transition: background-color .1s linear;
-	text-align: center;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	color: #fc3e3e;
-	border-color: #fc3e3e;
-	border-left: 1px solid #fc3e3e
+    line-height: 38px;
+    display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    -webkit-transition: background-color .1s linear;
+    transition: background-color .1s linear;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #fc3e3e;
+    border-color: #fc3e3e;
+    border-left: 1px solid #fc3e3e
 }
 
 .mui-segmented-control1 .mui-control-item:first-child {
-	border-left-width: 0
+    border-left-width: 0
 }
 
 .mui-segmented-control1 .mui-control-item1.mui-active {
-	color: #fff;
-	background-color: #fc3e3e;
+    color: #fff;
+    background-color: #fc3e3e;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .mui-control-content1 {
-	display: none;
+    display: none;
 }
 
 .mui-control-content1.active {
-	display: block;
+    display: block;
 }
 
-.user_private .mui-bar-footer{
-	height: 40px;
-	background: #fc3e3e;
-	-webkit-box-shadow: 0 -1px 50px rgba(0, 0, 0, .85);
-	box-shadow: 0 -1px 50px rgba(0, 0, 0, .85);
-	padding: 0;
-	transition: all 0.4s;
-	opacity: 0;
-	bottom: -40px;
+.user_private .mui-bar-footer {
+    height: 40px;
+    background: #fc3e3e;
+    -webkit-box-shadow: 0 -1px 50px rgba(0, 0, 0, .85);
+    box-shadow: 0 -1px 50px rgba(0, 0, 0, .85);
+    padding: 0;
+    transition: all 0.4s;
+    opacity: 0;
+    bottom: -40px;
 }
 
 .user_private .mui-bar-footer~.mui-content {
-	padding-bottom: 0px
+    padding-bottom: 0px
 }
-.user_private .mui-bar-footer.show{
-	opacity: 1;
-	bottom: 0;
+
+.user_private .mui-bar-footer.show {
+    opacity: 1;
+    bottom: 0;
 }
+
 .user_private .mui-bar-footer.show~.mui-content {
-	padding-bottom: 44px
+    padding-bottom: 44px
 }
-
-
 
 
 /*个人中心为空的样式*/
-.emptyToPlay{
-	width: 100%;
-	overflow: hidden;
-	padding: 20px 15px;
-	font-size: 14px;
-	color: #949494;
-	text-align: center;
-	line-height: 30px;
-	display: none;
-}
-.emptyToPlay:only-child{
-	display: block;
-}
-.emptyToPlay a{font-size: 16px;}
-.emptyToPlay a.lv{color: #fc3e3e;}
-.emptyToPlay a.hong{color: #2baf2b;}
-.emptyToPlay .empty_logo{display: inline-block; width: 20px;height: 25px;background: url(../images/dunpai_03.jpg) center center no-repeat; background-size: 100% auto;}
-.emptyToPlay p{ font-size: 12px; color: #fc3e3e; line-height: 20px;}
-.emptyToPlay .ss{display: inline-block;}
 
-.emptyToPlay .mui-btn{
-	font-size: 12px;
-	font-weight: 400;
-	line-height: 1.42;
-	position: relative;
-	display: inline-block;
-	margin-bottom: 0;
-	padding: 4px 8px;
-	cursor: pointer;
-	-webkit-transition: all;
-	transition: all;
-	-webkit-transition-timing-function: linear;
-	transition-timing-function: linear;
-	-webkit-transition-duration: .2s;
-	transition-duration: .2s;
-	text-align: center;
-	vertical-align: top;
-	white-space: nowrap;
-	color: #333;
-	border: 1px solid #ccc;
-	/*border-radius: 3px;*/
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
-	border-bottom-left-radius: 15px;
-	background-color: #fff;
-	background-clip: padding-box
+.emptyToPlay {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 15px;
+    font-size: 14px;
+    color: #949494;
+    text-align: center;
+    line-height: 30px;
+    display: none;
 }
 
-.emptyToPlay .mui-btn.mui-btn-green{
+.emptyToPlay:only-child {
+    display: block;
+}
+
+.emptyToPlay a {
+    font-size: 16px;
+}
+
+.emptyToPlay a.lv {
+    color: #fc3e3e;
+}
+
+.emptyToPlay a.hong {
+    color: #2baf2b;
+}
+
+.emptyToPlay .empty_logo {
+    display: inline-block;
+    width: 20px;
+    height: 25px;
+    background: url(../images/dunpai_03.jpg) center center no-repeat;
+    background-size: 100% auto;
+}
+
+.emptyToPlay p {
+    font-size: 12px;
+    color: #fc3e3e;
+    line-height: 20px;
+}
+
+.emptyToPlay .ss {
+    display: inline-block;
+}
+
+.emptyToPlay .mui-btn {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.42;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 4px 8px;
+    cursor: pointer;
+    -webkit-transition: all;
+    transition: all;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+    text-align: center;
+    vertical-align: top;
+    white-space: nowrap;
+    color: #333;
+    border: 1px solid #ccc;
+    /*border-radius: 3px;*/
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: #fff;
+    background-clip: padding-box
+}
+
+.emptyToPlay .mui-btn.mui-btn-green {
     color: #fff;
     border: 1px solid #2baf2b;
     background-color: #2baf2b;
 }
-.emptyToPlay .mui-btn.mui-btn-cheng{
+
+.emptyToPlay .mui-btn.mui-btn-cheng {
     color: #fff;
     border: 1px solid #f96332;
     background-color: #f96332;
 }
+
+
 /*个人中心为空样式结束*/
 
+
 /*公共样式*/
+
 .show_module {}
 
 .show_module .module_title {
-	height: 38px;
-	border-top: 1px solid #c8c7cc;
-	border-left: none;
-	border-right: none;
-	border-bottom: 1px solid #dddddd;
-	line-height: 38px;
-	padding-left: 20px;
-	font-size: 15px;
+    height: 38px;
+    border-top: 1px solid #c8c7cc;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #dddddd;
+    line-height: 38px;
+    padding-left: 20px;
+    font-size: 15px;
 }
 
 .show_module .module_con {
-	overflow: hidden;
+    overflow: hidden;
 }
 
 
 /*战队和会员列表显示样式(需带按钮)*/
 
 .team_box {
-	width: 100%;
-	overflow: hidden;
-	display: flex;
-	position: relative;
-	padding: 15px 15px;
-	border-bottom: 1px dashed #c8c7cc;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    padding: 15px 15px;
+    border-bottom: 1px dashed #c8c7cc;
 }
-.team_box:last-child{
-	border-bottom:none;
+
+.team_box:last-child {
+    border-bottom: none;
 }
+
 .team_box .team_logo_box {
-	width: 80px !important;
-	/*float: left;*/
-	position: relative;
+    width: 80px !important;
+    /*float: left;*/
+    position: relative;
 }
 
 .team_box .team_logo_box .team_games {
-	/* position: absolute;
+    /* position: absolute;
 	color: #fc4e3e;
 	bottom: -3px;
 	right: 9px; */
-	position: absolute;
+    position: absolute;
     color: #fc4e3e;
     bottom: -3px;
     width: 89px;
     text-align: right;
     right: 10px;
 }
+
 .team_box .team_logo_box .team_games span {
-	display: inline-block;
-	/* width: 20px;
+    display: inline-block;
+    /* width: 20px;
 	height: 25px; */
-	width: 17px;
-	height: 21px;
+    width: 17px;
+    height: 21px;
 }
 
 .team_box .team_logo_box .team_games span.dota {
-	background: url(../images/iconall_05.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_05.png) no-repeat;
+    background-size: auto 100%;
 }
 
 .team_box .team_logo_box .team_games span.lol {
-	background: url(../images/iconall_03.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_03.png) no-repeat;
+    background-size: auto 100%;
 }
 
 .team_box .team_logo_box .team_games span.fengbao {
-	background: url(../images/iconall_09.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_09.png) no-repeat;
+    background-size: auto 100%;
 }
 
 .team_box .team_logo_box .team_games span.csgo {
-	background: url(../images/iconall_07.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_07.png) no-repeat;
+    background-size: auto 100%;
 }
 
 .team_box .team_logo_box .team_logo {
-	width: 60px;
-	border-radius: 50%;
-	overflow: hidden;
-	height: 60px;
-	background: url(../images/team_logo_03.jpg) no-repeat center center;
-	background-size: 100% auto;
+    width: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 60px;
+    background: url(../images/team_logo_03.jpg) no-repeat center center;
+    background-size: 100% auto;
 }
-.team_box .team_logo_box .team_logo .zhuke{
-	width: 100%;
-	text-align: center !important;
+
+.team_box .team_logo_box .team_logo .zhuke {
+    width: 100%;
+    text-align: center !important;
 }
 
 .team_box .team_logo_box .team_logo img {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .team_box .team_ifno {
-	flex: 1;
-	overflow: hidden;
-	padding-right: 70px;
-	padding-top: 5px;
+    flex: 1;
+    overflow: hidden;
+    padding-right: 70px;
+    padding-top: 5px;
 }
 
 .team_box .team_btnbox {
-	padding-top: 30px;
-	text-align: right;
-	position: absolute;
-	right: 15px;
-	top: 35px;
+    padding-top: 30px;
+    text-align: right;
+    position: absolute;
+    right: 15px;
+    top: 35px;
 }
 
 .team_box .team_effectiveness {
-	position: absolute;
-	padding-left: 15px;
-	background: url(../images/iconall_12.png) center left no-repeat;
-	background-size: auto 100%; 
-	right: 15px;
-	top: 19px;
-	color: #fc5f52;
+    position: absolute;
+    padding-left: 15px;
+    background: url(../images/iconall_12.png) center left no-repeat;
+    background-size: auto 100%;
+    right: 15px;
+    top: 19px;
+    color: #fc5f52;
 }
-
-
-
 
 
 /*结束*/
 
 
-
 /*好友列表(需带按钮)*/
 
 .msg_box {
-	width: 100%;
-	overflow: hidden;
-	display: flex;
-	position: relative;
-	padding: 8px 15px;
-	padding-left: 17px;
-	border-bottom: 1px solid #c8c7cc;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    padding: 8px 15px;
+    padding-left: 17px;
+    border-bottom: 1px solid #c8c7cc;
 }
-.msg_box:last-child{
-	border-bottom:none;
+
+.msg_box:last-child {
+    border-bottom: none;
 }
+
 .msg_box .msg_logo_box {
-	width: 65px !important;
-	/*float: left;*/
-	position: relative;
+    width: 65px !important;
+    /*float: left;*/
+    position: relative;
 }
 
 .msg_box .msg_logo_box .msg_games {
-	position: absolute;
-	color: #fc4e3e;
-	bottom: -3px;
-	right: 9px;
+    position: absolute;
+    color: #fc4e3e;
+    bottom: -3px;
+    right: 9px;
 }
+
 .msg_box .msg_logo_box .msg_games span {
-	display: inline-block;
-	width: 20px;
-	height: 25px;
+    display: inline-block;
+    width: 20px;
+    height: 25px;
 }
 
 .msg_box .msg_logo_box .msg_games span.dota {
-	background: url(../images/iconall_05.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_05.png) no-repeat;
+    background-size: auto 100%;
 }
 
 .msg_box .msg_logo_box .msg_games span.lol {
-	background: url(../images/iconall_03.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_03.png) no-repeat;
+    background-size: auto 100%;
 }
 
 .msg_box .msg_logo_box .msg_games span.fengbao {
-	background: url(../images/iconall_09.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_09.png) no-repeat;
+    background-size: auto 100%;
 }
 
 .msg_box .msg_logo_box .msg_games span.csgo {
-	background: url(../images/iconall_07.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_07.png) no-repeat;
+    background-size: auto 100%;
 }
 
 .msg_box .msg_logo_box .msg_logo {
-	width: 50px;
-	border-radius: 50%;
-	overflow: hidden;
-	height: 50px;
-	background: url(../images/team_logo_03.jpg) no-repeat center center;
-	background-size: 100% auto;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 50px;
+    background: url(../images/team_logo_03.jpg) no-repeat center center;
+    background-size: 100% auto;
 }
 
 .msg_box .msg_logo_box .msg_logo img {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .msg_box .msg_ifno {
-	flex: 1;
-	overflow: hidden;
-	padding-right: 15%;
-	padding-top: 0px;
+    flex: 1;
+    overflow: hidden;
+    padding-right: 15%;
+    padding-top: 0px;
 }
 
-
 .msg_box .msg_effectiveness {
-	position: absolute;
-	padding-left: 15px;
-	right: 15px;
-	top: 15px;
-	color: #c3c3c3;
-	font-size: 12px;
+    position: absolute;
+    padding-left: 15px;
+    right: 15px;
+    top: 15px;
+    color: #c3c3c3;
+    font-size: 12px;
 }
 
 #msg_like_game {
-	width: 68px;
+    width: 68px;
     position: absolute;
     top: 35px;
     left: 50%;
@@ -648,283 +670,343 @@ body.login {
 }
 
 #msg_like_game span {
-	display: inline-block;
-	width: 15px;
-	height: 18px;
-	margin: 0 1px;
+    display: inline-block;
+    width: 15px;
+    height: 18px;
+    margin: 0 1px;
 }
 
 #msg_like_game span.dota {
-	background: url(../images/iconall_05.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_05.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #msg_like_game span.lol {
-	background: url(../images/iconall_03.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_03.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #msg_like_game span.fengbao {
-	background: url(../images/iconall_09.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_09.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #msg_like_game span.csgo {
-	background: url(../images/iconall_07.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_07.png) no-repeat;
+    background-size: auto 100%;
 }
+
 
 /*结束*/
 
+
 /*赛事列表页样式*/
+
 .match_box {
-	width: 100%;
-	overflow: hidden;
-	display: flex;
-	position: relative;
-	height: 90px;
-	/*padding: 8px 0px;*/
-	/*padding-left: 17px;*/
-	border-bottom: 1px solid #c8c7cc;
-}
-.match_box:last-child{
-	border-bottom:none;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    height: 90px;
+    /*padding: 8px 0px;*/
+    /*padding-left: 17px;*/
+    border-bottom: 1px solid #c8c7cc;
 }
 
-.match_state{width: 19px; /*background: red;*/ height: 100%; -moz-box-shadow: 2px 0 5px #909090;/*firefox*/
--webkit-box-shadow: 2px 0 5px #909090;/*safari或chrome*/
-box-shadow:2px 0 5px #909090;/*opera或ie9*/}
-.match_state.nostart:before{content: "报名中"; color: #ffffff; text-align: center; display: block; width: 100%; height: 100%; padding-top: 10px; vertical-align: middle; font-size: 13px; line-height: 22px;background: #c8292e;}
-.match_state.over:before{content: "已结束"; color: #ffffff; text-align: center; display: block; width: 100%; height: 100%; padding-top: 10px; vertical-align: middle; font-size: 13px; line-height: 22px;background: #b8b8b8;}
-.match_state.onmatch:before{content: "进行中"; color: #ffffff; text-align: center; display: block; width: 100%; height: 100%; padding-top: 10px; vertical-align: middle; font-size: 13px; line-height: 22px;background: #2b9b2b;}
+.match_box:last-child {
+    border-bottom: none;
+}
 
+.match_state {
+    width: 19px;
+    /*background: red;*/
+    height: 100%;
+    -moz-box-shadow: 2px 0 5px #909090;
+    /*firefox*/
+    -webkit-box-shadow: 2px 0 5px #909090;
+    /*safari或chrome*/
+    box-shadow: 2px 0 5px #909090;
+    /*opera或ie9*/
+}
+
+.match_state.nostart:before {
+    content: "报名中";
+    color: #ffffff;
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    vertical-align: middle;
+    font-size: 13px;
+    line-height: 22px;
+    background: #c8292e;
+}
+
+.match_state.over:before {
+    content: "已结束";
+    color: #ffffff;
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    vertical-align: middle;
+    font-size: 13px;
+    line-height: 22px;
+    background: #b8b8b8;
+}
+
+.match_state.onmatch:before {
+    content: "进行中";
+    color: #ffffff;
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    vertical-align: middle;
+    font-size: 13px;
+    line-height: 22px;
+    background: #2b9b2b;
+}
 
 .match_box .match_logo_box {
-	width: 72px !important;
-	margin-left: 5px;
-	padding-top:15px;
-	position: relative;
+    width: 72px !important;
+    margin-left: 5px;
+    padding-top: 15px;
+    position: relative;
 }
 
 .match_box .match_logo_box .match_games {
-	position: absolute;
-	color: #fc4e3e;
-	bottom: -3px;
-	right: 9px;
+    position: absolute;
+    color: #fc4e3e;
+    bottom: -3px;
+    right: 9px;
 }
+
 .match_box .match_logo_box .match_games span {
-	display: inline-block;
-	width: 20px;
-	height: 25px;
+    display: inline-block;
+    width: 20px;
+    height: 25px;
 }
 
 .match_box .match_logo_box .match_games span.dota {
-	background: url(../images/iconall_05.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_05.png) no-repeat;
+    background-size: auto 100%;
 }
 
 .match_box .match_logo_box .match_games span.lol {
-	background: url(../images/iconall_03.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_03.png) no-repeat;
+    background-size: auto 100%;
 }
 
 .match_box .match_logo_box .match_games span.fengbao {
-	background: url(../images/iconall_09.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_09.png) no-repeat;
+    background-size: auto 100%;
 }
 
 .match_box .match_logo_box .match_games span.csgo {
-	background: url(../images/iconall_07.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_07.png) no-repeat;
+    background-size: auto 100%;
 }
 
 .match_box .match_logo_box .match_logo {
-	width: 60px;
-	border-radius: 50%;
-	overflow: hidden;
-	height: 60px;
-	background: url(../images/team_logo_03.jpg) no-repeat center center;
-	background-size: 100% auto;
-	margin: 0 auto;
+    width: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 60px;
+    background: url(../images/team_logo_03.jpg) no-repeat center center;
+    background-size: 100% auto;
+    margin: 0 auto;
 }
 
 .match_box .match_logo_box .match_logo img {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .match_box .match_ifno {
-	flex: 1;
-	overflow: hidden;
-	padding-top: 19px;
-	/*padding-right: 15%;*/
-	margin-left: 5px;
-/*	padding-top: 0px;*/
+    flex: 1;
+    overflow: hidden;
+    padding-top: 19px;
+    /*padding-right: 15%;*/
+    margin-left: 5px;
+    /*	padding-top: 0px;*/
 }
-.match_box .match_ifno h4{
-	padding-right: 30%;
-	font-size: 16px;
-	font-weight: normal;
-}
-.match_box .match_ifno p{
-	font-size: 12px;
-	line-height: 25px;
-	margin: 0;
-	vertical-align: middle;
-}
-.match_box .match_ifno p span{
-	display: inline-block;
-	height: 25px;
-	margin-right: 5px;
-	
-}
-.match_box .match_ifno p span i{
-	color: #fc3e3e;
-	font-style: normal;
-}
-.match_box .num{
-	position: absolute;
-	border-radius: 15px;
-	right: 4px;
-	bottom: 5px;
-	background: #fc4e3e;
-	color: #ffffff;
-	padding: 0 8px;
-	font-size: 13px;
-	vertical-align: middle;
 
+.match_box .match_ifno h4 {
+    padding-right: 30%;
+    font-size: 16px;
+    font-weight: normal;
 }
+
+.match_box .match_ifno p {
+    font-size: 12px;
+    line-height: 25px;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.match_box .match_ifno p span {
+    display: inline-block;
+    height: 25px;
+    margin-right: 5px;
+}
+
+.match_box .match_ifno p span i {
+    color: #fc3e3e;
+    font-style: normal;
+}
+
+.match_box .num {
+    position: absolute;
+    border-radius: 15px;
+    right: 4px;
+    bottom: 5px;
+    background: #fc4e3e;
+    color: #ffffff;
+    padding: 0 8px;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
 .match_box .match_effectiveness {
-	position: absolute;
-	padding-left: 25px;
-	right: 4px;
-	top: 3px;
-	color: #dc0000;
-	font-size: 16px;
-	background: url(../images/dun_03.png) no-repeat left center;
-	background-size: auto 100%;
-	height: 25px; 
-	line-height: 25px;
+    position: absolute;
+    padding-left: 25px;
+    right: 4px;
+    top: 3px;
+    color: #dc0000;
+    font-size: 16px;
+    background: url(../images/dun_03.png) no-repeat left center;
+    background-size: auto 100%;
+    height: 25px;
+    line-height: 25px;
 }
-	
 
 #match_like_game {
-	width: 20px;
-	position: absolute;
-	top: 59px;
-	right: 6px;
-	text-align: center;
-	/*margin-left: -35px;*/
-	font-size: 0;
+    width: 20px;
+    position: absolute;
+    top: 59px;
+    right: 6px;
+    text-align: center;
+    /*margin-left: -35px;*/
+    font-size: 0;
 }
 
 #match_like_game span {
-	display: inline-block;
-	width: 20px;
-	height: 23px;
+    display: inline-block;
+    width: 20px;
+    height: 23px;
 }
 
 #match_like_game span.dota {
-	background: url(../images/iconall_05.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_05.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #match_like_game span.lol {
-	background: url(../images/iconall_03.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_03.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #match_like_game span.fengbao {
-	background: url(../images/iconall_09.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_09.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #match_like_game span.csgo {
-	background: url(../images/iconall_07.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_07.png) no-repeat;
+    background-size: auto 100%;
 }
-
-
 
 
 /*赛事列表页样式结束*/
 
 
-
-
-
-
-
 /*战队对阵样式*/
-.tostartgame_box{overflow: hidden; padding: 15px;}
-.tostartgame_box .tostartgame_con{
-	 display: flex;
-	 position: relative;
-}
-.tostartgame_box .team_logo{
-	flex: 2;
-	/*padding: 15px;*/
-}
-.tostartgame_box .team_logo .zhuke{
-	width: 100%;
-	text-align: center !important;
-	line-height: 35px;
-	color: #ffffff;
-}
-.tostartgame_box .team_logo .team_name{
-	text-align: center;
-	line-height: 25px;
+
+.tostartgame_box {
+    overflow: hidden;
+    padding: 15px;
 }
 
-.tostartgame_box .team_logo .team_logo_box{
-	width: 70px;
-	margin: 0 auto;
-	border-radius: 50%;
-	overflow: hidden;
-	height: 70px;
-	background: url(../images/team_logo_03.jpg) no-repeat center center;
-	background-size: 100% auto;
-}
-.tostartgame_box .team_logo .team_logo_box img{
-	width: 100%;
-	height: 100%;
-}
-.tostartgame_box .team_vs{
-	flex:1;
-	
-	text-align: center;
-	padding-top: 25px;
-	
-}
-.tostartgame_box .team_vs .vs{
-	font-size: 72px;
-	line-height: 29px;
-	color: #fc4e3e;
-	height: 50px;
-	overflow: hidden;
-}
-.tostartgame_box .team_vs .game_type{
-	font-size: 25px;
-	color: #222222;
-}
-.tostartgame_box .team_vs .game_time{
-	font-size: 12px;
-	color: #fc4e3e;
-}
-.tostartgame_box .game_score{flex: .5;
-text-align: center;
-	line-height: 100%;
-	padding-top: 35px;
-	font-size: 25px;
-	font-weight: normal;
+.tostartgame_box .tostartgame_con {
+    display: flex;
+    position: relative;
 }
 
-.tostartgame_box .btn_box{
-	width: 100%;
-	overflow: hidden;
-	text-align: center;
+.tostartgame_box .team_logo {
+    flex: 2;
+    /*padding: 15px;*/
+
 }
 
+.tostartgame_box .team_logo .zhuke {
+    width: 100%;
+    text-align: center !important;
+    line-height: 35px;
+    color: #ffffff;
+}
+
+.tostartgame_box .team_logo .team_name {
+    text-align: center;
+    line-height: 25px;
+}
+
+.tostartgame_box .team_logo .team_logo_box {
+    width: 70px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 70px;
+    background: url(../images/team_logo_03.jpg) no-repeat center center;
+    background-size: 100% auto;
+}
+
+.tostartgame_box .team_logo .team_logo_box img {
+    width: 100%;
+    height: 100%;
+}
+
+.tostartgame_box .team_vs {
+    flex: 1;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.tostartgame_box .team_vs .vs {
+    font-size: 72px;
+    line-height: 29px;
+    color: #fc4e3e;
+    height: 50px;
+    overflow: hidden;
+}
+
+.tostartgame_box .team_vs .game_type {
+    font-size: 15px;
+    color: #222222;
+}
+
+.tostartgame_box .team_vs .game_time {
+    font-size: 12px;
+    color: #fc4e3e;
+}
+
+.tostartgame_box .game_score {
+    flex: .5;
+    text-align: center;
+    line-height: 100%;
+    padding-top: 24px;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.tostartgame_box .btn_box {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
 
 
 /*战队对阵样式结束*/
@@ -932,485 +1014,570 @@ text-align: center;
 
 /*战队对阵样式微型*/
 
-.minitostartgame_box{overflow: hidden; padding: 10px 15px; border-bottom: 1px dashed #bdbdbd;}
-.minitostartgame_box:last-child{border-bottom: none;}
-.minitostartgame_box .tostartgame_con{
-	 position: relative;
-}
-.minitostartgame_box .team_logo{
-	width: 20%;
-	float: left;
+.minitostartgame_box {
+    overflow: hidden;
+    padding: 10px 15px;
+    border-bottom: 1px dashed #bdbdbd;
 }
 
-.minitostartgame_box .team_logo .team_logo_box{
-	width: 45px;
-	margin: 0 auto;
-	border-radius: 50%;
-	overflow: hidden;
-	height: 45px;
-	background: url(../images/team_logo_03.jpg) no-repeat center center;
-	background-size: 100% auto;
-}
-.minitostartgame_box .team_logo .team_logo_box img{
-	width: 100%;
-	height: 100%;
-}
-.minitostartgame_box .team_vs{
-	width: 20%;
-	float: left;
-	text-align: center;
-	padding-top: 10px;
-	
-}
-.minitostartgame_box .team_vs .vs{
-	font-size: 72px;
-	line-height: 29px;
-	color: #fc4e3e;
-	height: 50px;
-	overflow: hidden;
-}
-.minitostartgame_box .team_vs .game_type{
-	font-size: 14px;
-	color: #222222;
-}
-.minitostartgame_box .team_vs .game_time{
-	font-size: 12px;
-	color: #bdbdbd;
-	overflow: hidden;
-	white-space: nowrap;
+.minitostartgame_box:last-child {
+    border-bottom: none;
 }
 
-.minitostartgame_box .game_score_right{
-	width: 20%;
-	float: left;
-	 text-align: right;
-	line-height: 100%;
-	padding-top: 5px;
-	font-weight: bold;
-	color: #fc4e3e;
-}
-.minitostartgame_box .game_score_right .team_name{
-	text-align: right;
-	line-height: 25px;
-	width: 100%;
-	color: #222222;
-	font-weight: normal;
-	font-size: 14px;
-}
-.minitostartgame_box .game_score_left{
-	width: 20%;
-	float: left;
-	 text-align: left;
-	line-height: 100%;
-	padding-top: 5px;
-	
-	font-weight: bold;
-	color: #fc4e3e;
-}
-.minitostartgame_box .game_score_left .team_name{
-	text-align: left;
-	line-height: 25px;
-	width: 100%;
-	color: #222222;
-	font-weight: normal;
-	font-size: 14px;
-}
-.btn_box_width{
-	width: 100%;
-	overflow: hidden;
-	text-align: center;
-	height: 30px;
-	background: #efefef;
-	color: #939393;
-	line-height: 30px;
-	font-size: 14px;
+.minitostartgame_box .tostartgame_con {
+    position: relative;
 }
 
+.minitostartgame_box .team_logo {
+    width: 20%;
+    float: left;
+}
+
+.minitostartgame_box .team_logo .team_logo_box {
+    width: 45px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 45px;
+    background: url(../images/team_logo_03.jpg) no-repeat center center;
+    background-size: 100% auto;
+}
+
+.minitostartgame_box .team_logo .team_logo_box img {
+    width: 100%;
+    height: 100%;
+}
+
+.minitostartgame_box .team_vs {
+    width: 20%;
+    float: left;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.minitostartgame_box .team_vs .vs {
+    font-size: 72px;
+    line-height: 29px;
+    color: #fc4e3e;
+    height: 50px;
+    overflow: hidden;
+}
+
+.minitostartgame_box .team_vs .game_type {
+    font-size: 14px;
+    color: #222222;
+}
+
+.minitostartgame_box .team_vs .game_time {
+    font-size: 12px;
+    color: #bdbdbd;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.minitostartgame_box .game_score_right {
+    width: 20%;
+    float: left;
+    text-align: right;
+    line-height: 100%;
+    padding-top: 5px;
+    font-weight: bold;
+    color: #fc4e3e;
+}
+
+.minitostartgame_box .game_score_right .team_name {
+    text-align: right;
+    line-height: 25px;
+    width: 100%;
+    color: #222222;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.minitostartgame_box .game_score_left {
+    width: 20%;
+    float: left;
+    text-align: left;
+    line-height: 100%;
+    padding-top: 5px;
+    font-weight: bold;
+    color: #fc4e3e;
+}
+
+.minitostartgame_box .game_score_left .team_name {
+    text-align: left;
+    line-height: 25px;
+    width: 100%;
+    color: #222222;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.btn_box_width {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    height: 30px;
+    background: #efefef;
+    color: #939393;
+    line-height: 30px;
+    font-size: 14px;
+}
 
 
 /*所有自定义按钮*/
-.mui-btn.mui-btn-cheng-jieshou{
+
+.mui-btn.mui-btn-cheng-jieshou {
     color: #fff;
     border: 1px solid #f96332;
     background-color: #f96332;
     border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
-	border-bottom-left-radius: 15px;
-	padding: 4px 21px;
-	font-size: 12px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding: 4px 21px;
+    font-size: 12px;
 }
+
 .mui-btn.mui-btn-cheng-jieshou.mui-active:enabled,
-.mui-btn.mui-btn-cheng-jieshou:enabled:active
- {
-	color: #fff;
-	border: 1px solid #ff3f00;
-	background-color: #ff3f00
+.mui-btn.mui-btn-cheng-jieshou:enabled:active {
+    color: #fff;
+    border: 1px solid #ff3f00;
+    background-color: #ff3f00
 }
-.mui-btn.mui-btn-bai-jujue{
+
+.mui-btn.mui-btn-bai-jujue {
     color: #f96332;
     border: 1px solid #f96332;
     background-color: #ffffff;
     border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
-	border-bottom-left-radius: 15px;
-	padding: 4px 21px;
-	font-size: 12px;
-	
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding: 4px 21px;
+    font-size: 12px;
 }
+
 .mui-btn.mui-btn-bai-jujue.mui-active:enabled,
-.mui-btn.mui-btn-bai-jujue:enabled:active
- {
-	color: #ffffff;
+.mui-btn.mui-btn-bai-jujue:enabled:active {
+    color: #ffffff;
     border: 1px solid #ffb79f;
     background-color: #ffb79f;
 }
 
-
-.mui-btn.mui-btn-cheng-ty{
+.mui-btn.mui-btn-cheng-ty {
     color: #fff;
     border: 1px solid #f96332;
     background-color: #f96332;
     border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
-	border-bottom-left-radius: 15px;
-	padding: 2px 8px;
-	font-size: 12px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding: 2px 8px;
+    font-size: 12px;
 }
+
 .mui-btn.mui-btn-cheng-ty.mui-active:enabled,
-.mui-btn.mui-btn-cheng-ty:enabled:active
- {
-	color: #fff;
+.mui-btn.mui-btn-cheng-ty:enabled:active {
+    color: #fff;
     border: 1px solid #fe3f00;
     background-color: #fe3f00;
 }
-.mui-btn.mui-btn-green-jujue{
+
+.mui-btn.mui-btn-green-jujue {
     color: #fff;
     border: 1px solid #2baf2b;
     background-color: #2baf2b;
     border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
-	border-bottom-left-radius: 15px;
-	padding: 2px 8px;
-	font-size: 12px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding: 2px 8px;
+    font-size: 12px;
 }
+
 .mui-btn.mui-btn-green-jujue.mui-active:enabled,
-.mui-btn.mui-btn-green-jujue:enabled:active
- {
-	color: #fff;
+.mui-btn.mui-btn-green-jujue:enabled:active {
+    color: #fff;
     border: 1px solid #01e301;
     background-color: #01e301;
 }
 
-.mui-btn.mui-btn-hong-creat{
-	display: block;
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
+.mui-btn.mui-btn-hong-creat {
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
     color: #fff;
-    border:none;
+    border: none;
     background-color: #fc3e3e;
     border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-	padding: 0;
-	margin: 0;
-	font-size: 16px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
 }
+
 .mui-btn.mui-btn-hong-creat.mui-active:enabled,
-.mui-btn.mui-btn-hong-creat:enabled:active
- {
-	color: #fff;
+.mui-btn.mui-btn-hong-creat:enabled:active {
+    color: #fff;
     border: none;
     background-color: #ff5b5b;
 }
 
-.article_box{overflow: hidden;}
-.article_box .article_title{ text-align: center;  border-bottom: 1px dashed #dddada; padding: 12px 0;}
-.article_box .article_title h2{font-size: 17px; line-height: 25px; font-weight: normal;width: 70%;margin: 0px auto;}
-.article_box .article_title .article_time{font-size: 14px; color: #b8b8b8;width: 70%;margin: 0px auto;}
-.article_box .article_con{width: 90%; margin: 12px auto;}
+.article_box {
+    overflow: hidden;
+}
 
+.article_box .article_title {
+    text-align: center;
+    border-bottom: 1px dashed #dddada;
+    padding: 12px 0;
+}
+
+.article_box .article_title h2 {
+    font-size: 17px;
+    line-height: 25px;
+    font-weight: normal;
+    width: 70%;
+    margin: 0px auto;
+}
+
+.article_box .article_title .article_time {
+    font-size: 14px;
+    color: #b8b8b8;
+    width: 70%;
+    margin: 0px auto;
+}
+
+.article_box .article_con {
+    width: 90%;
+    margin: 12px auto;
+}
 
 .practice_box {
-	width: 100%;
-	overflow: hidden;
-	display: flex;
-	height: 40px;
-	border-bottom: 1px solid #c8c7cc;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    height: 40px;
+    border-bottom: 1px solid #c8c7cc;
 }
-.practice_box .practice_cell{
-	line-height: 40px;
-	flex: 1;
-	text-align: center;
+
+.practice_box .practice_cell {
+    line-height: 40px;
+    flex: 1;
+    text-align: center;
 }
 
 #practice_like_game {
-	width: 100%;
-	text-align: center;
-	/*margin-left: -35px;*/
-	font-size: 0;
-	padding-top: 8px;
+    width: 100%;
+    text-align: center;
+    /*margin-left: -35px;*/
+    font-size: 0;
+    padding-top: 8px;
 }
 
 #practice_like_game span {
-	display: inline-block;
-	width: 20px;
-	height: 23px;
-	margin: 0 auto;
+    display: inline-block;
+    width: 20px;
+    height: 23px;
+    margin: 0 auto;
 }
 
 #practice_like_game span.dota {
-	background: url(../images/iconall_05.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_05.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #practice_like_game span.lol {
-	background: url(../images/iconall_03.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_03.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #practice_like_game span.fengbao {
-	background: url(../images/iconall_09.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_09.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #practice_like_game span.csgo {
-	background: url(../images/iconall_07.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_07.png) no-repeat;
+    background-size: auto 100%;
 }
 
+
 /*赛事详情页面*/
+
 .match_info {
-	height: 250px;
-	width: 100%;
-	background: url(../images/matchbg_01.jpg) no-repeat center -70px;
-	background-size:100% auto ;
-	overflow: hidden;
-	position: relative;
+    height: 250px;
+    width: 100%;
+    background: url(../images/matchbg_01.jpg) no-repeat center -70px;
+    background-size: 100% auto;
+    overflow: hidden;
+    position: relative;
 }
 
 .match_info .match_info_face {
-	width: 100px;
-	height: 100px;
-	background: url(../images/kulou.png) no-repeat center center #eaeaea;
-	background-size: 100%;
-	margin: 20px auto;
-	margin-top: 40px;
-	border-radius: 50%;
-	-moz-border-radius: 50%;
-	-webkit-border-radius: 50%;
-	overflow: hidden;
+    width: 100px;
+    height: 100px;
+    background: url(../images/kulou.png) no-repeat center center #eaeaea;
+    background-size: 100%;
+    margin: 20px auto;
+    margin-top: 40px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    overflow: hidden;
 }
-
 
 .match_msg {
-	height: 24px;
-	line-height: 24px;
-	font-size: 2;
-	color: #fff;
-	width: 80%;
-	text-align: center;
-	margin: 0 auto;
+    height: 24px;
+    line-height: 24px;
+    font-size: 2;
+    color: #fff;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
 }
+
 .match_msg_id {
-	height: 15px;
-	line-height: 15px;
-	font-size: 12px;
-	color: #fff;
-	width: 80%;
-	text-align: center;
-	margin: 0 auto;
+    height: 15px;
+    line-height: 15px;
+    font-size: 12px;
+    color: #fff;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .match_info_msg {
-	width: 100%;
-	padding: 0 7%;
-	height: 30px;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	background: url(../images/baitou_03.png);
-	display: flex;
+    width: 100%;
+    padding: 0 7%;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(../images/baitou_03.png);
+    display: flex;
 }
 
 .match_info_msg p {
-	width: 50%;
-	color: #fff;
-	font-size: 12px;
-	line-height: 30px;
-	height: 20px;
-	margin: 0;
-	flex: 1;
-	text-align: center;
+    width: 50%;
+    color: #fff;
+    font-size: 12px;
+    line-height: 30px;
+    height: 20px;
+    margin: 0;
+    flex: 1;
+    text-align: center;
 }
 
 .match_info_msg p span {
-	color: #fc4e3e;
+    color: #fc4e3e;
 }
-
 
 .match_stat {
-	position: absolute;
-	width: 70px;
-	height: 24px;
-	top: 0px;
-	right: 8px;
-	line-height: 24px;
-	color: #fc4e3e;
-	/*font-weight: bold;*/
-	font-size: 13px;
-
+    position: absolute;
+    width: 70px;
+    height: 24px;
+    top: 0px;
+    right: 8px;
+    line-height: 24px;
+    color: #fc4e3e;
+    /*font-weight: bold;*/
+    font-size: 13px;
 }
-.match_stat.nostart:before{content: "报名中"; color: #ffffff; text-align: center; display: block; width: 80%; height: 100%;  vertical-align: middle; background: #c8292e;text-align-last: justify; padding: 0 20%;}
-.match_stat.over:before{content: "已结束"; color: #ffffff; text-align: center; display: block; width: 80%; height: 100%; vertical-align: middle;background: #b8b8b8;text-align-last: justify; padding: 0 20%;}
-.match_stat.onmatch:before{content: "进行中"; color: #ffffff; text-align: center; display: block; width: 80%; height: 100%; vertical-align: middle; background: #2b9b2b;text-align-last: justify; padding: 0 20%;}
+
+.match_stat.nostart:before {
+    content: "报名中";
+    color: #ffffff;
+    text-align: center;
+    display: block;
+    width: 80%;
+    height: 100%;
+    vertical-align: middle;
+    background: #c8292e;
+    text-align-last: justify;
+    padding: 0 20%;
+}
+
+.match_stat.over:before {
+    content: "已结束";
+    color: #ffffff;
+    text-align: center;
+    display: block;
+    width: 80%;
+    height: 100%;
+    vertical-align: middle;
+    background: #b8b8b8;
+    text-align-last: justify;
+    padding: 0 20%;
+}
+
+.match_stat.onmatch:before {
+    content: "进行中";
+    color: #ffffff;
+    text-align: center;
+    display: block;
+    width: 80%;
+    height: 100%;
+    vertical-align: middle;
+    background: #2b9b2b;
+    text-align-last: justify;
+    padding: 0 20%;
+}
 
 #like_game1 {
-	width: 20px;
-	position: absolute;
-	top: 125px;
-	left: 50%;
-	text-align: center;
-	margin-left: -10px;
+    width: 20px;
+    position: absolute;
+    top: 125px;
+    left: 50%;
+    text-align: center;
+    margin-left: -10px;
 }
 
 #like_game1 span {
-	display: inline-block;
-	width: 20px;
-	height: 25px;
+    display: inline-block;
+    width: 20px;
+    height: 25px;
 }
 
 #like_game1 span.dota {
-	background: url(../images/iconall_05.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_05.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #like_game1 span.lol {
-	background: url(../images/iconall_03.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_03.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #like_game1 span.fengbao {
-	background: url(../images/iconall_09.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_09.png) no-repeat;
+    background-size: auto 100%;
 }
 
 #like_game1 span.csgo {
-	background: url(../images/iconall_07.png) no-repeat;
-	background-size: auto 100%;
+    background: url(../images/iconall_07.png) no-repeat;
+    background-size: auto 100%;
 }
 
-.prize{
-	display: flex;
-}
-.prize .prize_con{
-	flex: 1;
-	padding: 5px;
-	text-align: center;
+.prize {
+    display: flex;
 }
 
-.prize .prize_con img{
-	width: 100%;
-}
-.con_title{
-	font-size: 14px;
-	padding: 11px 15px;
-	border-bottom: 1px solid #c8c7cc;
+.prize .prize_con {
+    flex: 1;
+    padding: 5px;
+    text-align: center;
 }
 
-
-.ob_con{
-	height: 54px;
-	width: 100%;
-	background: #0f9d58;
-	display: flex;
-	text-align: center;
-	line-height: 54px;
-	color: #fff;
-	font-size: 15px;
-}
-.ob_con .ob_title{
-	width: 30%;
-	float: left;
-	border-right: 1px solid #fff;
-}
-.ob_con .ob_msg{
-	width: 40%;
-	height: 54px;
-	float: left;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	padding-top: 8px;
-	/*padding: 10px 0;*/
-}
-.ob_con .ob_msg:after{
-	content: "";
-	display: block;
-	width: 1px;
-	height: 25px;
-	position: absolute;
-	right: 0;
-	top: 15px;
-	background: #fff;
-}
-.ob_con .ob_msg p{
-	flex: 1;
-	line-height: 15px;
-	margin-bottom: 0;
-	text-align: left;
-	text-indent: 10px;
-	color: #fff;
-	
-}
-.ob_con .ob_btn{
-	width: 40%;
-	float: left;
-	position: relative;
-}
-.ob_con .ob_btn:after{
-	content: "";
-	position: absolute;
-	top: 50%;
-	width: 20px;
-	height: 20px;
-	margin-top: -10px;
-	margin-left: 8px;
-	background: url(../images/obArrow_14.jpg) no-repeat;
-	background-size: auto 100%; 
+.prize .prize_con img {
+    width: 100%;
 }
 
-.sponsor{
-	overflow: hidden;	
-	border-bottom: 1px solid #cdcdcd;
-		}
-.sponsor ul{
-	overflow: hidden;
-	padding: 5%;
-	margin: 0;
-	margin-right: -5%;
-	}
-.sponsor ul li{
-	width: 28%;
-	float: left;
-	text-align: center;
-	margin-right: 5%;
-	border: 1px solid #cdcdcd;
-	padding: 5px;
-	margin-bottom: 10px;
-	}
-.sponsor ul li img{
-	width: 100%;
+.con_title {
+    font-size: 14px;
+    padding: 11px 15px;
+    border-bottom: 1px solid #c8c7cc;
 }
 
-.goto{
-	height: 35px;
-	line-height: 35px;
-	font-size: 14px !important;
+.ob_con {
+    height: 54px;
+    width: 100%;
+    background: #0f9d58;
+    display: flex;
+    text-align: center;
+    line-height: 54px;
+    color: #fff;
+    font-size: 15px;
+}
+
+.ob_con .ob_title {
+    width: 30%;
+    float: left;
+    border-right: 1px solid #fff;
+}
+
+.ob_con .ob_msg {
+    width: 40%;
+    height: 54px;
+    float: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-top: 8px;
+    /*padding: 10px 0;*/
+}
+
+.ob_con .ob_msg:after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 25px;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    background: #fff;
+}
+
+.ob_con .ob_msg p {
+    flex: 1;
+    line-height: 15px;
+    margin-bottom: 0;
+    text-align: left;
+    text-indent: 10px;
+    color: #fff;
+}
+
+.ob_con .ob_btn {
+    width: 40%;
+    float: left;
+    position: relative;
+}
+
+.ob_con .ob_btn:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: 8px;
+    background: url(../images/obArrow_14.jpg) no-repeat;
+    background-size: auto 100%;
+}
+
+.sponsor {
+    overflow: hidden;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+.sponsor ul {
+    overflow: hidden;
+    padding: 5%;
+    margin: 0;
+    margin-right: -5%;
+}
+
+.sponsor ul li {
+    width: 28%;
+    float: left;
+    text-align: center;
+    margin-right: 5%;
+    border: 1px solid #cdcdcd;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.sponsor ul li img {
+    width: 100%;
+}
+
+.goto {
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px !important;
 }
