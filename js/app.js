@@ -39,27 +39,20 @@
         /*验证完成后发送ajax请求                              */
         /************************************************************************/
         //用户已经登录过如token没有过期直接进入首页，不在向服务器发送信息验证	
-        var time = parseInt(owner.getState().expire_timestamp); //获取token过期时间戳
-        var date = parseInt(Date.parse(new Date()))/1000;
-        var isExpired = (time > date) ? true : false; //查看是否过期 未过期为true 过期为false
-        if (time && isExpired) {
-        	console.log("直接进入主页了");
-            return callback();
-        } else {
-            mui.post('https://api.gaoqi.cespc.com:9378/user/login', loginInfo, function(data) {
-                if (data.ret == 1) {
-                    loginInfo.ticket = data.ticket;
-                    loginInfo.expire_timestamp = data.expire_timestamp;
-                    loginInfo.user = data.user;
-                    owner.setState(loginInfo);
-                    console.log(JSON.stringify(owner.getState()));
-                    console.log('与后台交互了');
-                    return callback();
-                } else {
-                    callback(data.err)
-                }
-            }, 'json');
-        }
+        mui.post('https://api.gaoqi.cespc.com:9378/user/login', loginInfo, function(data) {
+            if (data.ret == 1) {
+                loginInfo.ticket = data.ticket;
+                loginInfo.expire_timestamp = data.expire_timestamp;
+                loginInfo.user = data.user;
+                owner.setState(loginInfo);
+                console.log(JSON.stringify(owner.getState()));
+                console.log('与后台交互了');
+                return callback();
+            } else {
+                callback(data.err)
+            }
+        }, 'json');
+
     };
 
     // owner.createState = function(obj, callback) {

@@ -104,11 +104,15 @@
             };
 
             /************************************************************************/
-            /* 检查 "登录状态/锁屏状态" 开始                                           */
+            /* 检查  开始                                           */
             /************************************************************************/
-            if (state.token) {
+            var time = parseInt(app.getState().expire_timestamp); //获取token过期时间戳
+            var date = parseInt(Date.parse(new Date())) / 1000;
+            var isExpired = (time > date) ? true : false; //查看是否过期 未过期为true 过期为false
+            if (time && isExpired) {
                 //有自动登录和自动登录设置了 系统直接跳转到主页 后台说需要在后台验证一下 token是否过期 那就需要添加验证功能与后台交互
                 //登录成功后 后台直接返回一个过期时间的时间戳记录在本地 下面需验证用户的时间戳是否过期 如果过期了用户留在登录页面如果未过期 直接跳转到
+                console.log("曾经登录过直接进入首页");
                 toMain();
             } else {
                 //用户第一次登录就设置本地存储的用户状态为空
@@ -205,7 +209,7 @@
                 plus.webview.show(regObj, 'pop-in', 250);
             }, false);
             forgetButton.addEventListener('tap', function(event) {
-                
+
                 plus.webview.show(missObj, 'pop-in', 250);
             }, false);
             //
