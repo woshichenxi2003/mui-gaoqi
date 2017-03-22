@@ -674,6 +674,9 @@
 
                     })
                 });
+                plus.webview.currentWebview().addEventListener("loaded", function() {
+	                plus.navigator.closeSplashscreen();
+	            });
 			})	
 			/*function pulldownRefresh(){
 				alert(11111);
