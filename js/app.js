@@ -38,7 +38,7 @@
         /************************************************************************/
         /*验证完成后发送ajax请求                              */
         /************************************************************************/
-        mui.post('https://api.gaoqi.cespc.com:9378/user/login',loginInfo, function(data) {
+        mui.post('https://api.gaoqi.cespc.com:9378/user/login', loginInfo, function(data) {
             if (data.ret == 1) {
                 loginInfo.ticket = data.ticket;
                 loginInfo.expire_timestamp = data.expire_timestamp;
@@ -48,7 +48,7 @@
                 console.log('与后台交互了');
                 //这里需要添加如果用户的返回值是未完善跳转到完善信息页面
                 return callback();
-                
+
             } else {
                 callback(data.err);
             }
@@ -67,33 +67,64 @@
     /**
      * 新用户注册
      **/
-//  owner.reg = function(regInfo, callback) {
-//      callback = callback || $.noop;
-//      regInfo = regInfo || {};
-//      regInfo.account = regInfo.account || '';
-//      regInfo.password = regInfo.password || '';
-//      if (regInfo.account.length < 5) {
-//          return callback('用户名最短需要 5 个字符');
-//      }
-//      if (regInfo.password.length < 6) {
-//          return callback('密码最短需要 6 个字符');
-//      }
-//      if (!checkEmail(regInfo.email)) {
-//          return callback('邮箱地址不合法');
-//      }
-//      var users = JSON.parse(localStorage.getItem('$users') || '[]');
-//      users.push(regInfo);
-//      localStorage.setItem('$users', JSON.stringify(users));
-//      return callback();
-//      //注册后如果返回值是20204 用户已经登录过 清空本地用户数据（避免进入登录页面后用户自动登录） 跳转登录页面 登录页面再判断用户是不是完善了喜欢游戏等个人的信息
-//  };已废弃
+    //  owner.reg = function(regInfo, callback) {
+    //      callback = callback || $.noop;
+    //      regInfo = regInfo || {};
+    //      regInfo.account = regInfo.account || '';
+    //      regInfo.password = regInfo.password || '';
+    //      if (regInfo.account.length < 5) {
+    //          return callback('用户名最短需要 5 个字符');
+    //      }
+    //      if (regInfo.password.length < 6) {
+    //          return callback('密码最短需要 6 个字符');
+    //      }
+    //      if (!checkEmail(regInfo.email)) {
+    //          return callback('邮箱地址不合法');
+    //      }
+    //      var users = JSON.parse(localStorage.getItem('$users') || '[]');
+    //      users.push(regInfo);
+    //      localStorage.setItem('$users', JSON.stringify(users));
+    //      return callback();
+    //      //注册后如果返回值是20204 用户已经登录过 清空本地用户数据（避免进入登录页面后用户自动登录） 跳转登录页面 登录页面再判断用户是不是完善了喜欢游戏等个人的信息
+    //  };已废弃
 
     owner.reg = function(regInfo, callback) {
         callback = callback || $.noop;
         regInfo = regInfo || {};
-        regInfo.account = regInfo.account || '';
+        regInfo.mobile = regInfo.mobile || '';
         regInfo.password = regInfo.password || '';
-        
+        regInfo.code = regInfo.code || '';
+        /************************************************************************/
+        /*验证手机号不为空                              */
+        /************************************************************************/
+        var noNull = /^$/;
+        if (noNull.test(regInfo.mobile)) {
+            return callback('请输入手机号码');
+        }
+        /************************************************************************/
+        /*验证密码不为空                              */
+        /************************************************************************/
+        if (noNull.test(regInfo.password)) {
+            return callback('密码不能为空');
+        }
+        /************************************************************************/
+        /*验证验证码不为空                              */
+        /************************************************************************/
+        if (noNull.test(regInfo.code)) {
+            return callback('请输入验证码');
+        }
+        mui.post('https://api.gaoqi.cespc.com:9378/user/register', regInfo, function(data) {
+            if (data.ret == 1) {
+                console.log('注册提交成功');
+                console.log(JSON.stringify(data));
+                return callback();
+            } else {
+                if (data.ret == '20204' || data.ret == 20204) {
+                    return callback(data.ret);
+                }
+                callback(data.err);
+            }
+        }, 'json');
         //注册后如果返回值是20204 用户已经登录过 清空本地用户数据（避免进入登录页面后用户自动登录） 跳转登录页面 登录页面再判断用户是不是完善了喜欢游戏等个人的信息
     };
 
@@ -101,8 +132,8 @@
      * 获取当前登录信息
      **/
     owner.getState = function() {
-		//var stateText = localStorage.getItem('$state') || "{}";
-		var stateText = plus.storage.getItem('$state') || "{}";
+        //var stateText = localStorage.getItem('$state') || "{}";
+        var stateText = plus.storage.getItem('$state') || "{}";
         return JSON.parse(stateText);
     };
 
@@ -129,9 +160,9 @@
     /**
      * 逐条添加注册信息
      **/
-    owner.setReginfo = function(name,value) {
-	    	var reginfo = owner.getReginfo() || {};
-	    	reginfo[name] = value;
+    owner.setReginfo = function(name, value) {
+        var reginfo = owner.getReginfo() || {};
+        reginfo[name] = value;
         plus.storage.setItem('$reginfo', JSON.stringify(reginfo));
     };
 
@@ -207,16 +238,19 @@
         /************************************************************************/
         /*生成验证码                                                             */
         /************************************************************************/
-    owner.getverificationCode = function(phonenum, callback) {
-        var url = "http://api.gaoqi.cespc.com:9378/user/register/sendsms";
-        mui.post(url, {
-            "mobile": phonenum
-        }, function(data) {
-            if(data.ret ==1){
-            	return callback();
-            }else{
-            	return callback(data.err);
-            }
-        }, 'json');
-    }
+	    owner.getverificationCode = function(phonenum, callback) {
+	    	console.log('进入验证码发送程序');
+	    	console.log(phonenum);
+	        var url = "https://api.gaoqi.cespc.com:9378/user/register/sendsms";
+	        mui.post(url, {
+	            "mobile": phonenum
+	        }, function(data) {
+	            if (data.ret == 1) {
+	            	console.log('验证码发送成功');
+	                return callback();
+	            } else {
+	                return callback(data.err);
+	            }
+	        }, 'json');
+	    }
 }(mui, window.app = {}));

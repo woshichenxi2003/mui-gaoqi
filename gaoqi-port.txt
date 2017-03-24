@@ -1,6 +1,6 @@
 
-http://api.gaoqi.cespc.com:9378/
-rewrite ^/comm/local                /index.php?m=comm&c=local&a=init last;
+            http://api.gaoqi.cespc.com:9378/
+            rewrite ^/comm/local                /index.php?m=comm&c=local&a=init last;
             rewrite ^/comm/game$                /index.php?m=comm&c=game&a=init last;
             rewrite ^/comm/game/(.*)$           /index.php?m=comm&c=game&a=init&game=$1 last;
             rewrite ^/comm/live_platform$       /index.php?m=comm&c=live_platform&a=init last;
