@@ -425,7 +425,7 @@ ul.game_box .mui-checkbox input[type=checkbox]:before,
 
 /*个人信息页面样式*/
 body.gren {
-	background: url(../images/selectgamebg_02.webp) no-repeat center top;
+	background: url(../images/selectgamebg_02.jpg) no-repeat center top;
 	background-size: 100% auto;
 }
 #showEdit {

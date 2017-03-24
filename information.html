@@ -70,6 +70,7 @@
 		<script src="js/cropper.js"></script>
 		<script>
 			(function(mm, doc) {
+
 				mm.init();
 				mm.plusReady(function() {
 					var settings = app.getSettings();
@@ -208,14 +209,24 @@
 					    $("#showEdit").fadeOut();
 					    var $image = $('#report > img');
 					    var dataURL = $image.cropper('getCroppedCanvas');			    
-					    var basecode = dataURL.toDataURL();
-					    $("#face_box").html(dataURL); 
-					    /*plus.storage.face = dataURL;*/
-					   plus.storage.setItem('face', dataURL+"");
+					    var basecode = dataURL.toDataURL('image/png');//转成base64
+					    var blob = dataURLtoBlob(basecode);//转blod二进制
+					    $("#face_box").html(dataURL); //显示预览 展示的canvas
 					    
-					    /*localStorage.face = dataURL;*/
-					    /*是储存64还是直接存储canvas还需要再考虑*/
 					   
+					    
+					    //localStorage.face = dataURL; //存储用localStorage数据量太大时候用puls.storage
+					    /*是储存64还是直接存储canvas还需要再考虑 plus.storage.setItem('face', dataURL+"");*/
+					   //http://blog.csdn.net/cuixiping/article/details/45932793 参考网站
+					   //https://github.com/blueimp/JavaScript-Canvas-to-Blob 一个转blod的插件 如果app不支持在用
+					}
+					function dataURLtoBlob(dataurl) {
+					    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+					        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+					    while(n--){
+					        u8arr[n] = bstr.charCodeAt(n);
+					    }
+					    return new Blob([u8arr], {type:mime});
 					}
 					
 					

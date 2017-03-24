@@ -22,7 +22,7 @@
         loginInfo.version = plus.os.version || ''; //系统版本
         loginInfo.no = plus.device.uuid || ''; //设备id
         /************************************************************************/
-        /*验证否为手机号为空                             */
+        /*验证手机号不为空                             */
         /************************************************************************/
         var phonereg = /^$/;
         if (phonereg.test(loginInfo.mobile)) {
@@ -44,11 +44,33 @@
                 loginInfo.expire_timestamp = data.expire_timestamp;
                 loginInfo.user = data.user;
                 owner.setState(loginInfo);
-                console.log(JSON.stringify(owner.getState()));
+                //console.log(JSON.stringify(owner.getState()));
                 console.log('与后台交互了');
-                return callback();
+                //这里需要添加如果用户的返回值是未完善跳转到完善信息页面
+                if(!data.user.is_perfect || data.user.is_perfect !=1){
+                	//如果用户的信息是完善的直接进入首页
+                	mui.openWindow({
+						url: 'information.html',
+						id: 'information',
+						preload: true,
+						show: {
+							aniShow: 'pop-in'
+						},
+						styles: {
+							popGesture: 'hide'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+                	
+                }else{
+                	console.log('用户已经完善信息 进入首页');
+                	return callback();
+                }
+                
             } else {
-                callback(data.err)
+                callback(data.err);
             }
         }, 'json');
 
@@ -83,10 +105,11 @@
         users.push(regInfo);
         localStorage.setItem('$users', JSON.stringify(users));
         return callback();
+        //注册后如果返回值是20204 用户已经登录过 清空本地用户数据（避免进入登录页面后用户自动登录） 跳转返回登录页面 登录页面再判断用户是不是完善了喜欢游戏等个人的信息
     };
 
     /**
-     * 获取当前状态获得用户名
+     * 获取当前登录信息
      **/
     owner.getState = function() {
         var stateText = localStorage.getItem('$state') || "{}";
@@ -95,7 +118,7 @@
 
 
     /**
-     * 设置当前状态
+     * 设置当前的登录信息
      **/
     owner.setState = function(state) {
         var state = state || {};
@@ -104,6 +127,27 @@
         //settings.gestures = '';
         //owner.setSettings(settings);
     };
+
+    /**
+     * 获得注册信息
+     **/
+    owner.getReginfo = function() {
+        var stateText = localStorage.getItem('$reginfo') || "{}";
+        return JSON.parse(stateText);//传递的是formdata对象 所以不用json
+    };
+
+
+    /**
+     * 设置当前状态
+     **/
+    owner.setReginfo = function(name,value) {
+    	var reginfo = owner.getReginfo() || {};
+    	reginfo[name] = value;
+        localStorage.setItem('$reginfo', JSON.stringify(reginfo));
+    };
+
+
+
 
     var checkEmail = function(email) {
         email = email || '';
@@ -174,12 +218,16 @@
         /************************************************************************/
         /*生成验证码                                                             */
         /************************************************************************/
-    owner.getCode = function(phonenum, callback) {
+    owner.getverificationCode = function(phonenum, callback) {
         var url = "http://api.gaoqi.cespc.com:9378/user/register/sendsms";
         mui.post(url, {
             "mobile": phonenum
         }, function(data) {
-            console.log(JSON.stringify(data));
+            if(data.ret ==1){
+            	return callback();
+            }else{
+            	return callback(data.err);
+            }
         }, 'json');
     }
 }(mui, window.app = {}));
