@@ -105,27 +105,26 @@
         users.push(regInfo);
         localStorage.setItem('$users', JSON.stringify(users));
         return callback();
-        //注册后如果返回值是20204 用户已经登录过 清空本地用户数据（避免进入登录页面后用户自动登录） 跳转返回登录页面 登录页面再判断用户是不是完善了喜欢游戏等个人的信息
+        //注册后如果返回值是20204 用户已经登录过 清空本地用户数据（避免进入登录页面后用户自动登录） 跳转登录页面 登录页面再判断用户是不是完善了喜欢游戏等个人的信息
     };
 
     /**
      * 获取当前登录信息
      **/
     owner.getState = function() {
-        var stateText = localStorage.getItem('$state') || "{}";
+//      var stateText = localStorage.getItem('$state') || "{}";
+		var stateText = plus.storage.getItem('$state') || "{}";
         return JSON.parse(stateText);
     };
 
 
     /**
-     * 设置当前的登录信息
+     * 存储当前的登录信息
      **/
     owner.setState = function(state) {
         var state = state || {};
-        localStorage.setItem('$state', JSON.stringify(state));
-        //var settings = owner.getSettings();
-        //settings.gestures = '';
-        //owner.setSettings(settings);
+        //localStorage.setItem('$state', JSON.stringify(state));
+        plus.storage.setItem('$state', JSON.stringify(state));
     };
 
     /**
