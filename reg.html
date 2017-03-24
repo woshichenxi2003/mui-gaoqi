@@ -106,8 +106,6 @@
                     }
                     /*如果注册成功 设置本地注册信息后跳转到信息填写页面*/
                     plus.nativeUI.toast('注册成功');
-                    var userdata = app.getState();
-                    app.setReginfo('ticket', userdata.ticket);
                     mui.openWindow({
                         url: 'information.html',
                         id: 'information',

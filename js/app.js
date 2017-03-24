@@ -44,6 +44,7 @@
                 loginInfo.expire_timestamp = data.expire_timestamp;
                 loginInfo.user = data.user;
                 owner.setState(loginInfo);
+                owner.setReginfo('ticket',data.ticket);//本地注册信息的ticket也进行修改 防止未完善信息的用户进入 需完善信息时使用
                 //console.log(JSON.stringify(owner.getState()));
                 console.log('与后台交互了');
                 //这里需要添加如果用户的返回值是未完善跳转到完善信息页面
@@ -67,27 +68,6 @@
     /**
      * 新用户注册
      **/
-    //  owner.reg = function(regInfo, callback) {
-    //      callback = callback || $.noop;
-    //      regInfo = regInfo || {};
-    //      regInfo.account = regInfo.account || '';
-    //      regInfo.password = regInfo.password || '';
-    //      if (regInfo.account.length < 5) {
-    //          return callback('用户名最短需要 5 个字符');
-    //      }
-    //      if (regInfo.password.length < 6) {
-    //          return callback('密码最短需要 6 个字符');
-    //      }
-    //      if (!checkEmail(regInfo.email)) {
-    //          return callback('邮箱地址不合法');
-    //      }
-    //      var users = JSON.parse(localStorage.getItem('$users') || '[]');
-    //      users.push(regInfo);
-    //      localStorage.setItem('$users', JSON.stringify(users));
-    //      return callback();
-    //      //注册后如果返回值是20204 用户已经登录过 清空本地用户数据（避免进入登录页面后用户自动登录） 跳转登录页面 登录页面再判断用户是不是完善了喜欢游戏等个人的信息
-    //  };已废弃
-
     owner.reg = function(regInfo, callback) {
         callback = callback || $.noop;
         regInfo = regInfo || {};
@@ -117,8 +97,11 @@
             if (data.ret == 1) {
                 console.log('注册提交成功');
                 console.log(JSON.stringify(data));
+                owner.setReginfo('ticket',data.ticket);
+                console.log('ticket已经添加');
                 return callback();
             } else {
+            	/*如果用户已经注册 用户返回登录页面*/
                 if (data.ret == '20204' || data.ret == 20204) {
                     return callback(data.ret);
                 }
