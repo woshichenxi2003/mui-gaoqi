@@ -184,7 +184,29 @@
                         plus.nativeUI.toast(err);
                         return;
                     }
-                    toMain();
+                    var userdata = app.getState();
+                    if(!userdata.user.is_perfect || userdata.user.is_perfect !=1){
+                    	console.log("用户未完善信息，跳转到填写信息页面")	
+	                	app.setReginfo('ticket',userdata.ticket);
+	                	//跳转到填写信息的页面
+	                	mui.openWindow({
+							url: 'information.html',
+							id: 'information',
+							preload: true,
+							show: {
+								aniShow: 'pop-in'
+							},
+							styles: {
+								popGesture: 'hide'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+	                }else{
+	                	console.log('用户已经完善信息 进入首页');
+	                	toMain();
+	                }
                 });
             });
             $.enterfocus('#login-form input', function() {

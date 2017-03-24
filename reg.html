@@ -71,40 +71,38 @@
 							password: passwordBox.value,
 							verificationCode: codeBox.value
 						};
-						/*var passwordConfirm = passwordConfirmBox.value;
+						/**
+						 * 验证两次密码是否一致
+						 */
+						var passwordConfirm = passwordConfirmBox.value;
 						if (passwordConfirm != regInfo.password) {
 							plus.nativeUI.toast('密码两次输入不一致');
 							return;
-						}*/
-						/*后期移入app.reg中*/
-						
-						
-						
-						mui.openWindow({
-							url: 'information.html',
-							id: 'information',
-							preload: true,
-							show: {
-								aniShow: 'pop-in'
-							},
-							styles: {
-								popGesture: 'hide'
-							},
-							waiting: {
-								autoShow: false
-							}
-						});
-						
-						/*后期移入app.reg中*/
-						/*app.reg(regInfo, function(err) {
+						}
+						/* 验证表单提交数据*/	
+						app.reg(regInfo, function(err) {
 							if (err) {
 								plus.nativeUI.toast(err);
 								return;
 							}
-							plus.nativeUI.toast('注册成功');
-							
-							
-						});*/
+							plus.nativeUI.toast('注册成功');	
+							mui.openWindow({
+								url: 'information.html',
+								id: 'information',
+								preload: true,
+								show: {
+									aniShow: 'pop-in'
+								},
+								styles: {
+									popGesture: 'hide'
+								},
+								waiting: {
+									autoShow: false
+								}
+							});						
+						});
+
+						
 					});
 					mui('.yz').on('tap', '.mui-btn', function(e) {
 						var startTime = 100;

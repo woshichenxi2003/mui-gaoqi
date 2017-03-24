@@ -212,7 +212,7 @@
 					    var basecode = dataURL.toDataURL('image/png');//转成base64
 					    var blob = dataURLtoBlob(basecode);//转blod二进制
 					    $("#face_box").html(dataURL); //显示预览 展示的canvas
-					    
+					    app.setReginfo();
 					   
 					    
 					    //localStorage.face = dataURL; //存储用localStorage数据量太大时候用puls.storage

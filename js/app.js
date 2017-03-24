@@ -38,7 +38,7 @@
         /************************************************************************/
         /*验证完成后发送ajax请求                              */
         /************************************************************************/
-        mui.post('https://api.gaoqi.cespc.com:9378/user/login', loginInfo, function(data) {
+        mui.post('https://api.gaoqi.cespc.com:9378/user/login',loginInfo, function(data) {
             if (data.ret == 1) {
                 loginInfo.ticket = data.ticket;
                 loginInfo.expire_timestamp = data.expire_timestamp;
@@ -47,27 +47,7 @@
                 //console.log(JSON.stringify(owner.getState()));
                 console.log('与后台交互了');
                 //这里需要添加如果用户的返回值是未完善跳转到完善信息页面
-                if(!data.user.is_perfect || data.user.is_perfect !=1){
-                	//如果用户的信息是完善的直接进入首页
-                	mui.openWindow({
-						url: 'information.html',
-						id: 'information',
-						preload: true,
-						show: {
-							aniShow: 'pop-in'
-						},
-						styles: {
-							popGesture: 'hide'
-						},
-						waiting: {
-							autoShow: false
-						}
-					});
-                	
-                }else{
-                	console.log('用户已经完善信息 进入首页');
-                	return callback();
-                }
+                return callback();
                 
             } else {
                 callback(data.err);
@@ -82,29 +62,38 @@
     //     state.token = "token123456789";
     //     owner.setState(state);
     //     return callback();
-    // };
+    // }; 已废弃
 
     /**
      * 新用户注册
      **/
+//  owner.reg = function(regInfo, callback) {
+//      callback = callback || $.noop;
+//      regInfo = regInfo || {};
+//      regInfo.account = regInfo.account || '';
+//      regInfo.password = regInfo.password || '';
+//      if (regInfo.account.length < 5) {
+//          return callback('用户名最短需要 5 个字符');
+//      }
+//      if (regInfo.password.length < 6) {
+//          return callback('密码最短需要 6 个字符');
+//      }
+//      if (!checkEmail(regInfo.email)) {
+//          return callback('邮箱地址不合法');
+//      }
+//      var users = JSON.parse(localStorage.getItem('$users') || '[]');
+//      users.push(regInfo);
+//      localStorage.setItem('$users', JSON.stringify(users));
+//      return callback();
+//      //注册后如果返回值是20204 用户已经登录过 清空本地用户数据（避免进入登录页面后用户自动登录） 跳转登录页面 登录页面再判断用户是不是完善了喜欢游戏等个人的信息
+//  };已废弃
+
     owner.reg = function(regInfo, callback) {
         callback = callback || $.noop;
         regInfo = regInfo || {};
         regInfo.account = regInfo.account || '';
         regInfo.password = regInfo.password || '';
-        if (regInfo.account.length < 5) {
-            return callback('用户名最短需要 5 个字符');
-        }
-        if (regInfo.password.length < 6) {
-            return callback('密码最短需要 6 个字符');
-        }
-        if (!checkEmail(regInfo.email)) {
-            return callback('邮箱地址不合法');
-        }
-        var users = JSON.parse(localStorage.getItem('$users') || '[]');
-        users.push(regInfo);
-        localStorage.setItem('$users', JSON.stringify(users));
-        return callback();
+        
         //注册后如果返回值是20204 用户已经登录过 清空本地用户数据（避免进入登录页面后用户自动登录） 跳转登录页面 登录页面再判断用户是不是完善了喜欢游戏等个人的信息
     };
 
@@ -112,7 +101,7 @@
      * 获取当前登录信息
      **/
     owner.getState = function() {
-//      var stateText = localStorage.getItem('$state') || "{}";
+		//var stateText = localStorage.getItem('$state') || "{}";
 		var stateText = plus.storage.getItem('$state') || "{}";
         return JSON.parse(stateText);
     };
@@ -131,18 +120,19 @@
      * 获得注册信息
      **/
     owner.getReginfo = function() {
-        var stateText = localStorage.getItem('$reginfo') || "{}";
-        return JSON.parse(stateText);//传递的是formdata对象 所以不用json
+        var stateText = plus.storage.getItem('$reginfo') || "{}";
+        return JSON.parse(stateText);
+        //除了用户头像单独存储 其余都是存储在注册信息中 头像最后加入到注册信息中 发送给服务器。
     };
 
 
     /**
-     * 设置当前状态
+     * 逐条添加注册信息
      **/
     owner.setReginfo = function(name,value) {
-    	var reginfo = owner.getReginfo() || {};
-    	reginfo[name] = value;
-        localStorage.setItem('$reginfo', JSON.stringify(reginfo));
+	    	var reginfo = owner.getReginfo() || {};
+	    	reginfo[name] = value;
+        plus.storage.setItem('$reginfo', JSON.stringify(reginfo));
     };
 
 
