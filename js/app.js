@@ -38,32 +38,39 @@
         /************************************************************************/
         /*验证完成后发送ajax请求                              */
         /************************************************************************/
-        mui.post('https://api.gaoqi.cespc.com:9378/user/login', loginInfo, function(data) {
-            if (data.ret == 1) {
-                loginInfo.ticket = data.ticket;
-                loginInfo.expire_timestamp = data.expire_timestamp;
-                loginInfo.user = data.user;
-                owner.setState(loginInfo);
-                owner.setReginfo('ticket',data.ticket);//本地注册信息的ticket也进行修改 防止未完善信息的用户进入 需完善信息时使用
-                //console.log(JSON.stringify(owner.getState()));
-                console.log('与后台交互了');
-                //这里需要添加如果用户的返回值是未完善跳转到完善信息页面
-                return callback();
+        mui.ajax('https://api.gaoqi.cespc.com:9378/user/login', {
+            data: loginInfo,
+            dataType: 'json', //服务器返回json格式数据
+            type: 'post', //HTTP请求类型
+            timeout: 10000, //超时时间设置为10秒；
+            success: function(data) {
+                if (data.ret == 1) {
+                    loginInfo.ticket = data.ticket;
+                    loginInfo.expire_timestamp = data.expire_timestamp;
+                    loginInfo.user = data.user;
+                    owner.setState(loginInfo);
+                    owner.setReginfo('ticket', data.ticket); //本地注册信息的ticket也进行修改 防止未完善信息的用户进入 需完善信息时使用
+                    //console.log(JSON.stringify(owner.getState()));
+                    console.log('与后台交互了');
+                    //这里需要添加如果用户的返回值是未完善跳转到完善信息页面
+                    return callback();
 
-            } else {
-                callback(data.err);
+                } else {
+                    callback(data.err);
+                }
+            },
+            error: function(xhr, type, errorThrown) {
+                //异常处理；
+                if (type == 'timeout') {
+                    plus.nativeUI.toast('请求超时，请你检查您的网络');
+                } else if (type == 'abort') {
+                    plus.nativeUI.toast('请检查您的网络是否链接');
+                }
+                console.log(type);
             }
-        }, 'json');
+        })
 
     };
-
-    // owner.createState = function(obj, callback) {
-    //     var state = owner.getState();
-    //     state.account = name;
-    //     state.token = "token123456789";
-    //     owner.setState(state);
-    //     return callback();
-    // }; 已废弃
 
     /**
      * 新用户注册
@@ -93,22 +100,39 @@
         if (noNull.test(regInfo.code)) {
             return callback('请输入验证码');
         }
-        mui.post('https://api.gaoqi.cespc.com:9378/user/register', regInfo, function(data) {
-            if (data.ret == 1) {
-                console.log('注册提交成功');
-                console.log(JSON.stringify(data));
-                owner.setReginfo('ticket',data.ticket);
-                console.log('ticket已经添加');
-                return callback();
-            } else {
-            	/*如果用户已经注册 用户返回登录页面*/
-                if (data.ret == '20204' || data.ret == 20204) {
-                    return callback(data.ret);
+
+
+        mui.ajax('https://api.gaoqi.cespc.com:9378/user/register', {
+                data: regInfo,
+                dataType: 'json', //服务器返回json格式数据
+                type: 'post', //HTTP请求类型
+                timeout: 10000, //超时时间设置为10秒；
+                success: function(data) {
+                    if (data.ret == 1) {
+                        console.log('注册提交成功');
+                        console.log(JSON.stringify(data));
+                        owner.setReginfo('ticket', data.ticket);
+                        console.log('ticket已经添加');
+                        return callback();
+                    } else {
+                        /*如果用户已经注册 用户返回登录页面*/
+                        if (data.ret == '20204' || data.ret == 20204) {
+                            return callback(data.ret);
+                        }
+                        callback(data.err);
+                    }
+                },
+                error: function(xhr, type, errorThrown) {
+                    //异常处理；
+                    if (type == 'timeout') {
+                        plus.nativeUI.toast('请求超时，请你检查您的网络');
+                    } else if (type == 'abort') {
+                        plus.nativeUI.toast('请检查您的网络是否链接');
+                    }
+                    console.log(type);
                 }
-                callback(data.err);
-            }
-        }, 'json');
-        //注册后如果返回值是20204 用户已经登录过 清空本地用户数据（避免进入登录页面后用户自动登录） 跳转登录页面 登录页面再判断用户是不是完善了喜欢游戏等个人的信息
+            })
+            //注册后如果返回值是20204 用户已经登录过 清空本地用户数据（避免进入登录页面后用户自动登录） 跳转登录页面 登录页面再判断用户是不是完善了喜欢游戏等个人的信息
     };
 
     /**
@@ -221,19 +245,44 @@
         /************************************************************************/
         /*生成验证码                                                             */
         /************************************************************************/
-	    owner.getverificationCode = function(phonenum, callback) {
-	    	console.log('进入验证码发送程序');
-	    	console.log(phonenum);
-	        var url = "https://api.gaoqi.cespc.com:9378/user/register/sendsms";
-	        mui.post(url, {
-	            "mobile": phonenum
-	        }, function(data) {
-	            if (data.ret == 1) {
-	            	console.log('验证码发送成功');
-	                return callback();
-	            } else {
-	                return callback(data.err);
-	            }
-	        }, 'json');
-	    }
+    owner.getverificationCode = function(phonenum, callback) {
+        console.log('进入验证码发送程序');
+        console.log(phonenum);
+        // var url = "https://api.gaoqi.cespc.com:9378/user/register/sendsms";
+        // mui.post(url, {
+        //     "mobile": phonenum
+        // }, function(data) {
+        //     if (data.ret == 1) {
+        //         console.log('验证码发送成功');
+        //         return callback();
+        //     } else {
+        //         return callback(data.err);
+        //     }
+        // }, 'json');
+        mui.ajax('https://api.gaoqi.cespc.com:9378/user/register/sendsms', {
+            data: {
+                'mobile': phonenum
+            },
+            dataType: 'json', //服务器返回json格式数据
+            type: 'post', //HTTP请求类型
+            timeout: 10000, //超时时间设置为10秒；
+            success: function(data) {
+                if (data.ret == 1) {
+                    console.log('验证码已发送到后台');
+                    return callback();
+                } else {
+                    return callback(data.err);
+                }
+            },
+            error: function(xhr, type, errorThrown) {
+                //异常处理；
+                if (type == 'timeout') {
+                    plus.nativeUI.toast('请求超时，请你检查您的网络');
+                } else if (type == 'abort') {
+                    plus.nativeUI.toast('请检查您的网络是否链接');
+                }
+                console.log(type);
+            }
+        })
+    }
 }(mui, window.app = {}));

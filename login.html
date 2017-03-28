@@ -77,22 +77,29 @@
             /*判断主页是否已经加载完毕了 并定义跳转函数tomain                            */
             /************************************************************************/
             var mainPage = $.preload({
-                "id": 'index',
+                "id": 'index.html',
                 "url": 'index.html'
             });
             var main_loaded_flag = false;
+            //如果其他页面传来值，证明页面已经加载过了 不需要再判断页面是否已经加载完毕了；
+            var self = plus.webview.currentWebview();
+            if(self.main_loaded){
+                main_loaded_flag = true;
+            }
             mainPage.addEventListener("loaded", function() {
                 main_loaded_flag = true;
             });
-
             var toMain = function() {
                 //使用定时器的原因：
                 //可能执行太快，main页面loaded事件尚未触发就执行自定义事件，此时必然会失败
                 var id = setInterval(function() {
                     if (main_loaded_flag) {
+                        console.log('首页预加载完成，进入首页');
                         clearInterval(id);
                         $.fire(mainPage, 'show', null);
                         mainPage.show("pop-in");
+                    } else {
+                        console.log("首页预加载未完成，所以不能跳转到首页");
                     }
                 }, 20);
             };
@@ -107,8 +114,8 @@
                 //有自动登录和自动登录设置了 系统直接跳转到主页 后台说需要在后台验证一下 token是否过期 那就需要添加验证功能与后台交互
                 //登录成功后 后台直接返回一个过期时间的时间戳记录在本地 下面需验证用户的时间戳是否过期 如果过期了用户留在登录页面如果未过期 直接跳转到首页
                 //加入验证用户是否完善了信息再进入主页
-                console.log("用户未完善注册信息 直接跳转到填写注册信息页面")
-                isPerfect();
+                console.log('已经有用户信息，下面验证进入验证是否完善信息');
+                isPerfectAndtoMain();
             } else {
                 //用户第一次登录就设置本地存储的用户状态为空
                 app.setState(null);
@@ -184,7 +191,7 @@
                         plus.nativeUI.toast(err);
                         return;
                     }
-                    isPerfect();
+                    isPerfectAndtoMain();
                 });
             });
             $.enterfocus('#login-form input', function() {
@@ -226,7 +233,7 @@
                 return false;
             };
 
-            function isPerfect() {
+            function isPerfectAndtoMain() {
                 var userdata = app.getState();
                 if (!userdata.user.is_perfect || userdata.user.is_perfect != 1) {
                     console.log("用户未完善信息，跳转到填写信息页面");
@@ -248,7 +255,7 @@
                         }
                     });
                 } else {
-                    console.log('用户已经完善信息 进入首页');
+                    console.log('用户已经完善信息 进入首页11');
                     toMain();
                 }
             }

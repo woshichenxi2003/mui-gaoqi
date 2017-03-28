@@ -389,8 +389,8 @@
         margin: 0 auto;
         /*background: url(../images/baitou_03.png);*/
         /*border-radius: 35px;
-				-moz-border-radius: 35px;
-				-webkit-border-radius: 35px;*/
+                -moz-border-radius: 35px;
+                -webkit-border-radius: 35px;*/
         font-size: 14px;
         /*margin-bottom: 10px;*/
         border-bottom: 1px solid #c8c7cc;
@@ -685,11 +685,11 @@
                     <div class="con">
                         <div class="mui-segmented-control1">
                             <a class="mui-control-item1 mui-active" index=0>
-									修改个人信息
-								</a>
+                                    修改个人信息
+                                </a>
                             <a class="mui-control-item1" index=1>
-									填写OB信息
-								</a>
+                                    填写OB信息
+                                </a>
                         </div>
                         <div class="display_box">
                             <div class="mui-control-content1 active">
@@ -1124,11 +1124,11 @@
         });
         /*退出登录*/
         mui('.mui-table-view').on('tap', '#logOut', function(e) {
-        	/*点击退出账号 清空用户登录信息 跳转到登录页面*/
+            /*点击退出账号 清空用户登录信息 跳转到登录页面*/
             app.setState(null);
             mui.openWindow({
                 url: '../login.html',
-                id: 'login.html',
+                id: '../login.html',
                 preload: true,
                 show: {
                     aniShow: 'pop-in'
@@ -1138,6 +1138,9 @@
                 },
                 waiting: {
                     autoShow: false
+                },
+                extras: {
+                    main_loaded: 'true'
                 }
             });
         });
@@ -1161,16 +1164,16 @@
         //监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
         //第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
         view.addEventListener('pageBeforeShow', function(e) {
-            //				console.log(e.detail.page.id + ' beforeShow');
+            //              console.log(e.detail.page.id + ' beforeShow');
         });
         view.addEventListener('pageShow', function(e) {
-            //				console.log(e.detail.page.id + ' show');
+            //              console.log(e.detail.page.id + ' show');
         });
         view.addEventListener('pageBeforeBack', function(e) {
-            //				console.log(e.detail.page.id + ' beforeBack');
+            //              console.log(e.detail.page.id + ' beforeBack');
         });
         view.addEventListener('pageBack', function(e) {
-            //				console.log(e.detail.page.id + ' back');
+            //              console.log(e.detail.page.id + ' back');
         });
     })(mui);
 
