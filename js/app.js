@@ -50,11 +50,11 @@
                     obj.expire_timestamp = data.expire_timestamp;
                     obj.user = data.user;
                     console.log(JSON.stringify(obj));
-                    owner.setState(obj);
-                    owner.setReginfo('ticket', obj.ticket); //本地注册信息的ticket也进行修改 防止未完善信息的用户进入 需完善信息时使用
-                    owner.setReginfo('expire_timestamp', obj.expire_timestamp);
-                    owner.setReginfo('user', obj.user);
-                    //console.log(JSON.stringify(owner.getState()));
+                    owner.setState(obj);//存入注册信息到本地
+                    owner.setAllReginfo(obj); //将信息存贮到本地 防止未完善信息的用户进入 需完善信息时使用
+                    // owner.setReginfo('ticket', obj.ticket); 
+                    // owner.setReginfo('expire_timestamp', obj.expire_timestamp);
+                    // owner.setReginfo('user', obj.user);
                     console.log('与后台交互了');
                     //这里需要添加如果用户的返回值是未完善跳转到完善信息页面
                     return callback();
@@ -133,7 +133,7 @@
                     // obj.user = data.user;
                     // owner.setState(obj);
                     console.log(JSON.stringify(data));
-                    owner.setReginfo('ticket', data.ticket);
+                    owner.setReginfo('ticket', data.ticket);//将用户信息存贮到本地 下一步注册只用
                     owner.setReginfo('expire_timestamp', data.expire_timestamp);
                     owner.setReginfo('user', data.user);
                     console.log(JSON.stringify(owner.getReginfo()));
@@ -191,8 +191,7 @@
             return callback('请选择所在地域');
         }
         //存储用个人信息在本地，不发送ajax请求，待选择完游戏后一起发送
-        // plus.storage.setItem('$reginfo1', JSON.stringify(loginInfo));
-        owner.setAllReginfolin(loginInfo);
+        owner.setAllReginfolin(loginInfo);//临时存贮信息，下一个选择游戏表单合并数据后后台提交信息之用
         return callback();
     };
     /************************************************************************/
