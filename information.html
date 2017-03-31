@@ -207,7 +207,7 @@
                 var basecode = dataURL.toDataURL('image/png'); //转成base64
                 var blob = dataURLtoBlob(basecode); //转blod二进制
                 var fd = new FormData();//新建formdata
-                var ticketone = app.getgetReginfo().ticket+'';
+                var ticketone = app.getReginfo().ticket+'';
                 fd.append("ticket",ticketone);//传入ticket
 				fd.append("file", blob);//将信息添加到formdata
                 /*发送请求*/
