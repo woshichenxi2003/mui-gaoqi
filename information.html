@@ -206,8 +206,42 @@
                 var dataURL = $image.cropper('getCroppedCanvas');
                 var basecode = dataURL.toDataURL('image/png'); //转成base64
                 var blob = dataURLtoBlob(basecode); //转blod二进制
-                $("#face_box").html(dataURL); //显示预览 展示的canvas
-                app.setReginfo('avatar_big',blob);
+                var fd = new FormData();//新建formdata
+                var ticketone = app.getgetReginfo().ticket+'';
+                fd.append("ticket",ticketone);//传入ticket
+				fd.append("file", blob);//将信息添加到formdata
+                /*发送请求*/
+                mui.ajax('https://api.gaoqi.cespc.com:9378/user/info/avatar', {
+                data: fd,
+                dataType: 'json', //服务器返回json格式数据
+                type: 'post', //HTTP请求类型
+                timeout: 10000, //超时时间设置为10秒；
+                success: function(data) {
+                    if (data.ret == 1) {                  
+                        console.log(JSON.stringify(data));
+                        return callback();
+                    } else { 
+                    	plus.nativeUI.toast(data.err);
+                    }
+                },
+                error: function(xhr, type, errorThrown) {
+                    //异常处理；
+                    if (type == 'timeout') {
+                        plus.nativeUI.toast('请求超时，请你检查您的网络');
+                    } else if (type == 'abort') {
+                        plus.nativeUI.toast('请检查您的网络是否链接');
+                    } else if (type == 'timeout') {
+                        plus.nativeUI.toast('服务器错误');
+                    }
+                    console.log(type);
+                }
+            })
+
+
+
+
+                // $("#face_box").html(dataURL); //显示预览 展示的canvas
+                // app.setReginfo('avatar_big',blob);
                 //localStorage.face = dataURL; //存储用localStorage数据量太大时候用puls.storage
                 /*是储存64还是直接存储canvas还需要再考虑 plus.storage.setItem('face', dataURL+"");*/
                 //http://blog.csdn.net/cuixiping/article/details/45932793 参考网站
