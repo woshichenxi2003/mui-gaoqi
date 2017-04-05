@@ -337,7 +337,7 @@
     owner.setSettings = function(settings) {
         settings = settings || {};
         localStorage.setItem('$settings', JSON.stringify(settings));
-    }
+    };
 
     /**
      * 获得应用本地配置
@@ -380,7 +380,7 @@
                         break;
                 }
             }
-        }
+        };
         /************************************************************************/
         /*生成验证码                                                             */
         /************************************************************************/
@@ -414,6 +414,26 @@
                 console.log(type);
             }
         })
+    };
+    owner.gotoLogView = function(){
+            app.setState(null);//清空用户信息，防止用户自动登录
+            mui.openWindow({
+                url: plus.webview.getWebviewById( plus.runtime.appid ).getURL(),//获取默认首页的地址
+                id: plus.webview.getWebviewById( plus.runtime.appid ),//获取首页的id
+                preload: true,
+                show: {
+                    aniShow: 'pop-in'
+                },
+                styles: {
+                    popGesture: 'hide'
+                },
+                waiting: {
+                    autoShow: false
+                },
+                extras: { //附带参数让登录页面不再验证main是否加载完成
+                    main_loaded: 'true'
+                }
+            });
     }
 }(mui, window.app = {}));
 
